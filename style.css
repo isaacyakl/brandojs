@@ -1,0 +1,24 @@
+html {
+  background: #303030;
+  min-height: 500%;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.stuff {
+  background-color: rgb(134, 134, 134);
+  margin: 10px;
+  width: 8em;
+  height: 4em;
+}
+
+#word {
+  font-size: xx-large;
+  margin: 1em;
+}
+
+p {
+  margin: 1em;
+}

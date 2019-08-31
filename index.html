@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/frame-with-picture_1f5bc.png"
+      type="image/x-icon"
+    />
+    <title>jBir Demo</title>
+  </head>
+  <body>
+    <div class="stuff">div.stuff</div>
+    <div class="stuff">div.stuff</div>
+    <div class="stuff">div.stuff</div>
+    <div class="stuff">div.stuff</div>
+    <p>
+      <span id="word">span#word</span>
+    </p>
+    <p>
+      <button onclick="jBir.new()">jBir.new()</button>
+      <button onclick="jBir.new('.stuff')">jBir.new('.stuff')</button>
+      <button onclick="jBir.new('#word')">jBir.new('#word')</button>
+      <button onclick="jBir.new('p')">jBir.new('p')</button>
+      <button onclick="jBir.pauseAll()">jBir.pauseAll()</button>
+      <button onclick="jBir.playAll()">jBir.playAll()</button>
+    </p>
+    <p>
+      CODE:
+      <a href="https://github.com/isaacyakl/jBir"
+        >https://github.com/isaacyakl/jBir</a
+      >
+    </p>
+  </body>
+  <script type="text/javascript" src="jBir.js"></script>
+</html>
