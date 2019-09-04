@@ -4,5 +4,5 @@ A vanilla js Background image rotator library.
 Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
 
 To-Do
-* Fix removeAll bug which leaves one jBirImageRotator behind
+* Preload images smallest to largest
 * Add usage documentation

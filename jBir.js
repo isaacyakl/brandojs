@@ -4,7 +4,7 @@
 // jBir object
 // useful in initializing and controlling all image rotators
 const jBir = {
-  version: "0.0.3", // Version number string
+  version: "0.0.4", // Version number string
   jBirImgRotators: [], // Image rotators array
   jBirPreloadedImgs: [], // Images that have already been preload into the document
 
@@ -253,10 +253,10 @@ const jBir = {
   },
   // Function for removing all rotators
   removeAll: function() {
-    this.jBirImgRotators.forEach(jBirImgRotator => {
+    let runtimejBirImgRotators = Array.from(this.jBirImgRotators); // Make a shallow copy of the image rotators array to iterate through because we will be modifying the original and we cannot .forEach() through it successfully if the number of items in it changes during runtime
+    runtimejBirImgRotators.forEach(jBirImgRotator => {
       this.remove(jBirImgRotator); // remove image rotator
     });
-    console.log(jBir.jBirImgRotators);
     return 0; // success
   }
 };
