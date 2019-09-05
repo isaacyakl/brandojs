@@ -4,6 +4,19 @@ A vanilla js Background image rotator library.
 Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
 
 ## Usage
+### Include the library:
+To use this library place the following `<script>` tag just after the closing `</body>` of your html page:
+```html
+<script type="text/javascript" src="jBir.js"></script>
+```
+For example:
+```html
+  ...
+  </body>
+  <script type="text/javascript" src="jBir.js"></script>
+</html>
+```
+
 ### `jBir.new()` - Create a new rotator:
 ```javascript
 jBir.new (
@@ -20,7 +33,7 @@ jBir.new (
 
 If no arguments are passed to `jBir.new()` it will create a default demo image rotator and attach it to the `<html>` element.
 
-**Note:** If multiple image rotators are attached to the same html elements the rotation intervals will be affected and removal of the rotators may have unexpected results. For example:
+**Note:** If multiple image rotators are attached to the same html elements the rotation intervals will be unpredictable and removal of the rotators may have unexpected results. For example:
 
 ```javascript
 var r1 = jBir.new("div.stuff"); // Selects all <div> elements with the class of "stuff"
@@ -91,7 +104,7 @@ jBir.new(); // Uses default demo image rotator and attaches it to <html>
 ### Example 2
 First we create an array of images (examples taken from [Unsplash](https://www.unsplash.com) ):
 ```javascript
-// Our array of image urls to use
+// Our array of image URLs to use
 var images = [
     "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
     "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
@@ -112,7 +125,7 @@ var imageRotator = jBir.new(
     "fixed" // Background image attachment type
 );
 ```
-Then we demonstrate how to move to the next image before removing the rotator from the `<div>` elements:
+Then, we demonstrate how to move to the next image before removing the rotator from the `<div>` elements:
 ```javascript
 // Move to next image
 jBir.next(imageRotator);
@@ -123,7 +136,7 @@ jBir.remove(imageRotator);
 
 Complete example code:
 ```javascript
-// Our array of image urls to use
+// Our array of image URLs to use
 var images = [
     "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
     "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
@@ -151,6 +164,7 @@ jBir.remove(imageRotator);
 
 
 ## To-Do
+* Generate minified js file
 * Improve demo page
 * Preload images smallest to largest
 * Add ability to rotate background-color
