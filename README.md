@@ -4,7 +4,7 @@ A vanilla js Background image rotator library.
 Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
 
 ## Usage
-### `jBir.new()` - Creating a new rotator:
+### `jBir.new()` - Create a new rotator:
 ```javascript
 jBir.new (
     String <selector>, // String selector e.g. "div"
