@@ -2,14 +2,14 @@
 // www.isaacyakl.com @isaacyakl
 
 // jBir object
-// useful in initializing and controlling all image rotators
+// Used for creating and controlling all image rotators
 const jBir = {
-  version: "0.0.5", // Version number string
+  version: "0.0.6", // Version number string
   jBirImgRotators: [], // Image rotators array
   jBirPreloadedImgs: [], // Images that have already been preload into the document
 
   // Function to check if an image is preloaded already
-  // returns true if preloaded or false if not
+  // Returns true if preloaded or false if not
   isPreloadedImg: function(
     imageURL // image URL string
   ) {
@@ -23,8 +23,8 @@ const jBir = {
     return false; // Return false image is not yet preloaded
   },
   // Function for initializing a new image rotator for a specific set of selected elements
-  // returns new image rotator object or error code if selector returns no elements
-  // return codes: 1 - no elements found with selector string
+  // Returns new image rotator object or error code if selector returns no elements
+  // Return codes: 1 - no elements found with selector string
   new: function(
     selector_string, // element selector string
     image_url_arr, // array of image urls
@@ -119,7 +119,7 @@ const jBir = {
     return newjBirImgRotator; // return new image rotator object
   },
   // Function for changing to next image
-  // return codes: 0 - success; 1 - failure already going to next; 2 - failure waiting for image to preload
+  // Return codes: 0 - success; 1 - failure already going to next; 2 - failure waiting for image to preload
   next: function(jBirImgRotator) {
     // if already transitioning to next image per previous call
     if (jBirImgRotator.transitioning) return 1; // return error code 1 without changing image to prevent spamming which glitches the transition animation
@@ -184,34 +184,56 @@ const jBir = {
       jBirImgRotator.transitioning = false; // Set transitioning variable back to false
     });
 
-    // If the image rotator is already playing
-    if (jBirImgRotator.rotator_id != null) jBir.play(jBirImgRotator); // Restart the rotator interval counter by calling play again
+    // If the image rotator is playing restart it
+    // If rotator id is found
+    if (jBirImgRotator.rotator_id != null) {
+      jBir.pause(jBirImgRotator); // pause it to clear interval
+      jBir.play(jBirImgRotator); // play it to create new interval
+    }
     return 0; // success
   },
   // Function for changing all rotators to next image
+  // Returns 0 for success or number of image rotators which failed to rotate to next image
   nextAll: function() {
+    var numErrors = 0; // variable to hold number of errors returned
     // move to next image in all image rotators
     jBir.jBirImgRotators.forEach(jBirImgRotator => {
-      jBir.next(jBirImgRotator); // move to next image
+      // move to next image
+      // if moving to the next image returned an error code
+      if (jBir.next(jBirImgRotator) != 0) {
+        numErrors++; // increase number of rotators with errors
+      }
     });
-    return 0; // success
+
+    return numErrors; // return number of errors
   },
   // Function to pause rotator
+  // Returns 0 if pausing succeeded or 1 if the image rotator is already paused
   pause: function(jBirImgRotator) {
-    clearInterval(jBirImgRotator.rotator_id); // clear setInterval function using stored id
-    jBirImgRotator.rotator_id = null; // set id to null
-    return 0; // success
+    // If there is a rotator_id to clear
+    if (jBirImgRotator.rotator_id != null) {
+      clearInterval(jBirImgRotator.rotator_id); // clear setInterval function using stored id
+      jBirImgRotator.rotator_id = null; // set id to null
+      return 0; // success
+    }
+    return 1; // image rotator not playing
   },
   // Function to pause all rotators
+  // Returns 0 for success or number of image rotators which are already paused
   pauseAll: function() {
-    // pause each image rotator
+    var numErrors = 0; // variable to hold number of errors returned
+    // pause all image rotators
     jBir.jBirImgRotators.forEach(jBirImgRotator => {
-      jBir.pause(jBirImgRotator); // pause image rotator
+      // pause image rotator
+      // if pausing the image rotator returned an error code
+      if (jBir.pause(jBirImgRotator) != 0) {
+        numErrors++; // increase number of rotators with errors
+      }
     });
-    return 0; // success
+    return numErrors; // return number of errors
   },
   // Function to start a rotator
-  // returns 0 for success and 1 for already playing
+  // Returns 0 for success and 1 for already playing
   play: function(jBirImgRotator) {
     // To prevent spamming rotators
     // If rotator id already exists then image rotator is already playing
@@ -224,14 +246,21 @@ const jBir = {
     return 0; // success
   },
   // Function to start all rotators
+  // Returns 0 for success or number of image rotators which are already playing
   playAll: function() {
+    var numErrors = 0; // variable to hold number of errors returned
     // play each image rotator
     jBir.jBirImgRotators.forEach(jBirImgRotator => {
-      jBir.play(jBirImgRotator); // play image rotator
+      // play image rotator
+      // if playing the image rotator returned an error code
+      if (jBir.play(jBirImgRotator) != 0) {
+        numErrors++; // increase number of rotators with errors
+      }
     });
-    return 0; // success
+    return numErrors; // return number of errors
   },
   // Function for removing a rotator
+  // Returns 0 for success
   remove: function(jBirImgRotator) {
     this.pause(jBirImgRotator); // Pause rotator
     jBirImgRotator.elements.forEach(element => {
@@ -243,6 +272,7 @@ const jBir = {
     return 0; // success
   },
   // Function for removing all rotators
+  // Returns 0 for success
   removeAll: function() {
     let runtimejBirImgRotators = Array.from(this.jBirImgRotators); // Make a shallow copy of the image rotators array to iterate through because we will be modifying the original and we cannot .forEach() through it successfully if the number of items in it changes during runtime
     runtimejBirImgRotators.forEach(jBirImgRotator => {
@@ -281,9 +311,7 @@ class jBirImgRotator {
   // State Variables
   last_image = -1; // variable for index of last image; -1 indicates no image was used yet
   transitioning = false; // variable to keep track of whether the transition animation is taking place
-  og_transition_property = "";
-  og_background_size_property = "";
-  og_background_property = "";
-
-  constructor() {}
+  og_transition_property = ""; // variable to hold the original transition property before an image rotator is added
+  og_background_size_property = ""; // variable to hold the original background size property before an image rotator is added
+  og_background_property = ""; // variable to hold the original background property before an image rotator is added
 }
