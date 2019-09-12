@@ -205,7 +205,7 @@ class jBirImgRotator {
   }
   // Function for changing to next image
   // Return codes: 0 - success; 1 - failure already going to next; 2 - failure waiting for image to preload
-  next = () => {
+  next() {
     // if already transitioning to next image per previous call
     if (this.transitioning) return 1; // return error code 1 without changing image to prevent spamming which glitches the transition animation
     this.transitioning = true; // set transitioning variable to true because we are in process of changing images
@@ -271,10 +271,10 @@ class jBirImgRotator {
       this.play(); // play it to create new interval
     }
     return 0; // success
-  };
+  }
   // Function to pause rotator
   // Returns 0 if pausing succeeded or 1 if the image rotator is already paused
-  pause = () => {
+  pause() {
     // If there is a rotator_id to clear
     if (this.rotator_id != null) {
       clearInterval(this.rotator_id); // clear setInterval function using stored id
@@ -282,10 +282,10 @@ class jBirImgRotator {
       return 0; // success
     }
     return 1; // image rotator not playing
-  };
+  }
   // Function to start a rotator
   // Returns 0 for success and 1 for already playing
-  play = () => {
+  play() {
     // To prevent spamming rotators
     // If rotator id already exists then image rotator is already playing
     if (this.rotator_id != null) return 1; // Return with error code 1
@@ -293,10 +293,10 @@ class jBirImgRotator {
     // set an interval to rotate images and store the function id
     this.rotator_id = setInterval(() => this.next(), this.interval_ms);
     return 0; // success
-  };
+  }
   // Function for removing a rotator
   // Returns 0 for success
-  remove = () => {
+  remove() {
     this.pause(); // Pause rotator
     this.elements.forEach(element => {
       element.style.transition = this.og_transition_property; // Revert transition property
@@ -305,5 +305,5 @@ class jBirImgRotator {
     });
     jBir.jBirImgRotators.splice(jBir.jBirImgRotators.indexOf(this), 1); // Destroy image rotator
     return 0; // success
-  };
+  }
 }
