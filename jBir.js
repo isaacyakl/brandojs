@@ -4,7 +4,7 @@
 // jBir object
 // Used for creating and controlling all image rotators
 const jBir = {
-  version: "0.0.6", // Version number string
+  version: "0.0.7", // Version number string
   jBirImgRotators: [], // Image rotators array
   jBirPreloadedImgs: [], // Images that have already been preload into the document
 
