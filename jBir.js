@@ -284,34 +284,36 @@ const jBir = {
 
 // Image rotator
 class jBirImgRotator {
-  // Property variables
-  selector_string = "html"; // default selector string is "html"
-  elements = []; // initially empty; stores element(s) to add an image rotator to
-  // array of image urls to rotate
-  image_url_arr = [
-    // default images
-    "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
-    "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
-    "https://images.unsplash.com/photo-1538291323976-37dcaafccb12",
-    "https://images.unsplash.com/photo-1514525253161-7a46d19cd819",
-    "https://images.unsplash.com/photo-1529912626516-e58b23f44f1d",
-    "https://images.unsplash.com/photo-1545231097-c046d9dcc2f6",
-    "https://images.unsplash.com/photo-1558470598-a5dda9640f68",
-    "https://images.unsplash.com/photo-1545231097-cbd796f1d95f",
-    "https://images.unsplash.com/photo-1518516278006-4aca92806257",
-    "https://images.unsplash.com/photo-1533669955142-6a73332af4db"
-  ];
-  interval_ms = 10000; // default interval between image rotations
-  transition_ms = 3000; // default transition time
-  transition_type = "ease-in-out"; // default transition type
-  random_order = true; // default to randomize image order
-  background_attachment = "fixed"; // default is "fixed"
-  rotator_id = null; // initially null until set; used to store setInterval function rotator id
+  constructor() {
+    // Property variables
+    this.selector_string = "html"; // default selector string is "html"
+    this.elements = []; // initially empty; stores element(s) to add an image rotator to
+    // array of image urls to rotate
+    this.image_url_arr = [
+      // default images
+      "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
+      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
+      "https://images.unsplash.com/photo-1538291323976-37dcaafccb12",
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819",
+      "https://images.unsplash.com/photo-1529912626516-e58b23f44f1d",
+      "https://images.unsplash.com/photo-1545231097-c046d9dcc2f6",
+      "https://images.unsplash.com/photo-1558470598-a5dda9640f68",
+      "https://images.unsplash.com/photo-1545231097-cbd796f1d95f",
+      "https://images.unsplash.com/photo-1518516278006-4aca92806257",
+      "https://images.unsplash.com/photo-1533669955142-6a73332af4db"
+    ];
+    this.interval_ms = 10000; // default interval between image rotations
+    this.transition_ms = 3000; // default transition time
+    this.transition_type = "ease-in-out"; // default transition type
+    this.random_order = true; // default to randomize image order
+    this.background_attachment = "fixed"; // default is "fixed"
+    this.rotator_id = null; // initially null until set; used to store setInterval function rotator id
 
-  // State Variables
-  last_image = -1; // variable for index of last image; -1 indicates no image was used yet
-  transitioning = false; // variable to keep track of whether the transition animation is taking place
-  og_transition_property = ""; // variable to hold the original transition property before an image rotator is added
-  og_background_size_property = ""; // variable to hold the original background size property before an image rotator is added
-  og_background_property = ""; // variable to hold the original background property before an image rotator is added
+    // State Variables
+    this.last_image = -1; // variable for index of last image; -1 indicates no image was used yet
+    this.transitioning = false; // variable to keep track of whether the transition animation is taking place
+    this.og_transition_property = ""; // variable to hold the original transition property before an image rotator is added
+    this.og_background_size_property = ""; // variable to hold the original background size property before an image rotator is added
+    this.og_background_property = ""; // variable to hold the original background property before an image rotator is added
+  }
 }
