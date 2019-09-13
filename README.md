@@ -1,8 +1,10 @@
 # jBir
 
-A vanilla javascript Background image rotator library.
+A vanilla javascript Background image rotator library by [yak](https://www.isaacyakl.com).
 
 Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
+
+Distributed under the [MIT License](https://isaacyakl.github.io/jBir/LICENSE).
 
 ## Setup & Creation
 
@@ -178,7 +180,6 @@ imageRotator.remove(); // Remove image rotator
 
 ## To-Do
 
-- Change license
 - Improve demo page
 - Preload images smallest to largest
 - Add ability to rotate background-color
