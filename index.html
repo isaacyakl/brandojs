@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -10,31 +10,94 @@
       href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/frame-with-picture_1f5bc.png"
       type="image/x-icon"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
     <title>jBir Demo</title>
   </head>
   <body>
-    <div class="stuff">div.stuff</div>
-    <div class="stuff">div.stuff</div>
-    <div class="stuff">div.stuff</div>
-    <div class="clr"></div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quaerat ipsam minima deserunt
-      quasi cupiditate placeat natus provident reiciendis eius deleniti. Aperiam totam ut vel
-      ducimus consectetur accusantium maxime sed.
-    </p>
-    <div>
-      <button onclick="jBir.new()">jBir.new() defaults to html element</button>
-      <button onclick="jBir.new('.stuff')">jBir.new('.stuff')</button>
-      <button onclick="jBir.new('p')">jBir.new('p')</button><br />
-      <button onclick="jBir.nextAll()">jBir.nextAll()</button>
-      <button onclick="jBir.pauseAll()">jBir.pauseAll()</button>
-      <button onclick="jBir.playAll()">jBir.playAll()</button>
-      <button onclick="jBir.removeAll()">jBir.removeAll()</button>
-    </div>
-    <div>
-      CODE:
-      <a href="https://github.com/isaacyakl/jBir">https://github.com/isaacyakl/jBir</a>
-    </div>
+    <main>
+      <div class="desc">
+        <h1>jBir</h1>
+        <p>
+          A vanilla javascript Background image rotator library by
+          <a href="https://www.isaacyakl.com">yak</a>.<br />
+          <br />
+          Documentation + Code:
+          <a href="https://github.com/isaacyakl/jBir">https://github.com/isaacyakl/jBir</a><br />
+          <br />
+          Distributed under the <a href="https://isaacyakl.github.io/jBir/LICENSE">MIT License</a>.
+        </p>
+      </div>
+      <div class="controls">
+        <h2>Code</h2>
+        <p>
+          Click a .new() button to create an image rotator in the demo section below:
+        </p>
+        <p>
+          <a class="control" onclick="jBir.new('div.example')">jBir.new('div.example')</a>
+          <a class="control" onclick="jBir.new('p.example')">jBir.new('p.example')</a>
+          <a class="control" onclick="jBir.new('button.example')">jBir.new('button.example')</a>
+          <a class="control" onclick="jBir.new('input')">jBir.new('input')</a>
+          <a class="control" onclick="jBir.new('textarea')">jBir.new('textarea')</a>
+        </p>
+        <p>
+          Move image rotators to the next image and also pause, play, or remove them all:
+        </p>
+        <p>
+          <a class="control" onclick="jBir.nextAll()">jBir.nextAll()</a>
+          <a class="control" onclick="jBir.pauseAll()">jBir.pauseAll()</a>
+          <a class="control" onclick="jBir.playAll()">jBir.playAll()</a>
+          <a class="control" onclick="jBir.removeAll()">jBir.removeAll()</a>
+        </p>
+      </div>
+      <div class="demo">
+        <h2>Demo</h2>
+        <p>
+          Click a .new() button above to create an image rotator.
+        </p>
+        <div class="example">div</div>
+        <div class="example">div</div>
+        <div class="example">div</div>
+        <div class="example">div</div>
+        <p class="example">
+          Paragraph<br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quaerat ipsam minima
+          deserunt quasi cupiditate placeat natus provident reiciendis eius deleniti.
+        </p>
+        <p>
+          <button class="example">button</button>
+          <input type="text" class="example" value="textfield" />
+          <textarea class="example">textarea</textarea>
+        </p>
+        <div class="clr"></div>
+      </div>
+      <div class="controls">
+        <p>
+          ⚠️Try clicking all the .new() buttons above; be careful, creating too many image rotators
+          can be challenging for your web browser to animate smoothly.
+        </p>
+      </div>
+      <footer>
+        Show support by following me on
+        <a href="https://www.twitter.com/isaacyakl" target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a href="https://www.github.com/isaacyakl" target="_blank"><i class="fab fa-github"></i></a>
+      </footer>
+    </main>
   </body>
   <script type="text/javascript" src="jBir.js"></script>
+  <script type="text/javascript">
+    window.addEventListener("load", jBir.new());
+  </script>
 </html>

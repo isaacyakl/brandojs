@@ -6,6 +6,8 @@ Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
 
 Distributed under the [MIT License](https://isaacyakl.github.io/jBir/LICENSE).
 
+Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and [GitHub](https://github.com/isaacyakl).
+
 ## Usage
 
 ### Include jBir
@@ -88,7 +90,11 @@ jBir.new (
 
 If the same selector string is used twice, the old rotator will be deleted before creating a new one.
 
-**Warning:**
+**⚠️ Warning:**
+
+> Be careful about creating too many image rotators. They can become challenging for your web browser to animate smoothly.
+
+**⚠️ Warning:**
 
 > If multiple image rotators are attached to an html element the rotation intervals will be unpredictable.
 >
@@ -186,7 +192,6 @@ This removes all rotators and resets the background settings on the selected ele
 
 ## To-Do
 
-- Improve demo page
 - Release on NPM
 - Preload images smallest to largest
 - Add ability to rotate background-color
