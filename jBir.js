@@ -186,8 +186,7 @@ class jBirImgRotator {
       "https://images.unsplash.com/photo-1545231097-c046d9dcc2f6",
       "https://images.unsplash.com/photo-1558470598-a5dda9640f68",
       "https://images.unsplash.com/photo-1545231097-cbd796f1d95f",
-      "https://images.unsplash.com/photo-1518516278006-4aca92806257",
-      "https://images.unsplash.com/photo-1533669955142-6a73332af4db"
+      "https://images.unsplash.com/photo-1518516278006-4aca92806257"
     ];
     this.interval_ms = 10000; // default interval between image rotations
     this.transition_ms = 3000; // default transition time
