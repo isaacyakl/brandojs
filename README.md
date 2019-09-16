@@ -6,13 +6,11 @@ Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
 
 Distributed under the [MIT License](https://isaacyakl.github.io/jBir/LICENSE).
 
-## Setup & Creation
+## Usage
 
 ### Include jBir
 
 After downloading the minified jBir file or cloning this repository, include jBir by placing the `<script>` tag just after the closing `</body>` of your html page.
-
-For example:
 
 ```html
   ...
@@ -20,6 +18,56 @@ For example:
   <script type="text/javascript" src="jBir-0.0.7.min.js"></script>
 </html>
 ```
+
+### Create the image rotator
+
+We then create an array of images we want to show in our rotator (examples taken from [Unsplash](https://www.unsplash.com)):
+
+```javascript
+// Our array of image URLs to use
+var images = [
+  "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
+  "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
+  "https://images.unsplash.com/photo-1538291323976-37dcaafccb12"
+];
+```
+
+Next, we create an image rotator which connects to every `<div>` on the page and save it to a variable called `imageRotator`:
+
+```javascript
+// Create a new image rotator
+var imageRotator = jBir.new(
+  "div", // Selector string of which elements to add a background to
+  images, // Array of image URLS
+  10000, // Time in milliseconds between image changes
+  3000, // Duration in milliseconds that the image transition animation should take
+  "ease-in-out", // The transition animation type
+  true, // Whether to cycle through the images randomly or not
+  "fixed" // Background image attachment type
+);
+```
+
+The new rotator will automatically begin playing.
+
+### Change the image
+
+We can also manually move to the next image:
+
+```javascript
+imageRotator.next(); // Move to next image
+```
+
+### Remove the image rotator
+
+Lastly, when we are done with it, we can remove the rotator from the `<div>` elements:
+
+```javascript
+imageRotator.remove(); // Remove image rotator
+```
+
+This will revert the background settings on all selected elements to the state they were before we changed them with the rotator.
+
+## Documentation
 
 ### Create an image rotator
 
@@ -38,11 +86,11 @@ jBir.new (
 
 `jBir.new()` returns the created `jBirImageRotator` object and automatically starts it. If no elements were found using the selector string, the function returns error code `1`.
 
-If no arguments are passed to `jBir.new()` it will create a default demo image rotator and attach it to the `<html>` element.
+If the same selector string is used twice, the old rotator will be deleted before creating a new one.
 
 **Warning:**
 
-> If multiple image rotators are attached to the same html elements the rotation intervals will be unpredictable and removal of the rotators may have unexpected results.
+> If multiple image rotators are attached to an html element the rotation intervals will be unpredictable.
 >
 > For example:
 >
@@ -62,7 +110,15 @@ If no arguments are passed to `jBir.new()` it will create a default demo image r
 > r1.remove(); // Then remove the first rotator
 > ```
 
-## Control
+### Start the demo image rotator
+
+If no arguments are passed to `jBir.new()` it will create a default demo image rotator and attach it to the `<html>` element:
+
+```javascript
+jBir.new(); // Uses default demo image rotator and attaches it to <html>
+```
+
+Check it out on the [demo](https://isaacyakl.github.io/jBir/) page.
 
 ### Manually move to next image
 
@@ -128,58 +184,9 @@ jBir.removeAll(); // Remove all image rotators
 
 This removes all rotators and resets the background settings on the selected element(s). Returns `0` for successful removal.
 
-## Examples
-
-### Example 1
-
-Activate demo by calling `jBir.new()` without passing any arguments:
-
-```javascript
-jBir.new(); // Uses default demo image rotator and attaches it to <html>
-```
-
-### Example 2
-
-First we create an array of images (examples taken from [Unsplash](https://www.unsplash.com)):
-
-```javascript
-// Our array of image URLs to use
-var images = [
-  "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
-  "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
-  "https://images.unsplash.com/photo-1538291323976-37dcaafccb12"
-];
-```
-
-Next we create an image rotator which connects to every `<div>` on the page and save it to a variable called `imageRotator`:
-
-```javascript
-// Create a new image rotator
-var imageRotator = jBir.new(
-  "div", // Selector string of which elements to add to
-  images, // Array of image URLS
-  10000, // Time in milliseconds between image changes
-  3000, // Duration in milliseconds that the image transition animation should take
-  "ease-in-out", // The transition animation type
-  true, // Whether to cycle through the images randomly or not
-  "fixed" // Background image attachment type
-);
-```
-
-The new rotator will automatically play, but we can also manually move to the next image:
-
-```javascript
-imageRotator.next(); // Move to next image
-```
-
-Lastly, when we are done, we can remove the rotator from the `<div>` elements:
-
-```javascript
-imageRotator.remove(); // Remove image rotator
-```
-
 ## To-Do
 
 - Improve demo page
+- Release on NPM
 - Preload images smallest to largest
 - Add ability to rotate background-color
