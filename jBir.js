@@ -178,15 +178,14 @@ class jBirImgRotator {
     // array of image urls to rotate
     this.image_url_arr = [
       // default images
-      "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
-      "https://images.unsplash.com/photo-1538291323976-37dcaafccb12",
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819",
-      "https://images.unsplash.com/photo-1529912626516-e58b23f44f1d",
-      "https://images.unsplash.com/photo-1545231097-c046d9dcc2f6",
-      "https://images.unsplash.com/photo-1558470598-a5dda9640f68",
-      "https://images.unsplash.com/photo-1545231097-cbd796f1d95f",
-      "https://images.unsplash.com/photo-1518516278006-4aca92806257"
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e",
+      "https://images.unsplash.com/photo-1485841938031-1bf81239b815",
+      "https://images.unsplash.com/photo-1543835683-ec5466c68daa",
+      "https://images.unsplash.com/photo-1491147334573-44cbb4602074",
+      "https://images.unsplash.com/photo-1550353185-761a5da3ee96",
+      "https://images.unsplash.com/photo-1449496967047-2a322e78ec26",
+      "https://images.unsplash.com/photo-1517789171-f2c4f83f1afd",
+      "https://images.unsplash.com/photo-1552084117-56a987666449"
     ];
     this.interval_ms = 10000; // default interval between image rotations
     this.transition_ms = 3000; // default transition time
