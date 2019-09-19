@@ -22,20 +22,22 @@
       integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
       crossorigin="anonymous"
     />
-    <title>jBir Demo</title>
+    <title>bRando.js Demo</title>
   </head>
   <body>
     <main>
       <div class="desc">
-        <h1>jBir</h1>
+        <h1>bRando.js</h1>
         <p>
-          A vanilla javascript Background image rotator library by
+          An HTML element background randomizer. Written with vanilla JavaScript by
           <a href="https://www.isaacyakl.com">yak</a>.<br />
           <br />
           Documentation + Code:
-          <a href="https://github.com/isaacyakl/jBir">https://github.com/isaacyakl/jBir</a><br />
+          <a href="https://github.com/isaacyakl/bRando">https://github.com/isaacyakl/bRando</a
+          ><br />
           <br />
-          Distributed under the <a href="https://isaacyakl.github.io/jBir/LICENSE">MIT License</a>.
+          Distributed under the
+          <a href="https://isaacyakl.github.io/bRando/LICENSE">MIT License</a>.
         </p>
       </div>
       <div class="controls">
@@ -44,20 +46,20 @@
           Click a .new() button to create an image rotator in the demo section below:
         </p>
         <p>
-          <a class="control" onclick="jBir.new('div.example')">jBir.new('div.example')</a>
-          <a class="control" onclick="jBir.new('p.example')">jBir.new('p.example')</a>
-          <a class="control" onclick="jBir.new('button.example')">jBir.new('button.example')</a>
-          <a class="control" onclick="jBir.new('input')">jBir.new('input')</a>
-          <a class="control" onclick="jBir.new('textarea')">jBir.new('textarea')</a>
+          <a class="control" onclick="bRando.new('div.example')">bRando.new('div.example')</a>
+          <a class="control" onclick="bRando.new('p.example')">bRando.new('p.example')</a>
+          <a class="control" onclick="bRando.new('button.example')">bRando.new('button.example')</a>
+          <a class="control" onclick="bRando.new('input')">bRando.new('input')</a>
+          <a class="control" onclick="bRando.new('textarea')">bRando.new('textarea')</a>
         </p>
         <p>
           Move image rotators to the next image and also pause, play, or remove them all:
         </p>
         <p>
-          <a class="control" onclick="jBir.nextAll()">jBir.nextAll()</a>
-          <a class="control" onclick="jBir.pauseAll()">jBir.pauseAll()</a>
-          <a class="control" onclick="jBir.playAll()">jBir.playAll()</a>
-          <a class="control" onclick="jBir.removeAll()">jBir.removeAll()</a>
+          <a class="control" onclick="bRando.nextAll()">bRando.nextAll()</a>
+          <a class="control" onclick="bRando.pauseAll()">bRando.pauseAll()</a>
+          <a class="control" onclick="bRando.playAll()">bRando.playAll()</a>
+          <a class="control" onclick="bRando.removeAll()">bRando.removeAll()</a>
         </p>
       </div>
       <div class="demo">
@@ -81,10 +83,10 @@
         </p>
         <div class="clr"></div>
       </div>
-      <div class="controls">
+      <div class="warning">
         <p>
-          ⚠️Try clicking all the .new() buttons above; be careful, creating too many image rotators
-          can be challenging for your web browser to animate smoothly.
+          ⚠️ Creating too many background randomizers will consume large amounts of CPU
+          power—particularly while backgrounds are transitioning.
         </p>
       </div>
       <footer>
@@ -96,8 +98,8 @@
       </footer>
     </main>
   </body>
-  <script type="text/javascript" src="jBir.js"></script>
+  <script type="text/javascript" src="bRando.js"></script>
   <script type="text/javascript">
-    window.addEventListener("load", jBir.new());
+    window.addEventListener("load", bRando.new());
   </script>
 </html>

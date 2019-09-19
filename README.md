@@ -1,29 +1,29 @@
-# jBir
+# bRando.js
 
-A vanilla javascript Background image rotator library by [yak](https://www.isaacyakl.com).
+An HTML element background randomizer. Written with vanilla JavaScript by [yak](https://www.isaacyakl.com).
 
-Demo: [https://isaacyakl.github.io/jBir/](https://isaacyakl.github.io/jBir/)
+Demo: [https://isaacyakl.github.io/bRando/](https://isaacyakl.github.io/bRando/)
 
-Distributed under the [MIT License](https://isaacyakl.github.io/jBir/LICENSE).
+Distributed under the [MIT License](https://isaacyakl.github.io/bRando/LICENSE).
 
 Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and [GitHub](https://github.com/isaacyakl).
 
 ## Usage
 
-### Include jBir
+### Include bRando
 
-After downloading the minified jBir file or cloning this repository, include jBir by placing the `<script>` tag just after the closing `</body>` of your html page.
+After downloading the minified bRando.js file or cloning this repository, include bRando by placing the `<script>` tag just after the closing `</body>` of your html page.
 
 ```html
   ...
   </body>
-  <script type="text/javascript" src="jBir-0.0.7.min.js"></script>
+  <script type="text/javascript" src="bRando-0.0.7.min.js"></script>
 </html>
 ```
 
-### Create the image rotator
+### Create a background randomizer
 
-We then create an array of images we want to show in our rotator (examples taken from [Unsplash](https://www.unsplash.com)):
+Then create an array of images to be used as backgrounds (examples taken from [Unsplash](https://www.unsplash.com)):
 
 ```javascript
 // Our array of image URLs to use
@@ -34,164 +34,164 @@ var images = [
 ];
 ```
 
-Next, we create an image rotator which connects to every `<div>` on the page and save it to a variable called `imageRotator`:
+Next, we create a background randomizer and save it to a variable called `backgroundRandomizer`:
 
 ```javascript
-// Create a new image rotator
-var imageRotator = jBir.new(
-  "div", // Selector string of which elements to add a background to
+// Create a new background randomizer
+var backgroundRandomizer = bRando.new(
+  "div", // Selector string of which elements to change backgrounds on
   images, // Array of image URLS
-  10000, // Time in milliseconds between image changes
-  3000, // Duration in milliseconds that the image transition animation should take
+  10000, // Time in milliseconds between background changes
+  3000, // Duration in milliseconds that the transition animation should take
   "ease-in-out", // The transition animation type
-  true, // Whether to cycle through the images randomly or not
-  "fixed" // Background image attachment type
+  true, // Whether to cycle through the backgrounds randomly or not
+  "fixed" // Background attachment type
 );
 ```
 
-The new rotator will automatically begin playing.
+The new randomizer will automatically begin playing.
 
-### Change the image
+### Change the background(s)
 
-We can also manually move to the next image:
-
-```javascript
-imageRotator.next(); // Move to next image
-```
-
-### Remove the image rotator
-
-Lastly, when we are done with it, we can remove the rotator from the `<div>` elements:
+We can manually move to the next background:
 
 ```javascript
-imageRotator.remove(); // Remove image rotator
+backgroundRandomizer.next(); // Move to the next background
 ```
 
-This will revert the background settings on all selected elements to the state they were before we changed them with the rotator.
+### Remove the background randomizer
+
+When we are done with it, we can remove the randomizer from the `<div>` elements:
+
+```javascript
+backgroundRandomizer.remove(); // Remove background randomizer
+```
+
+This will revert the background settings on all selected elements to the state they were before we changed them.
 
 ## Documentation
 
-### Create an image rotator
+### Create a background randomizer
 
 ```javascript
-// Create a new image rotator
-jBir.new (
-    String <selector>, // String selector e.g. "div"
-    String[] <image_url_array>, // Array of image URLs to rotate
-    Integer <interval_ms>, // Time between image rotation e.g. 10000
+// Create a new background randomizer
+bRando.new (
+    String <selector>, // String selector .class, #id, or element e.g. "div"
+    String[] <image_url_array>, // Array of image URLs to randomize
+    Integer <interval_ms>, // Time between background rotations e.g. 10000
     Integer <transition_ms>, // Duration of transition animation e.g. 3000
     String <transition_type>, // Type of transition timing function e.g. "ease-in-out". See https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
-    Boolean <random_order>, // Whether to go through images at random e.g. false
-    String <background_attachment> // How to attach the background image e.g. "fixed". See https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
+    Boolean <random_order>, // Whether to go through backgrounds at random or not e.g. false
+    String <background_attachment> // How to attach the background e.g. "fixed". See https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
 );
 ```
 
-`jBir.new()` returns the created `jBirImageRotator` object and automatically starts it. If no elements were found using the selector string, the function returns error code `1`.
+`bRando.new()` returns the created backgound randomizer object and automatically plays it. If no elements were found using the selector string, the function returns error code `1` instead.
 
-If the same selector string is used twice, the old rotator will be deleted before creating a new one.
-
-**⚠️ Warning:**
-
-> Be careful about creating too many image rotators. They can become challenging for your web browser to animate smoothly.
+If the selector string was already used to create a randomizer, the old randomizer will be deleted before creating a new one.
 
 **⚠️ Warning:**
 
-> If multiple image rotators are attached to an html element the rotation intervals will be unpredictable.
+> Creating too many randomizers will consume large amounts of CPU power—particularly while backgrounds are transitioning.
+
+**⚠️ Warning:**
+
+> If multiple randomizers are attached to an html element the rotation intervals will be unpredictable.
 >
 > For example:
 >
 > ```javascript
 > // Selects all <div> elements with the class of "stuff"
-> var r1 = jBir.new("div.stuff");
+> var r1 = bRando.new("div.stuff");
 >
 > // Selects all <div> elements including the ones
-> // already selected for the above image rotator
-> var r2 = jBir.new("div");
+> // already selected for the above background randomizer
+> var r2 = bRando.new("div");
 > ```
->
-> If this is done, make sure to remove the rotators in reverse order:
+> 
+> If for some reason this is done, make sure to remove the randomizers in reverse order:
 >
 > ```javascript
-> r2.remove(); // Remove the second rotator first
-> r1.remove(); // Then remove the first rotator
+> r2.remove(); // Remove the second randomizer first
+> r1.remove(); // Then remove the first randomizer
 > ```
+> This way the elements will be properly reverted to the state they were in before the randomizers modified them.
 
-### Start the demo image rotator
+### Start the demo background randomizer
 
-If no arguments are passed to `jBir.new()` it will create a default demo image rotator and attach it to the `<html>` element:
-
-```javascript
-jBir.new(); // Uses default demo image rotator and attaches it to <html>
-```
-
-Check it out on the [demo](https://isaacyakl.github.io/jBir/) page.
-
-### Manually move to next image
+If no arguments are passed to `bRando.new()` it will create and return a demo randomizer acting on the `<html>` element:
 
 ```javascript
-r1.next(); // Manually move the image rotator r1 to the next image
+bRando.new(); // Use the demo background randomizer which acts on <html>
 ```
 
-If the rotator is currently performing a transition animation, the function will return error code `1` indicating it is already going to next image. If the image the function chooses to rotate to is not yet preloaded, the function with return error code `2`. Otherwise, the function will return `0` indicative of a successful image rotation.
+Check it out on the [demo](https://isaacyakl.github.io/bRando/) page.
 
-### Manually move all image rotators to next image
+### Manually move to the next background
 
 ```javascript
-jBir.nextAll(); // Manually move all image rotators to the next image
+r1.next(); // Manually move the background randomizer, r1, to the next background
 ```
 
-Returns `0` if it successfully moved all rotators to their next image. Otherwise, the function returns the number of image rotators that failed to rotate to their next image.
+If the randomizer is currently performing a transition animation, the function will return error code `1` indicating it is already going to the next background. If the randomly chosen background is an image which has not yet preloaded, the function with return error code `2`. Otherwise, the function will return `0` indicative of a successful background change.
 
-### Pause image rotator
+### Manually move all background randomizers to their next background
 
 ```javascript
-r1.pause(); // Pause the image rotator
+bRando.nextAll(); // Manually move all background randomizers to their next background
 ```
 
-Returns `0` if the rotator is successfully paused. Otherwise, the functions returns `1` to indicate that the rotator is already paused.
+Returns `0` if it successfully moved all randomizers to their next background. Otherwise, the function returns the number of randomizers that failed to change.
 
-### Pause all image rotators
+### Pause a background randomizer
 
 ```javascript
-jBir.pauseAll(); // Pause all image rotators
+r1.pause(); // Pause the background randomizer, r1
 ```
 
-Returns `0` if all the rotators successfully paused. Otherwise, the functions returns the number of rotators which are already paused.
+Returns `0` if the randomizer is successfully paused. Otherwise, the functions returns `1` to indicate that the randomizer is already paused.
 
-### Play image rotator
+### Pause all background randomizers
 
 ```javascript
-r1.play(); // Play the image rotator if it is currently paused
+bRando.pauseAll(); // Pause all background randomizers
 ```
 
-Returns `0` if the rotator was successfully played. Otherwise, the function returns `1` if the rotator is already playing.
+Returns `0` if all the randomizers successfully paused. Otherwise, the function returns the number of randomizers which are already paused.
 
-### Play all image rotators
+### Play background randomizer
 
 ```javascript
-jBir.playAll(); // Play all image rotators that are paused
+r1.play(); // Play the background randomizer, r1, if it is currently paused
 ```
 
-Returns `0` if all the rotators successfully played. Otherwise, the function returns the number of rotators which are already playing.
+Returns `0` if the randomizer was successfully played. Otherwise, the function returns `1` if the randomizer is already playing.
 
-### Remove an image rotator
+### Play all background randomizers
 
 ```javascript
-r1.remove(); // Remove the image rotator
+bRando.playAll(); // Play all background randomizers that are paused
 ```
 
-This removes the rotator and resets the background settings on the selected element(s). Returns `0` for successful removal.
+Returns `0` if all the randomizers successfully played. Otherwise, the function returns the number of randomizers which are already playing.
 
-### Remove all image rotators
+### Remove a background randomizer
 
 ```javascript
-jBir.removeAll(); // Remove all image rotators
+r1.remove(); // Remove the background randomizer, r1
 ```
 
-This removes all rotators and resets the background settings on the selected element(s). Returns `0` for successful removal.
+This removes the randomizer and reverts the background settings on the selected element(s). Returns `0` for successful removal.
+
+### Remove all background randomizers
+
+```javascript
+bRando.removeAll(); // Remove all background randomizers
+```
+
+This removes all randomizers and reverts the background settings on the selected element(s). Returns `0` for successful removal.
 
 ## To-Do
-
+- Add ability to randomize either background-image or background-color
 - Release on NPM
 - Preload images smallest to largest
-- Add ability to rotate background-color

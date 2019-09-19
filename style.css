@@ -59,6 +59,10 @@ a.control:hover {
 .demo {
   padding: 20px;
 }
+.warning {
+  background-color: #d10000;
+  padding: 20px;
+}
 
 .example {
   background-color: #adadadc0;
