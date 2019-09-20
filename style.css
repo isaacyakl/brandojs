@@ -63,6 +63,7 @@ button.control {
   cursor: pointer;
   transition-timing-function: ease;
   transition-duration: 0.3s;
+  transition-property: background-color;
 }
 button.control:hover {
   background-color: #db7d00;
