@@ -2,9 +2,9 @@
 
 An HTML element background randomizer. Written with vanilla JavaScript by [yak](https://www.isaacyakl.com).
 
-Demo: [https://isaacyakl.github.io/bRando/](https://isaacyakl.github.io/bRando/)
+Demo: [https://isaacyakl.github.io/bRando.js/](https://isaacyakl.github.io/bRando.js/)
 
-Distributed under the [MIT License](https://isaacyakl.github.io/bRando/LICENSE).
+Distributed under the [MIT License](https://isaacyakl.github.io/bRando.js/LICENSE).
 
 Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and [GitHub](https://github.com/isaacyakl).
 
@@ -108,13 +108,14 @@ If the selector string was already used to create a randomizer, the old randomiz
 > // already selected for the above background randomizer
 > var r2 = bRando.new("div");
 > ```
-> 
+>
 > If for some reason this is done, make sure to remove the randomizers in reverse order:
 >
 > ```javascript
 > r2.remove(); // Remove the second randomizer first
 > r1.remove(); // Then remove the first randomizer
 > ```
+>
 > This way the elements will be properly reverted to the state they were in before the randomizers modified them.
 
 ### Start the demo background randomizer
@@ -125,7 +126,7 @@ If no arguments are passed to `bRando.new()` it will create and return a demo ra
 bRando.new(); // Use the demo background randomizer which acts on <html>
 ```
 
-Check it out on the [demo](https://isaacyakl.github.io/bRando/) page.
+Check it out on the [demo](https://isaacyakl.github.io/bRando.js/) page.
 
 ### Manually move to the next background
 
@@ -192,6 +193,7 @@ bRando.removeAll(); // Remove all background randomizers
 This removes all randomizers and reverts the background settings on the selected element(s). Returns `0` for successful removal.
 
 ## To-Do
+
 - Background starting position center center
 - Add ability to randomize either background-image or background-color
 - Release on NPM
