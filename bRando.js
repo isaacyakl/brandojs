@@ -4,7 +4,7 @@
 // bRando object
 // Used for creating and controlling all background randomizers
 const bRando = {
-  version: "0.0.7", // Version number string
+  version: "0.0.8", // Version number string
   bRandoBackgroundRandomizers: [], // background randomizers array
   bRandoPreloadedImgs: [], // Images that have already been preload into the document
 
@@ -28,11 +28,9 @@ const bRando = {
   new: (
     selector_string, // element selector string
     image_url_arr, // array of image urls
-    interval_ms, // ms interval between image rotations
-    transition_ms, // ms transition length of image rotation
-    transition_type, // css transition type for image rotation
-    random_order, // randomize images: true or false
-    background_attachment // what the css background-attachment property should be <scroll|fixed|local|initial|inherit>
+    interval_ms, // ms interval between background changes
+    transition_ms, // ms transition duration of background changes
+    random_order // randomize images: true or false
   ) => {
     // create new background randomizer for element(s)
     let newbRandoBackgroundRandomizer = new bRandoBackgroundRandomizer();
@@ -47,19 +45,13 @@ const bRando = {
     if (image_url_arr != undefined) newbRandoBackgroundRandomizer.image_url_arr = image_url_arr; // if an image array was was provided store it
     if (interval_ms != undefined) newbRandoBackgroundRandomizer.interval_ms = interval_ms; // if an interval was specified store it
     if (transition_ms != undefined) newbRandoBackgroundRandomizer.transition_ms = transition_ms; // if a transition time was given store it
-    if (transition_type != undefined)
-      newbRandoBackgroundRandomizer.transition_type = transition_type; // if a transition type was chosen store it
     if (random_order != undefined) newbRandoBackgroundRandomizer.random_order = random_order; // if random order was set store it
-    if (background_attachment != undefined)
-      newbRandoBackgroundRandomizer.background_attachment = background_attachment; // if background attachment property was given store it
 
     // Store original transition property
     newbRandoBackgroundRandomizer.og_transition_property =
       newbRandoBackgroundRandomizer.elements[0].style.transition;
 
-    // Store original background properties
-    newbRandoBackgroundRandomizer.og_background_size_property =
-      newbRandoBackgroundRandomizer.elements[0].style.backgroundSize;
+    // Store original background property
     newbRandoBackgroundRandomizer.og_background_property =
       newbRandoBackgroundRandomizer.elements[0].style.background;
 
@@ -98,9 +90,7 @@ const bRando = {
         newbRandoBackgroundRandomizer.og_transition_property =
           bRandoBackgroundRandomizer.og_transition_property;
 
-        // Store original background properties
-        newbRandoBackgroundRandomizer.og_background_size_property =
-          bRandoBackgroundRandomizer.og_background_size_property;
+        // Store original background property
         newbRandoBackgroundRandomizer.og_background_property =
           bRandoBackgroundRandomizer.og_background_property;
 
@@ -111,13 +101,10 @@ const bRando = {
 
     bRando.bRandoBackgroundRandomizers.push(newbRandoBackgroundRandomizer); // add new background randomizer object to array of randomizers
 
-    // Set transition properties on the element(s)
+    // Set transition property on the element(s)
     newbRandoBackgroundRandomizer.elements.forEach(element => {
       element.style.transition =
-        "background " +
-        newbRandoBackgroundRandomizer.transition_ms / 1000 +
-        "s " +
-        newbRandoBackgroundRandomizer.transition_type;
+        "background " + newbRandoBackgroundRandomizer.transition_ms / 1000 + "s ease-in-out";
     });
 
     newbRandoBackgroundRandomizer.next(); // move to first image
@@ -198,18 +185,15 @@ class bRandoBackgroundRandomizer {
       "https://images.unsplash.com/photo-1517789171-f2c4f83f1afd",
       "https://images.unsplash.com/photo-1552084117-56a987666449"
     ];
-    this.interval_ms = 10000; // default interval between image rotations
+    this.interval_ms = 10000; // default interval between background changes
     this.transition_ms = 3000; // default transition time
-    this.transition_type = "ease-in-out"; // default transition type
     this.random_order = true; // default to randomize image order
-    this.background_attachment = "fixed"; // default is "fixed"
     this.randomizer_id = null; // initially null until set; used to store setInterval function randomizer id
 
     // State Variables
     this.last_image = -1; // variable for index of last image; -1 indicates no image was used yet
     this.transitioning = false; // variable to keep track of whether the transition animation is taking place
     this.og_transition_property = ""; // variable to hold the original transition property before a background randomizer is added
-    this.og_background_size_property = ""; // variable to hold the original background size property before a background randomizer is added
     this.og_background_property = ""; // variable to hold the original background property before a background randomizer is added
   }
   // Function for changing to next image
@@ -257,13 +241,16 @@ class bRandoBackgroundRandomizer {
 
     // Set new background image(s)
     this.elements.forEach(element => {
-      element.style.backgroundSize = "cover";
-      element.style.background =
-        "url('" +
-        this.image_url_arr[indexOfNextImg] +
-        "') no-repeat " +
-        this.background_attachment +
-        " center center";
+      // Set developers background property
+      element.style.background = "url('" + this.image_url_arr[indexOfNextImg] + "')";
+
+      // Set defaults if no changes have been set by the dev
+      if (element.style.backgroundSize == "initial") element.style.backgroundSize = "cover";
+      if (element.style.backgroundRepeat == "initial") element.style.backgroundRepeat = "no-repeat";
+      if (element.style.backgroundAttachment == "initial")
+        element.style.backgroundAttachment = "fixed";
+      if (element.style.backgroundPosition == "initial")
+        element.style.backgroundPosition = "center";
     });
 
     this.last_image = indexOfNextImg; // Store last image index
@@ -309,7 +296,6 @@ class bRandoBackgroundRandomizer {
     this.pause(); // Pause randomizer
     this.elements.forEach(element => {
       element.style.transition = this.og_transition_property; // Revert transition property
-      element.style.backgroundSize = this.og_background_size_property; // Revert background size property
       element.style.background = this.og_background_property; // Revert background property
     });
     bRando.bRandoBackgroundRandomizers.splice(bRando.bRandoBackgroundRandomizers.indexOf(this), 1); // Destroy background randomizer

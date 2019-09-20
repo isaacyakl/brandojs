@@ -43,9 +43,7 @@ var backgroundRandomizer = bRando.new(
   images, // Array of image URLS
   10000, // Time in milliseconds between background changes
   3000, // Duration in milliseconds that the transition animation should take
-  "ease-in-out", // The transition animation type
-  true, // Whether to cycle through the backgrounds randomly or not
-  "fixed" // Background attachment type
+  true // Whether to cycle through the backgrounds randomly or not
 );
 ```
 
@@ -80,9 +78,7 @@ bRando.new (
     String[] <image_url_array>, // Array of image URLs to randomize
     Integer <interval_ms>, // Time between background rotations e.g. 10000
     Integer <transition_ms>, // Duration of transition animation e.g. 3000
-    String <transition_type>, // Type of transition timing function e.g. "ease-in-out". See https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
-    Boolean <random_order>, // Whether to go through backgrounds at random or not e.g. false
-    String <background_attachment> // How to attach the background e.g. "fixed". See https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
+    Boolean <random_order> // Whether to go through backgrounds at random or not e.g. false
 );
 ```
 
