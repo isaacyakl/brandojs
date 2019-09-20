@@ -192,6 +192,7 @@ bRando.removeAll(); // Remove all background randomizers
 This removes all randomizers and reverts the background settings on the selected element(s). Returns `0` for successful removal.
 
 ## To-Do
+- Background starting position center center
 - Add ability to randomize either background-image or background-color
 - Release on NPM
 - Preload images smallest to largest
