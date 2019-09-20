@@ -17,22 +17,25 @@ After downloading the minified bRando.js file or cloning this repository, includ
 ```html
   ...
   </body>
-  <script type="text/javascript" src="bRando-0.0.7.min.js"></script>
+  <script type="text/javascript" src="bRando-0.1.0.min.js"></script>
 </html>
 ```
 
 ### Create a background randomizer
 
-Then create an array of images to be used as backgrounds (examples taken from [Unsplash](https://www.unsplash.com)):
+Then create an array of backgrounds to be used (example images taken from [Unsplash](https://www.unsplash.com)):
 
 ```javascript
-// Our array of image URLs to use
-var images = [
-  "https://images.unsplash.com/photo-1502691876148-a84978e59af8",
-  "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10",
-  "https://images.unsplash.com/photo-1538291323976-37dcaafccb12"
+// Our array of backgrounds to use
+var backgrounds = [
+  "url('https://images.unsplash.com/photo-1502691876148-a84978e59af8')",
+  "url('https://images.unsplash.com/photo-1463438690606-f6778b8c1d10')",
+  "url('https://images.unsplash.com/photo-1538291323976-37dcaafccb12')",
+  "#000" // We can also use color backgrounds
 ];
 ```
+
+See [documentation section](#Documentation) for more information on background options.
 
 Next, we create a background randomizer and save it to a variable called `backgroundRandomizer`:
 
@@ -40,9 +43,9 @@ Next, we create a background randomizer and save it to a variable called `backgr
 // Create a new background randomizer
 var backgroundRandomizer = bRando.new(
   "div", // Selector string of which elements to change backgrounds on
-  images, // Array of image URLS
+  backgrounds, // Array of backgrounds
   10000, // Time in milliseconds between background changes
-  3000, // Duration in milliseconds that the transition animation should take
+  2500, // Duration in milliseconds of transitions
   true // Whether to cycle through the backgrounds randomly or not
 );
 ```
@@ -75,9 +78,9 @@ This will revert the background settings on all selected elements to the state t
 // Create a new background randomizer
 bRando.new (
     String <selector>, // String selector .class, #id, or element e.g. "div"
-    String[] <image_url_array>, // Array of image URLs to randomize
-    Integer <interval_ms>, // Time between background rotations e.g. 10000
-    Integer <transition_ms>, // Duration of transition animation e.g. 3000
+    String[] <background_array>, // Array of background properties to use
+    Integer <interval_ms>, // Time between background changes e.g. 10000
+    Integer <transition_ms>, // Duration of transition animation e.g. 2500
     Boolean <random_order> // Whether to go through backgrounds at random or not e.g. false
 );
 ```
@@ -86,13 +89,27 @@ bRando.new (
 
 If the selector string was already used to create a randomizer, the old randomizer will be deleted before creating a new one.
 
+The `background_array` may be any combination of background properties. See [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background). For example:
+
+```javascript
+// mixed background types
+var backgrounds = [
+  "url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
+  "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') bottom no-repeat", // image url with other background properties
+  "#ff00ff", // magenta background color in hex code
+  "rgb(219, 125, 0)", // orange background color in rgb form
+  "rgba(131, 92, 59, 1.0)", // brown background color in rgba form
+  "#ff0000f0" // red background color in hex code with alpha code
+];
+```
+
 **⚠️ Warning:**
 
 > Creating too many randomizers will consume large amounts of CPU power—particularly while backgrounds are transitioning.
 
 **⚠️ Warning:**
 
-> If multiple randomizers are attached to an html element the rotation intervals will be unpredictable.
+> If multiple randomizers are attached to an html element the background change intervals will be unpredictable.
 >
 > For example:
 >
@@ -190,7 +207,7 @@ This removes all randomizers and reverts the background settings on the selected
 
 ## To-Do
 
-- Background starting position center center
-- Add ability to randomize either background-image or background-color
+- Rename remove methods
 - Release on NPM
+- Find work around for buggy transitions between fixed and scroll background-image attachment types
 - Preload images smallest to largest
