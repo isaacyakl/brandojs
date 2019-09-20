@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   color: rgb(238, 237, 237);
+  word-wrap: break-word;
 }
 
 footer {
