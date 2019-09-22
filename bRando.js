@@ -202,7 +202,7 @@ class bRandoBackgroundRandomizer {
     this.background_arr = [
       // default backgrounds
       "url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
-      "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') bottom no-repeat", // image url with other background properties
+      "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') center no-repeat", // image url with other background properties
       "url('https://images.unsplash.com/photo-1543835683-ec5466c68daa')",
       "#ff00ff", // magenta background color in hex code
       "url('https://images.unsplash.com/photo-1485841938031-1bf81239b815')",

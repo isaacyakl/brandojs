@@ -99,7 +99,7 @@ The `background_array` may be any combination of background properties. See [htt
 // mixed background types
 var backgrounds = [
   "url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
-  "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') bottom no-repeat", // image url with other background properties
+  "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') center no-repeat", // image url with other background properties
   "#ff00ff", // magenta background color in hex code
   "rgb(219, 125, 0)", // orange background color in rgb form
   "rgba(131, 92, 59, 1.0)", // brown background color in rgba form
