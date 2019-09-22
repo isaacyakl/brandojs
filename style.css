@@ -53,7 +53,8 @@ h6 {
   padding: 1.4em;
 }
 /* Code control buttons */
-button.control {
+a.control {
+  display: inline-block;
   font-size: 0.8em;
   color: rgb(75, 74, 74);
   background-color: white;
@@ -65,8 +66,9 @@ button.control {
   transition-timing-function: ease;
   transition-duration: 0.3s;
   transition-property: background-color;
+  text-decoration: none;
 }
-button.control:hover {
+a.control:hover {
   background-color: #db7d00;
 }
 

@@ -41,42 +41,44 @@
         </p>
       </div>
       <div class="controls">
-        <h2>Code</h2>
+        <h2>Code Examples</h2>
         <p>
-          Click a .new() button to create a background randomizer in the demo section below:
+          Background randomizers are created using the bRando.new() method and are attached to
+          select HTML elements by passing a
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors#Selectors"
+            target="_blank"
+            >DOM selector string</a
+          >
+          argument. Try it for yourself:
         </p>
         <p>
-          <button class="control" onclick="bRando.new()">
-            bRando.new()
-          </button>
-          <button class="control" onclick="bRando.new('div.example')">
-            bRando.new('div.example')
-          </button>
-          <button class="control" onclick="bRando.new('p.example')">
-            bRando.new('p.example')
-          </button>
+          <a class="control" href="#htmlexample" onclick="bRando.new('html')">bRando.new('html')</a>
+          <a class="control" href="#divexample" onclick="bRando.new('div.example')">bRando.new('div.example')</a>
+          <a class="control" href="#pexample" onclick="bRando.new('p.example')">bRando.new('p.example')</a>
         </p>
         <p>
-          Move all randomizers to their next background, pause, play, or remove them:
+          Additionally, randomizers may be controlled individually and together. For example, the
+          following methods control all randomizers present on a page:
         </p>
         <p>
-          <button class="control" onclick="bRando.nextAll()">bRando.nextAll()</button>
-          <button class="control" onclick="bRando.pauseAll()">bRando.pauseAll()</button>
-          <button class="control" onclick="bRando.playAll()">bRando.playAll()</button>
-          <button class="control" onclick="bRando.removeAll()">bRando.removeAll()</button>
+          <a class="control" href="#htmlexample" onclick="bRando.nextAll()">bRando.nextAll()</a>
+          <a class="control" href="#htmlexample" onclick="bRando.pauseAll()">bRando.pauseAll()</a>
+          <a class="control" href="#htmlexample" onclick="bRando.playAll()">bRando.playAll()</a>
+          <a class="control" href="#htmlexample" onclick="bRando.removeAll()">bRando.removeAll()</a>
+        </p>
+        <p>
+          <a href="https://github.com/isaacyakl/bRando.js">Read full documentation...</a>
         </p>
       </div>
-      <div class="demo">
-        <h2>Demo</h2>
-        <p>
-          Click a .new() button above to create an image rotator.
-        </p>
-        <div class="example">div.example</div>
+      <div id="htmlexample" class="demo">
+        <h2>Demo Elements</h2>
+        <div id="divexample" class="example">div.example</div>
         <div class="example">div.example</div>
         <div class="example">div.example</div>
         <div class="example">div.example</div>
         <div class="clr"></div>
-        <p class="example">
+        <p id="pexample" class="example">
           p.example<br /><br />
           Lorizzle ipsum dolizzle sizzle fo shizzle my nizzle, phat adipiscing elit. Fizzle sapien
           velizzle, uhuh ... yih! volutpizzle, shizzlin dizzle crazy, fizzle vizzle, phat.
@@ -109,7 +111,7 @@
         Show support by following me on
         <a href="https://www.twitter.com/isaacyakl" target="_blank"
           ><i class="fab fa-twitter"></i
-        ></a>
+        ></<button>
         <a href="https://www.github.com/isaacyakl" target="_blank"><i class="fab fa-github"></i></a>
       </footer>
     </main>
