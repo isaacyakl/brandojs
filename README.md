@@ -8,6 +8,8 @@ Distributed under the [MIT License](https://isaacyakl.github.io/bRando.js/LICENS
 
 Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and [GitHub](https://github.com/isaacyakl).
 
+Found a 🐛? Create a [new issue](https://github.com/isaacyakl/bRando.js/issues/new).
+
 ## Usage
 
 ### Include bRando
@@ -73,6 +75,8 @@ This will revert the background settings on all selected elements to the state t
 ## Documentation
 
 ### Create a background randomizer
+
+Background randomizers are created using the bRando.new() method and are attached to select HTML elements by passing a [DOM selector string](https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors#Selectors) argument.
 
 ```javascript
 // Create a new background randomizer
