@@ -4,7 +4,7 @@
 // bRando object
 // Used for creating and controlling all background randomizers
 const bRando = {
-  version: "0.1.0", // Version number string
+  version: "0.1.1", // Version number string
   bRandoBackgroundRandomizers: [], // background randomizers array
   bRandoPreloadedImgs: [], // Images that have already been preload into the document
 
@@ -268,7 +268,8 @@ class bRandoBackgroundRandomizer {
 
       // Set defaults if no changes have been set by the dev
       if (element.style.backgroundImage == "initial")
-        element.style.backgroundImage = "url('trans.png')"; // Setting a transparent png helps smooth transitions between color only backgrounds and image backgrounds
+        element.style.backgroundImage =
+          "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=)"; // Setting a transparent png helps smooth transitions between color only backgrounds and image backgrounds
       if (element.style.backgroundSize == "initial") element.style.backgroundSize = "cover";
       if (element.style.backgroundRepeat == "initial") element.style.backgroundRepeat = "no-repeat";
       if (element.style.backgroundAttachment == "initial")
