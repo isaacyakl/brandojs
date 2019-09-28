@@ -89,9 +89,9 @@ bRando.new (
 );
 ```
 
-`bRando.new()` returns the created backgound randomizer object and automatically plays it. If no elements were found using the selector string, the function returns error code `1` instead.
+`bRando.new()` returns the created background randomizer object and automatically plays it. If no elements were found using the selector string, the function returns error code `1` instead.
 
-If the selector string was already used to create a randomizer, the old randomizer will be deleted before creating a new one.
+If the selector string was already used to create a randomizer, the old randomizer will be removed before creating a new one.
 
 The `background_array` may be any combination of background properties. See [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background). For example:
 
@@ -211,7 +211,7 @@ This removes all randomizers and reverts the background settings on the selected
 
 ## To-Do
 
-- Rename remove methods
+- Implement Webpack
 - Release on NPM
 - Find work around for buggy transitions between fixed and scroll background-image attachment types
 - Preload images smallest to largest
