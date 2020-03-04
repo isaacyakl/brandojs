@@ -10,6 +10,13 @@ Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and
 
 Found a 🐛? Create a [new issue](https://github.com/isaacyakl/bRando.js/issues/new).
 
+## Release Notes
+
+### v0.1.1
+
+- Added support for the CSS background property [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
+- Added To-Do list
+
 ## Usage
 
 ### Include bRando
