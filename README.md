@@ -208,10 +208,3 @@ bRando.removeAll(); // Remove all background randomizers
 ```
 
 This removes all randomizers and reverts the background settings on the selected element(s). Returns `0` for successful removal.
-
-## To-Do
-
-- Implement Webpack
-- Release on NPM
-- Find work around for buggy transitions between fixed and scroll background-image attachment types
-- Preload images smallest to largest
