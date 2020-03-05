@@ -1,6 +1,6 @@
 # bRando.js
 
-An HTML element background randomizer. Written with vanilla JavaScript by [yak](https://www.isaacyakl.com).
+A CSS background property randomizer capable of transitioning between images, colors, and gradients. Written with vanilla JavaScript by [yak](https://www.isaacyakl.com).
 
 Demo: [https://isaacyakl.github.io/bRando.js/](https://isaacyakl.github.io/bRando.js/)
 
@@ -11,6 +11,10 @@ Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and
 Found a 🐛? Create a [new issue](https://github.com/isaacyakl/bRando.js/issues/new).
 
 ## Release Notes
+
+### v0.1.2
+
+- Added a gradient to the demo and README
 
 ### v0.1.1
 
@@ -32,15 +36,16 @@ After downloading the minified bRando.js file or cloning this repository, includ
 
 ### Create a background randomizer
 
-Then create an array of backgrounds to be used (example images taken from [Unsplash](https://www.unsplash.com)):
+Then create an array of backgrounds to be used (they can include images, colors, and/or gradients):
 
 ```javascript
 // Our array of backgrounds to use
 var backgrounds = [
-  "url('https://images.unsplash.com/photo-1502691876148-a84978e59af8')",
+  "url('https://images.unsplash.com/photo-1502691876148-a84978e59af8')", // we can use images
   "url('https://images.unsplash.com/photo-1463438690606-f6778b8c1d10')",
   "url('https://images.unsplash.com/photo-1538291323976-37dcaafccb12')",
-  "#000" // We can also use color backgrounds
+  "#000", // we can use colors
+  "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)" // we can use gradients
 ];
 ```
 
@@ -100,7 +105,7 @@ bRando.new (
 
 If the selector string was already used to create a randomizer, the old randomizer will be removed before creating a new one.
 
-The `background_array` may be any combination of background properties. See [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background). For example:
+The `background_array` may contain any combination of CSS background properties including images, colors, and gradients. See [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background). For example:
 
 ```javascript
 // mixed background types
@@ -108,6 +113,7 @@ var backgrounds = [
   "url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
   "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') center no-repeat", // image url with other background properties
   "#ff00ff", // magenta background color in hex code
+  "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", // horizontal blue linear gradient
   "rgb(219, 125, 0)", // orange background color in rgb form
   "rgba(131, 92, 59, 1.0)", // brown background color in rgba form
   "#ff0000f0" // red background color in hex code with alpha code

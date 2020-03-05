@@ -1,10 +1,15 @@
-// bRando by yak
-// www.isaacyakl.com @isaacyakl
+/**
+ * @name bRando
+ * @version 0.1.2
+ * @description A CSS background property randomizer capable of transitioning between images, colors, and gradients.
+ * @author Isaac "yak" L. @isaacyakl www.isaacyakl.com
+ * @license MIT License https://isaacyakl.github.io/bRando.js/LICENSE
+ */
 
 // bRando object
 // Used for creating and controlling all background randomizers
 const bRando = {
-  version: "0.1.1", // Version number string
+  version: "0.1.2", // Version number string
   bRandoBackgroundRandomizers: [], // background randomizers array
   bRandoPreloadedImgs: [], // Images that have already been preload into the document
 
@@ -204,15 +209,14 @@ class bRandoBackgroundRandomizer {
       "url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
       "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') center no-repeat", // image url with other background properties
       "url('https://images.unsplash.com/photo-1543835683-ec5466c68daa')",
-      "#ff00ff", // magenta background color in hex code
       "url('https://images.unsplash.com/photo-1485841938031-1bf81239b815')",
       "url('https://images.unsplash.com/photo-1550353185-761a5da3ee96')",
-      "rgb(219,125,0)", // orange background color in rgb form
+      "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", // horizontal blue linear gradient
       "rgba(131,92,59,1.0)", // brown background color in rgba form
       'url("https://images.unsplash.com/photo-1449496967047-2a322e78ec26")',
       "url('https://images.unsplash.com/photo-1517789171-f2c4f83f1afd')",
       "url('https://images.unsplash.com/photo-1552084117-56a987666449')",
-      "#ff0000f0", // red background color in hex code with alpha code
+      "#ff00fff0", // magenta background color in hex code with alpha code
       "#6c757d" // medium gray background color
     ];
     this.interval_ms = 10000; // default interval between background changes
