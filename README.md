@@ -2,13 +2,13 @@
 
 A CSS background property randomizer capable of transitioning between images, colors, and gradients. Written with vanilla JavaScript by [yak](https://www.isaacyakl.com).
 
-Demo: [https://isaacyakl.github.io/bRando.js/](https://isaacyakl.github.io/bRando.js/)
+Demo: [https://isaacyakl.github.io/brandojs/](https://isaacyakl.github.io/brandojs/)
 
-Distributed under the [MIT License](https://isaacyakl.github.io/bRando.js/LICENSE).
+Distributed under the [MIT License](https://isaacyakl.github.io/brandojs/LICENSE).
 
 Show support by following me on [Twitter](https://www.twitter.com/isaacyakl) and [GitHub](https://github.com/isaacyakl).
 
-Found a 🐛? Create a [new issue](https://github.com/isaacyakl/bRando.js/issues/new).
+Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new).
 
 ## Release Notes
 
@@ -30,7 +30,7 @@ After downloading the minified bRando.js file or cloning this repository, includ
 ```html
   ...
   </body>
-  <script type="text/javascript" src="bRando-0.1.0.min.js"></script>
+  <script type="text/javascript" src="bRando-0.1.2.min.js"></script>
 </html>
 ```
 
@@ -156,7 +156,7 @@ If no arguments are passed to `bRando.new()` it will create and return a demo ra
 bRando.new(); // Use the demo background randomizer which acts on <html>
 ```
 
-Check it out on the [demo](https://isaacyakl.github.io/bRando.js/) page.
+Check it out on the [demo](https://isaacyakl.github.io/brandojs/) page.
 
 ### Manually move to the next background
 
