@@ -1,0 +1,35 @@
+{
+  "name": "brandojs",
+  "version": "0.1.2",
+  "description": "A CSS background property randomizer capable of transitioning between images, colors, and gradients.",
+  "browser": "bRando-0.1.2.min.js",
+  "scripts": {
+    "minify": "echo 'Compressing...' && terser bRando.js -c -m --comments -o  bRando-0.X.X.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isaacyakl/brandojs.git"
+  },
+  "keywords": [
+    "javascript",
+    "css3",
+    "background-image",
+    "background",
+    "randomizer",
+    "random",
+    "background-color",
+    "html5",
+    "html",
+    "css",
+    "html-css-javascript",
+    "vanilla-javascript",
+    "vanilla-js",
+    "vanillajs"
+  ],
+  "author": "Isaac 'yak' L. <i@isaacyakl.com> (https://www.isaacyakl.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isaacyakl/brandojs/issues"
+  },
+  "homepage": "https://github.com/isaacyakl/brandojs#readme"
+}
