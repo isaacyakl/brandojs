@@ -12,6 +12,11 @@ Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/
 
 ## Release Notes
 
+### v0.1.3
+
+- Published to NPM 🥳
+- Added CDN instructions to README
+
 ### v0.1.2
 
 - Added a gradient to the demo and README
@@ -23,15 +28,24 @@ Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/
 
 ## Usage
 
-### Include bRando
+### Include bRando.js
 
-After downloading the minified bRando.js file or cloning this repository, include bRando by placing the `<script>` tag just after the closing `</body>` of your html page.
+Include a copy of bRando.js via one of the following methods.
+
+#### CDN
+
+If you do not want to download bRando.js, include the following code right before the closing `</body>` tag:
 
 ```html
-  ...
-  </body>
-  <script type="text/javascript" src="bRando-0.1.2.min.js"></script>
-</html>
+<script type="text/javascript" src="https://unpkg.com/brandojs@0.1.3/bRando-0.1.3.min.js"></script>
+```
+
+#### Download
+
+Otherwise, download the `bRando-0.1.3.min.js` file or clone this repository, and include the following code right before the closing `</body>` tag.
+
+```html
+<script type="text/javascript" src="bRando-0.1.3.min.js"></script>
 ```
 
 ### Create a background randomizer

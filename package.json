@@ -1,8 +1,8 @@
 {
   "name": "brandojs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A CSS background property randomizer capable of transitioning between images, colors, and gradients.",
-  "browser": "bRando-0.1.2.min.js",
+  "browser": "bRando-0.1.3.min.js",
   "scripts": {
     "minify": "echo 'Compressing...' && terser bRando.js -c -m --comments -o  bRando-0.X.X.min.js"
   },

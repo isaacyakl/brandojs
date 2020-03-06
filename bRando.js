@@ -1,6 +1,6 @@
 /**
  * @name bRando.js
- * @version 0.1.2
+ * @version 0.1.3
  * @description A CSS background property randomizer capable of transitioning between images, colors, and gradients.
  * @author Isaac "yak" L. @isaacyakl www.isaacyakl.com
  * @license MIT License https://isaacyakl.github.io/brandojs/LICENSE
@@ -9,7 +9,7 @@
 // bRando object
 // Used for creating and controlling all background randomizers
 const bRando = {
-  version: "0.1.2", // Version number string
+  version: "0.1.3", // Version number string
   bRandoBackgroundRandomizers: [], // background randomizers array
   bRandoPreloadedImgs: [], // Images that have already been preload into the document
 
