@@ -1,6 +1,8 @@
+![bRando.js Screenshot](brandojs-ss1-cover.gif)
+
 # bRando.js
 
-A CSS background property randomizer capable of transitioning between images, colors, and gradients. Written with vanilla JavaScript by [yak](https://www.isaacyakl.com).
+A CSS background property randomizing library capable of transitioning between images, colors, and gradients, written with vanilla JavaScript.
 
 Demo: [https://isaacyakl.github.io/brandojs/](https://isaacyakl.github.io/brandojs/)
 
@@ -14,17 +16,17 @@ Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/
 
 ### v0.1.3
 
-- Published to NPM 🥳
-- Added CDN instructions to README
+-  Published to NPM 🥳
+-  Added CDN instructions to README
 
 ### v0.1.2
 
-- Added a gradient to the demo and README
+-  Added a gradient to the demo and README
 
 ### v0.1.1
 
-- Added support for the CSS background property [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
-- Added To-Do list
+-  Added support for the CSS background property [https://developer.mozilla.org/en-US/docs/Web/CSS/background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
+-  Added To-Do list
 
 ## Usage
 
@@ -55,11 +57,11 @@ Then create an array of backgrounds to be used (they can include images, colors,
 ```javascript
 // Our array of backgrounds to use
 var backgrounds = [
-  "url('https://images.unsplash.com/photo-1502691876148-a84978e59af8')", // we can use images
-  "url('https://images.unsplash.com/photo-1463438690606-f6778b8c1d10')",
-  "url('https://images.unsplash.com/photo-1538291323976-37dcaafccb12')",
-  "#000", // we can use colors
-  "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)" // we can use gradients
+	"url('https://images.unsplash.com/photo-1502691876148-a84978e59af8')", // we can use images
+	"url('https://images.unsplash.com/photo-1463438690606-f6778b8c1d10')",
+	"url('https://images.unsplash.com/photo-1538291323976-37dcaafccb12')",
+	"#000", // we can use colors
+	"linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", // we can use gradients
 ];
 ```
 
@@ -70,11 +72,11 @@ Next, we create a background randomizer and save it to a variable called `backgr
 ```javascript
 // Create a new background randomizer
 var backgroundRandomizer = bRando.new(
-  "div", // Selector string of which elements to change backgrounds on
-  backgrounds, // Array of backgrounds
-  10000, // Time in milliseconds between background changes
-  2500, // Duration in milliseconds of transitions
-  true // Whether to cycle through the backgrounds randomly or not
+	"div", // Selector string of which elements to change backgrounds on
+	backgrounds, // Array of backgrounds
+	10000, // Time in milliseconds between background changes
+	2500, // Duration in milliseconds of transitions
+	true // Whether to cycle through the backgrounds randomly or not
 );
 ```
 
@@ -124,13 +126,13 @@ The `background_array` may contain any combination of CSS background properties 
 ```javascript
 // mixed background types
 var backgrounds = [
-  "url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
-  "fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') center no-repeat", // image url with other background properties
-  "#ff00ff", // magenta background color in hex code
-  "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", // horizontal blue linear gradient
-  "rgb(219, 125, 0)", // orange background color in rgb form
-  "rgba(131, 92, 59, 1.0)", // brown background color in rgba form
-  "#ff0000f0" // red background color in hex code with alpha code
+	"url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e')", // image url
+	"fixed url('https://images.unsplash.com/photo-1491147334573-44cbb4602074') center no-repeat", // image url with other background properties
+	"#ff00ff", // magenta background color in hex code
+	"linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)", // horizontal blue linear gradient
+	"rgb(219, 125, 0)", // orange background color in rgb form
+	"rgba(131, 92, 59, 1.0)", // brown background color in rgba form
+	"#ff0000f0", // red background color in hex code with alpha code
 ];
 ```
 

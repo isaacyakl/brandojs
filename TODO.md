@@ -1,4 +1,5 @@
 # TO-DO
 
-- Preload images smallest to largest
-- Find work around for buggy transitions between fixed and scroll background-image attachment types
+-  Add CommonJS/ReactJS support
+-  Find work around for buggy (instant) transitions between fixed and scroll background-image attachment types
+-  Preload images smallest to largest
