@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/frame-with-picture_1f5bc.png" type="image/x-icon" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
+		<title>bRando.js Demo</title>
+	</head>
+	<body>
+		<main>
+			<div class="desc">
+				<h1>bRando.js</h1>
+				<p>
+					A CSS background property randomizer capable of transitioning between images, colors, and gradients. Written with vanilla JavaScript by
+					<a href="https://www.isaacyakl.com">yak</a>.<br />
+					<br />
+					Documentation + Code:
+					<a href="https://github.com/isaacyakl/brandojs">https://github.com/isaacyakl/brandojs</a><br />
+					<br />
+					Distributed under the
+					<a href="https://isaacyakl.github.io/brandojs/LICENSE">MIT License</a>.
+				</p>
+			</div>
+			<div class="controls">
+				<h2>Code Examples</h2>
+				<p>
+					Background randomizers are created using the bRando.new() method and are attached to select HTML elements by passing a
+					<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors#Selectors" target="_blank">DOM selector string</a>
+					argument. Try it for yourself:
+				</p>
+				<p>
+					<a class="control" href="#htmlexample" onclick="bRando.new('html')">bRando.new('html')</a>
+					<a class="control" href="#divexample" onclick="bRando.new('div.example')">bRando.new('div.example')</a>
+					<a class="control" href="#pexample" onclick="bRando.new('p.example')">bRando.new('p.example')</a>
+				</p>
+				<p>Additionally, randomizers may be controlled individually and together. For example, the following methods control all randomizers present on a page:</p>
+				<p>
+					<a class="control" href="#htmlexample" onclick="bRando.nextAll()">bRando.nextAll()</a>
+					<a class="control" href="#htmlexample" onclick="bRando.pauseAll()">bRando.pauseAll()</a>
+					<a class="control" href="#htmlexample" onclick="bRando.playAll()">bRando.playAll()</a>
+					<a class="control" href="#htmlexample" onclick="bRando.removeAll()">bRando.removeAll()</a>
+				</p>
+				<p>
+					<a href="https://github.com/isaacyakl/brandojs">Read full documentation...</a>
+				</p>
+			</div>
+			<div id="htmlexample" class="demo">
+				<h2>Demo Elements</h2>
+				<div id="divexample" class="example">div.example</div>
+				<div class="example">div.example</div>
+				<div class="example">div.example</div>
+				<div class="example">div.example</div>
+				<div class="clr"></div>
+				<p id="pexample" class="example">
+					p.example<br /><br />
+					Lorizzle ipsum dolizzle sizzle fo shizzle my nizzle, phat adipiscing elit. Fizzle sapien velizzle, uhuh ... yih! volutpizzle, shizzlin dizzle crazy, fizzle vizzle, phat. Pellentesque things shizzle my nizzle crocodizzle. Sed erizzle. Dope fo shizzle boofron dapibizzle boofron tempizzle break it down. Maurizzle mah nizzle nibh black turpis. Gangster crazy tortor. Pellentesque boofron rhoncizzle pot. In yippiyo bling bling platea gangster. Rizzle dapibizzle. Curabitizzle tellizzle urna, pretizzle get down get down, mattizzle ac, we gonna chung dope, nunc. Bizzle suscipit. Integizzle semper fizzle yo mamma purus.
+				</p>
+				<p class="example">
+					p.example<br /><br />
+					Yippiyo shut the shizzle up diam quizzle dawg pot mollis. Suspendisse break yo neck, yall. Morbi odio. Stuff neque. Cras orci. Uhuh ... yih! mauris that's the shizzle, interdizzle a, feugiat boofron amizzle, go to hizzle in, daahng dawg. Pellentesque gravida. You son of a bizzle gangster mi, volutpizzle in, sagittis sizzle, da bomb semper, velizzle. Things i'm in the shizzle ipsizzle. Aliquam volutpizzle fo shizzle vizzle phat. Crizzle quis break yo neck, yall ma nizzle check it out sodalizzle ornare. Boom shackalack venenatizzle justo izzle go to hizzle. Nunc urna. Break it down venenatizzle placerat lacizzle. Curabitur fo shizzle ante. Nunc fizzle, leo eu mah nizzle hendrerizzle, ipsum felis mofo sem, in aliquizzle magna felizzle shut the shizzle up for sure. Nizzle yo mamma nisl. Class aptent taciti sociosqu ad litora torquent check out this conubia pot, pizzle shizzlin dizzle bizzle. Aliquizzle sure, fo shizzle nizzle you son of a bizzle nonummy, uhuh ... yih! orci da bomb stuff, in sempizzle risus arcu dang sem.
+					<br />
+					<a href="http://lorizzle.nl" target="_blank">Lorizzle...</a>
+				</p>
+			</div>
+			<footer>
+				Show support by following me on
+				<a href="https://www.twitter.com/isaacyakl" alt="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.github.com/isaacyakl" alt="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+			</footer>
+		</main>
+		<script type="text/javascript">
+			window.addEventListener("load", bRando.new());
+		</script>
+	</body>
+</html>

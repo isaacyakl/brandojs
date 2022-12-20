@@ -2,7 +2,7 @@
 
 # bRando.js
 
-A CSS background property randomizing library capable of transitioning between images, colors, and gradients, written with vanilla JavaScript.
+A CSS background changer capable of transitioning sequentially or randomly between images, colors, and gradients.
 
 Demo: [https://isaacyakl.github.io/brandojs/](https://isaacyakl.github.io/brandojs/)
 

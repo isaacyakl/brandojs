@@ -1,35 +1,48 @@
 {
-  "name": "brandojs",
-  "version": "0.1.3",
-  "description": "A CSS background property randomizer capable of transitioning between images, colors, and gradients.",
-  "browser": "bRando-0.1.3.min.js",
-  "scripts": {
-    "minify": "echo 'Compressing...' && terser bRando.js -c -m --comments -o  bRando-0.X.X.min.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/isaacyakl/brandojs.git"
-  },
-  "keywords": [
-    "javascript",
-    "css3",
-    "background-image",
-    "background",
-    "randomizer",
-    "random",
-    "background-color",
-    "html5",
-    "html",
-    "css",
-    "html-css-javascript",
-    "vanilla-javascript",
-    "vanilla-js",
-    "vanillajs"
-  ],
-  "author": "Isaac 'yak' L. <i@isaacyakl.com> (https://www.isaacyakl.com/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/isaacyakl/brandojs/issues"
-  },
-  "homepage": "https://github.com/isaacyakl/brandojs#readme"
+	"name": "brandojs",
+	"version": "0.1.3",
+	"description": "A CSS background changer capable of transitioning sequentially or randomly between images, colors, and gradients.",
+	"browser": "/src/index.ts",
+	"scripts": {
+		"dev": "webpack-dev-server --mode development",
+		"build": "webpack --mode production",
+		"publish": ""
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/isaacyakl/brandojs.git"
+	},
+	"keywords": [
+		"javascript",
+		"css3",
+		"background-image",
+		"background",
+		"randomizer",
+		"random",
+		"background-color",
+		"html5",
+		"html",
+		"css",
+		"html-css-javascript",
+		"vanilla-javascript",
+		"vanilla-js",
+		"vanillajs"
+	],
+	"author": "Isaac 'yak' L. <i@isaacyakl.com> (https://www.isaacyakl.com/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/isaacyakl/brandojs/issues"
+	},
+	"homepage": "https://github.com/isaacyakl/brandojs#readme",
+	"devDependencies": {
+		"html-webpack-plugin": "^5.5.0",
+		"ts-loader": "^9.4.2",
+		"typescript": "^4.9.4",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1"
+	},
+	"dependencies": {
+		"copy-webpack-plugin": "^11.0.0"
+	}
 }
