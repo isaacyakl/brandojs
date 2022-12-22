@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/frame-with-picture_1f5bc.png" type="image/x-icon" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
-		<title>bRando.js Demo</title>
+		<title><%= htmlWebpackPlugin.options.title %></title>
 	</head>
 	<body>
 		<main>
@@ -73,7 +73,11 @@
 			</footer>
 		</main>
 		<script type="text/javascript">
-			window.addEventListener("load", bRando.new());
+			// window.addEventListener("load", () => {
+			// 	let meh = new bRando.create(".lol", ["red", "blue", "green", "pink"], 1000, true);
+			// 	meh.play();
+			// 	console.log(meh.nodes, meh.backgrounds);
+			// });
 		</script>
 	</body>
 </html>
