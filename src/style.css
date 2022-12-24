@@ -41,13 +41,13 @@ h6 {
 }
 
 .desc {
-	background-color: rgba(19, 180, 92, 0.97);
+	background-color: rgba(19, 180, 92, 1);
 	text-shadow: none;
 	padding: 1.4em;
 }
 
 .usage {
-	background-color: rgba(0, 94, 235, 0.97);
+	background-color: rgba(0, 94, 235, 1);
 	padding: 1.4em;
 }
 
