@@ -1,5 +1,6 @@
 export default class bRando {
 	readonly nodes: NodeList;
+	readonly CSSSelector: string;
 
 	private _backgrounds: string[];
 	public get backgrounds(): string[] {
@@ -30,38 +31,66 @@ export default class bRando {
 		this._random = value != null ? value : true;
 	}
 
+	private _CSSTransition: string;
+	public get CSSTransition(): string {
+		return this._CSSTransition;
+	}
+	public set CSSTransition(value: string) {
+		this._CSSTransition = value == null ? "5000ms" : value;
+	}
+
 	private timer: number;
 	readonly originalCSSBackgrounds: string[];
-	readonly originalCSSAfters: string[];
+	readonly originalCSSPositions: string[];
+	readonly styleElement: HTMLElement;
 
-	constructor(CSSSelector?: string, CSSBackgrounds?: string[], timeout?: number, random?: boolean) {
-		this.nodes = CSSSelector == null || CSSSelector == "" ? document.querySelectorAll("body") : document.querySelectorAll(CSSSelector);
+	private _isAfterOpaque: boolean;
+	private get isAfterOpaque(): boolean {
+		return this._isAfterOpaque;
+	}
+	private set isAfterOpaque(value: boolean) {
+		this._isAfterOpaque = value;
+	}
+
+	readonly CSSBackgroundVarName: string;
+	readonly CSSOpacityVarName: string;
+	readonly CSSTransitionVarName: string;
+
+	private _lastBackground: number;
+	public get lastBackground(): number {
+		return this._lastBackground;
+	}
+	private set lastBackground(value: number) {
+		this._lastBackground = value;
+	}
+
+	constructor(CSSSelector?: string, CSSBackgrounds?: string[], timeout?: number, random?: boolean, CSSTransition?: string) {
+		this.CSSSelector = CSSSelector == null || CSSSelector == "" ? "body" : CSSSelector;
+		this.nodes = document.querySelectorAll(this.CSSSelector);
 		this.backgrounds = CSSBackgrounds;
 		this.timeout = timeout;
 		this.random = random;
-		this.originalCSSBackgrounds = this.originalCSSAfters = [];
-		this.nodes.forEach((e) => this.originalCSSBackgrounds.push((e as HTMLElement).style.background.toString()));
-		// this.nodes.forEach((e) => this.originalCSSAfters.push((e as HTMLElement).style.transition.toString()));
-
-		/*
-        - backup any existing CSS styles
-        - backup any existing ::after styles		
-        - create embedded style element: https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
-            - add ::after rule set to CSSSelector
-                https://medium.com/web-dev-survey-from-kyoto/change-the-background-color-with-transition-animation-web-dev-survey-from-kyoto-ef2f65756e9a
-                https://bryanlrobinson.com/blog/how-to-css-after-elements-for-background-overlays/
-                - background-image supplied by a css variable:
-                    https://medium.com/codex/two-different-ways-to-style-pseudo-elements-with-javascript-3d9260d9c61b
-                    https://www.youtube.com/watch?v=LszEboGO_zw
-                    https://blog.shhdharmen.me/how-to-change-look-and-feel-of-pseudo-elements-using-javascript-and-css-custom-properties
-                - content
-                - z-index
-                - opacity: 0 | 1
-                - transition
-        - add the style element to the DOM: https://tomanistor.com/blog/selecting-and-modifying-css-pseudo-elements-with-javascript/
-
-        - update background images of both and opacity of ::after in an alternating manner
-        */
+		this.CSSTransition = CSSTransition;
+		this.originalCSSBackgrounds = [];
+		this.originalCSSPositions = [];
+		this.nodes.forEach((e) => {
+			this.originalCSSBackgrounds.push((e as HTMLElement).style.background); // backup the original CSS background property
+			this.originalCSSPositions.push((e as HTMLElement).style.position); // backup the original CSS position property
+			(e as HTMLElement).style.position = "relative"; // set each element to be relative
+		});
+		this.styleElement = document.createElement("style");
+		this.CSSBackgroundVarName = `--bRandoBg${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
+		this.CSSOpacityVarName = `--bRandoOpacity${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
+		this.CSSTransitionVarName = `--bRandoTransition${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
+		this.styleElement.innerText = `${this.CSSSelector}::after{background:var(${this.CSSBackgroundVarName});content:'';position:absolute;top:0;bottom:0;left:0;right:0;z-index:-1;opacity:var(${this.CSSOpacityVarName});transition: var(${this.CSSTransitionVarName});}`;
+		document.head.append(this.styleElement);
+		this.isAfterOpaque = false;
+		this.lastBackground = -1;
+		this.nodes.forEach((e) => {
+			(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "0");
+			(e as HTMLElement).style.setProperty(this.CSSTransitionVarName, `opacity ${this.CSSTransition}`);
+			(e as HTMLElement).style.zIndex = "0";
+		});
 	}
 	play(): void {
 		this.next();
@@ -73,18 +102,30 @@ export default class bRando {
 		clearInterval(this.timer);
 	}
 	next(): void {
-		const randBackground = Math.floor(Math.random() * this.backgrounds.length);
+		const getNewRandomBackgroundIndex = (): number => {
+			let newIndex: number;
+			do {
+				newIndex = Math.floor(Math.random() * this.backgrounds.length);
+			} while (this.lastBackground === newIndex);
+			return newIndex;
+		};
+		this.lastBackground = this.random ? getNewRandomBackgroundIndex() : this.lastBackground === this.backgrounds.length - 1 ? (this.lastBackground = 0) : this.lastBackground + 1;
 		this.nodes.forEach((e) => {
-			(e as HTMLElement).style.background = this.backgrounds[randBackground];
+			if (!this.isAfterOpaque) {
+				(e as HTMLElement).style.setProperty(this.CSSBackgroundVarName, this.backgrounds[this.lastBackground]);
+				(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "1");
+			} else {
+				(e as HTMLElement).style.background = this.backgrounds[this.lastBackground];
+				(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "0");
+			}
 		});
+		this.isAfterOpaque = !this.isAfterOpaque;
 	}
 	remove(): void {
 		this.pause();
 		this.nodes.forEach((e, i) => {
 			(e as HTMLElement).style.background = this.originalCSSBackgrounds[i];
+			(e as HTMLElement).style.position = this.originalCSSPositions[i];
 		});
-		// this.nodes.forEach((e, i) => {
-		// 	(e as HTMLElement).style.background = this.originalCSSAfters[i];
-		// });
 	}
 }
