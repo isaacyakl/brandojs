@@ -4,5 +4,5 @@ export function create(CSSSelector: string, CSSBackgrounds: string[], timeout?: 
 	return new bRando(CSSSelector, CSSBackgrounds, timeout, random, CSSTransition);
 }
 
-const bob = new bRando("body", ["white", "blue", "red"], 2000, true, "1000ms");
-bob.play();
+// const demo = new bRando();
+// demo.play();

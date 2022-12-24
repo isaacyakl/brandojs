@@ -1,5 +1,9 @@
 html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 	background: rgb(151, 151, 151);
+	min-height: 100%;
 }
 
 body {
@@ -35,11 +39,6 @@ h6 {
 	margin: 0;
 }
 
-/* Ye Old Float Clearer */
-.clr {
-	clear: both;
-}
-
 /* Wrapper for bRando description section */
 .desc {
 	background-color: #13b45c;
@@ -69,7 +68,8 @@ a.control {
 	text-decoration: none;
 }
 a.control:hover {
-	background-color: #db7d00;
+	color: rgb(255, 255, 255);
+	background-color: #414141;
 }
 
 /* Wrapper for demo section */

@@ -1,7 +1,7 @@
 {
 	"name": "brandojs",
 	"version": "0.1.3",
-	"description": "A CSS background changer capable of transitioning sequentially or randomly between images, colors, and gradients.",
+	"description": "A CSS background property changer capable of transitioning randomly or sequentially.",
 	"main": "dist/bRando.js",
 	"scripts": {
 		"dev": "webpack-dev-server --mode development",

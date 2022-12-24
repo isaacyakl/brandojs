@@ -9,9 +9,11 @@ export default class bRando {
 	public set backgrounds(value: string[]) {
 		// prettier-ignore
 		this._backgrounds = value == null ? [
-            'red url("/img/alex-knight-vaA6EQiUSo4-unsplash.jpg") center/cover no-repeat', 
-            'green url("/img/joel-fulgencio-01fAtHwYqo0-unsplash.jpg") center/cover no-repeat', 
-            'blue url("/img/pawel-nolbert-4u2U8EO9OzY-unsplash.jpg") center/cover no-repeat'
+            'url("/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat', 
+            'url("/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat', 
+            'url("/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
+            'url("/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
+            'url("/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
         ] : value;
 	}
 
@@ -124,8 +126,8 @@ export default class bRando {
 	remove(): void {
 		this.pause();
 		this.nodes.forEach((e, i) => {
-			(e as HTMLElement).style.background = this.originalCSSBackgrounds[i];
-			(e as HTMLElement).style.position = this.originalCSSPositions[i];
+			(e as HTMLElement).style.background = this.originalCSSBackgrounds[i]; // restore original CSS background property
+			(e as HTMLElement).style.position = this.originalCSSPositions[i]; // restore original CSS position property
 		});
 	}
 }

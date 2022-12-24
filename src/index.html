@@ -15,7 +15,7 @@
 			<div class="desc">
 				<h1>bRando.js</h1>
 				<p>
-					A CSS background property randomizer capable of transitioning between images, colors, and gradients. Written with vanilla JavaScript by
+					A CSS background property changer capable of transitioning randomly or sequentially. ⌨️ by
 					<a href="https://www.isaacyakl.com">yak</a>.<br />
 					<br />
 					Documentation + Code:
@@ -39,32 +39,18 @@
 				</p>
 				<p>Additionally, randomizers may be controlled individually and together. For example, the following methods control all randomizers present on a page:</p>
 				<p>
-					<a class="control" href="#htmlexample" onclick="bRando.nextAll()">bRando.nextAll()</a>
-					<a class="control" href="#htmlexample" onclick="bRando.pauseAll()">bRando.pauseAll()</a>
-					<a class="control" href="#htmlexample" onclick="bRando.playAll()">bRando.playAll()</a>
-					<a class="control" href="#htmlexample" onclick="bRando.removeAll()">bRando.removeAll()</a>
+					<a class="control" href="#" onclick="bRando.nextAll()">bRando.nextAll()</a>
+					<a class="control" href="#" onclick="bRando.pauseAll()">bRando.pauseAll()</a>
+					<a class="control" href="#" onclick="bRando.playAll()">bRando.playAll()</a>
+					<a class="control" href="#" onclick="bRando.removeAll()">bRando.removeAll()</a>
 				</p>
 				<p>
 					<a href="https://github.com/isaacyakl/brandojs">Read full documentation...</a>
 				</p>
 			</div>
-			<div id="htmlexample" class="demo">
+			<div class="demo">
 				<h2>Demo Elements</h2>
-				<div id="divexample" class="example">div.example</div>
-				<div class="example">div.example</div>
-				<div class="example">div.example</div>
-				<div class="example">div.example</div>
-				<div class="clr"></div>
-				<p id="pexample" class="example">
-					p.example<br /><br />
-					Lorizzle ipsum dolizzle sizzle fo shizzle my nizzle, phat adipiscing elit. Fizzle sapien velizzle, uhuh ... yih! volutpizzle, shizzlin dizzle crazy, fizzle vizzle, phat. Pellentesque things shizzle my nizzle crocodizzle. Sed erizzle. Dope fo shizzle boofron dapibizzle boofron tempizzle break it down. Maurizzle mah nizzle nibh black turpis. Gangster crazy tortor. Pellentesque boofron rhoncizzle pot. In yippiyo bling bling platea gangster. Rizzle dapibizzle. Curabitizzle tellizzle urna, pretizzle get down get down, mattizzle ac, we gonna chung dope, nunc. Bizzle suscipit. Integizzle semper fizzle yo mamma purus.
-				</p>
-				<p class="example">
-					p.example<br /><br />
-					Yippiyo shut the shizzle up diam quizzle dawg pot mollis. Suspendisse break yo neck, yall. Morbi odio. Stuff neque. Cras orci. Uhuh ... yih! mauris that's the shizzle, interdizzle a, feugiat boofron amizzle, go to hizzle in, daahng dawg. Pellentesque gravida. You son of a bizzle gangster mi, volutpizzle in, sagittis sizzle, da bomb semper, velizzle. Things i'm in the shizzle ipsizzle. Aliquam volutpizzle fo shizzle vizzle phat. Crizzle quis break yo neck, yall ma nizzle check it out sodalizzle ornare. Boom shackalack venenatizzle justo izzle go to hizzle. Nunc urna. Break it down venenatizzle placerat lacizzle. Curabitur fo shizzle ante. Nunc fizzle, leo eu mah nizzle hendrerizzle, ipsum felis mofo sem, in aliquizzle magna felizzle shut the shizzle up for sure. Nizzle yo mamma nisl. Class aptent taciti sociosqu ad litora torquent check out this conubia pot, pizzle shizzlin dizzle bizzle. Aliquizzle sure, fo shizzle nizzle you son of a bizzle nonummy, uhuh ... yih! orci da bomb stuff, in sempizzle risus arcu dang sem.
-					<br />
-					<a href="http://lorizzle.nl" target="_blank">Lorizzle...</a>
-				</p>
+				<p id="pexample" class="example">Lorizzle ipsum dolizzle sizzle fo shizzle my nizzle, phat adipiscing elit. Fizzle sapien velizzle, uhuh ... yih! volutpizzle, shizzlin dizzle crazy, fizzle vizzle, phat. Pellentesque things shizzle my nizzle crocodizzle. Sed erizzle. Dope fo shizzle boofron dapibizzle boofron tempizzle break it down. Maurizzle mah nizzle nibh black turpis. Gangster crazy tortor. Pellentesque boofron rhoncizzle pot. In yippiyo bling bling platea gangster. Rizzle dapibizzle. Curabitizzle tellizzle urna, pretizzle get down get down, mattizzle ac, we gonna chung dope, nunc. Bizzle suscipit. Integizzle semper fizzle yo mamma purus.</p>
 			</div>
 			<footer>
 				Show support by following me on
@@ -73,11 +59,10 @@
 			</footer>
 		</main>
 		<script type="text/javascript">
-			// window.addEventListener("load", () => {
-			// 	let meh = new bRando.create(".lol", ["red", "blue", "green", "pink"], 1000, true);
-			// 	meh.play();
-			// 	console.log(meh.nodes, meh.backgrounds);
-			// });
+			window.addEventListener("load", () => {
+				let demo = new bRando.create();
+				demo.play();
+			});
 		</script>
 	</body>
 </html>
