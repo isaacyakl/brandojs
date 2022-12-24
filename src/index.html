@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="" />
 		<link rel="stylesheet" href="style.css" />
 		<link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/frame-with-picture_1f5bc.png" type="image/x-icon" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
@@ -11,53 +12,29 @@
 		<title><%= htmlWebpackPlugin.options.title %></title>
 	</head>
 	<body>
-		<main>
-			<div class="desc">
-				<h1>bRando.js</h1>
-				<p>
-					A CSS background property changer capable of transitioning randomly or sequentially. ⌨️ by
-					<a href="https://www.isaacyakl.com">yak</a>.<br />
-					<br />
-					Documentation + Code:
-					<a href="https://github.com/isaacyakl/brandojs">https://github.com/isaacyakl/brandojs</a><br />
-					<br />
-					Distributed under the
-					<a href="https://isaacyakl.github.io/brandojs/LICENSE">MIT License</a>.
-				</p>
-			</div>
-			<div class="controls">
-				<h2>Code Examples</h2>
-				<p>
-					Background randomizers are created using the bRando.new() method and are attached to select HTML elements by passing a
-					<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors#Selectors" target="_blank">DOM selector string</a>
-					argument. Try it for yourself:
-				</p>
-				<p>
-					<a class="control" href="#htmlexample" onclick="bRando.new('html')">bRando.new('html')</a>
-					<a class="control" href="#divexample" onclick="bRando.new('div.example')">bRando.new('div.example')</a>
-					<a class="control" href="#pexample" onclick="bRando.new('p.example')">bRando.new('p.example')</a>
-				</p>
-				<p>Additionally, randomizers may be controlled individually and together. For example, the following methods control all randomizers present on a page:</p>
-				<p>
-					<a class="control" href="#" onclick="bRando.nextAll()">bRando.nextAll()</a>
-					<a class="control" href="#" onclick="bRando.pauseAll()">bRando.pauseAll()</a>
-					<a class="control" href="#" onclick="bRando.playAll()">bRando.playAll()</a>
-					<a class="control" href="#" onclick="bRando.removeAll()">bRando.removeAll()</a>
-				</p>
-				<p>
-					<a href="https://github.com/isaacyakl/brandojs">Read full documentation...</a>
-				</p>
-			</div>
-			<div class="demo">
-				<h2>Demo Elements</h2>
-				<p id="pexample" class="example">Lorizzle ipsum dolizzle sizzle fo shizzle my nizzle, phat adipiscing elit. Fizzle sapien velizzle, uhuh ... yih! volutpizzle, shizzlin dizzle crazy, fizzle vizzle, phat. Pellentesque things shizzle my nizzle crocodizzle. Sed erizzle. Dope fo shizzle boofron dapibizzle boofron tempizzle break it down. Maurizzle mah nizzle nibh black turpis. Gangster crazy tortor. Pellentesque boofron rhoncizzle pot. In yippiyo bling bling platea gangster. Rizzle dapibizzle. Curabitizzle tellizzle urna, pretizzle get down get down, mattizzle ac, we gonna chung dope, nunc. Bizzle suscipit. Integizzle semper fizzle yo mamma purus.</p>
-			</div>
-			<footer>
-				Show support by following me on
-				<a href="https://www.twitter.com/isaacyakl" alt="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-				<a href="https://www.github.com/isaacyakl" alt="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-			</footer>
-		</main>
+		<div class="desc">
+			<h1>bRando.js</h1>
+			<p>A CSS background property changer capable of transitioning randomly or sequentially. Supports browser embedding and ReactJS.</p>
+			<p>
+				<a href="https://github.com/isaacyakl/brandojs">Read documentation...</a>
+			</p>
+			<hr />
+			<p>
+				Written by <a href="https://www.isaacyakl.com" title="yak's Website">yak</a> <a href="https://www.twitter.com/isaacyakl" alt="Twitter" target="_blank" title="yak on Twitter"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.github.com/isaacyakl" alt="GitHub" target="_blank" title="yak on GitHub"><i class="fab fa-github"></i></a>
+			</p>
+		</div>
+		<div class="usage">
+			<h2>Usage</h2>
+			<h3>Install</h3>
+			<h4>Browser</h4>
+			<h3>Setup</h3>
+		</div>
+		<div class="demo">
+			<h2>Demo</h2>
+			<p class="example">Lorizzle ipsum dolizzle sizzle fo shizzle my nizzle, phat adipiscing elit. Fizzle sapien velizzle, uhuh ... yih! volutpizzle, shizzlin dizzle crazy, fizzle vizzle, phat. Pellentesque things shizzle my nizzle crocodizzle. Sed erizzle. Dope fo shizzle boofron dapibizzle boofron tempizzle break it down. Maurizzle mah nizzle nibh black turpis. Gangster crazy tortor. Pellentesque boofron rhoncizzle pot. In yippiyo bling bling platea gangster. Rizzle dapibizzle. Curabitizzle tellizzle urna, pretizzle get down get down, mattizzle ac, we gonna chung dope, nunc. Bizzle suscipit. Integizzle semper fizzle yo mamma purus.</p>
+			<p class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium pariatur sequi, enim voluptatibus excepturi eaque eos consequatur hic similique quae quisquam itaque est illum ab ea modi corporis! Ratione, tenetur? Laborum reprehenderit nisi possimus quam perspiciatis ratione nobis. Deserunt nemo ipsum quasi similique voluptatibus exercitationem a numquam illo aliquid, nihil pariatur laudantium rerum eos? Dolor qui aliquid fugit ullam modi?</p>
+		</div>
 		<script type="text/javascript">
 			window.addEventListener("load", () => {
 				let demo = new bRando.create();
