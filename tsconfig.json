@@ -1,10 +1,13 @@
 {
 	"compilerOptions": {
-		"outDir": "./dist/",
+		"strict": true,
+		"outDir": "./dist",
+		"types": ["node", "jest"],
 		"sourceMap": true,
 		"noImplicitAny": true,
 		"target": "ES6",
 		"jsx": "react",
+		"forceConsistentCasingInFileNames": true,
 		"allowJs": true,
 		"moduleResolution": "node",
 		"lib": ["DOM", "DOM.Iterable"]
