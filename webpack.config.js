@@ -11,13 +11,18 @@ module.exports = {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				use: "ts-loader",
-				exclude: /node_modules/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env", "@babel/preset-typescript"],
+					},
+				},
 			},
 		],
 	},
 	resolve: {
-		extensions: [".tsx", ".ts", ".js"],
+		extensions: [".tsx", ".ts", ".js", ".jsx"],
 	},
 	output: {
 		filename: `${pkgTitle}.js`,
