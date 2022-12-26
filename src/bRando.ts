@@ -83,6 +83,7 @@ export default class bRando {
 	readonly CSSBackgroundVarName: string;
 	readonly CSSOpacityVarName: string;
 	readonly CSSTransitionVarName: string;
+	readonly CSSContentVarName: string;
 
 	private _lastBackground: number = -1;
 	public get lastBackground(): number {
@@ -108,11 +109,13 @@ export default class bRando {
 		this.CSSBackgroundVarName = `--bRandoBg${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
 		this.CSSOpacityVarName = `--bRandoOpacity${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
 		this.CSSTransitionVarName = `--bRandoTransition${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
-		this.styleElement.innerText = `${this.CSSSelector}::after{background:var(${this.CSSBackgroundVarName});content:'';position:absolute;top:0;bottom:0;left:0;right:0;z-index:-1;opacity:var(${this.CSSOpacityVarName});transition: var(${this.CSSTransitionVarName});}`;
+		this.CSSContentVarName = `--bRandoContent${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
+		this.styleElement.innerText = `${this.CSSSelector}::after{background:var(${this.CSSBackgroundVarName});content:var(${this.CSSContentVarName});position:absolute;top:0;bottom:0;left:0;right:0;z-index:-1;opacity:var(${this.CSSOpacityVarName});transition: var(${this.CSSTransitionVarName});}`;
 		document.head.append(this.styleElement);
 		this.nodes.forEach((e) => {
 			(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "0");
 			(e as HTMLElement).style.setProperty(this.CSSTransitionVarName, `opacity ${this.CSSTransition}`);
+			(e as HTMLElement).style.setProperty(this.CSSContentVarName, "''");
 			(e as HTMLElement).style.zIndex = "0";
 		});
 
@@ -153,8 +156,12 @@ export default class bRando {
 	remove(): void {
 		this.pause();
 		this.nodes.forEach((e, i) => {
+			// hide pseudo ::after elements
+			(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "0");
+			(e as HTMLElement).style.setProperty(this.CSSContentVarName, "none");
 			(e as HTMLElement).style.background = this.originalCSSBackgrounds[i]; // restore original CSS background property
 			(e as HTMLElement).style.position = this.originalCSSPositions[i]; // restore original CSS position property
 		});
+		this.styleElement.remove();
 	}
 }
