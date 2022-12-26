@@ -1,7 +1,7 @@
 {
 	"name": "brandojs",
 	"version": "0.1.3",
-	"description": "A CSS background property changer capable of transitioning randomly or sequentially.",
+	"description": "An automatic CSS background property changer capable of transitioning randomly or sequentially.",
 	"main": "dist/bRando.js",
 	"scripts": {
 		"dev": "webpack-dev-server --mode development",
@@ -23,7 +23,7 @@
 		"javascript",
 		"randomizer",
 		"random",
-		"changer"
+		"sequential"
 	],
 	"author": "Isaac 'yak' L. <i@isaacyakl.com> (https://www.isaacyakl.com/)",
 	"license": "MIT",
