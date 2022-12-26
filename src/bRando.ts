@@ -56,7 +56,7 @@ export default class bRando {
 		return this._random;
 	}
 	public set random(value: boolean | undefined) {
-		this._random = value == null ? true : value;
+		this._random = typeof value !== "boolean" ? true : value;
 	}
 
 	private _CSSTransition: string = "";
@@ -64,7 +64,7 @@ export default class bRando {
 		return this._CSSTransition;
 	}
 	public set CSSTransition(value: string | undefined) {
-		this._CSSTransition = value == null ? "5000ms" : value;
+		this._CSSTransition = typeof value !== "string" ? "5000ms" : value;
 	}
 
 	readonly originalCSSBackgrounds: string[] = [];
