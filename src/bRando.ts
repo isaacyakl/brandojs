@@ -30,7 +30,7 @@ export default class bRando {
 				'url("/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
 				'url("/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
 				'url("/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
-				'linear-gradient(180deg, rgba(231,4,222,1) 25%, rgba(255,255,255,1) 50%, rgba(10,233,227,1) 75%)',
+				'linear-gradient(90deg, rgba(231,4,222,1) 25%, rgba(126,126,126,1) 50%, rgba(10,233,227,1) 75%)',
 			];
 		}
 	}
@@ -40,7 +40,15 @@ export default class bRando {
 		return this._timeout;
 	}
 	public set timeout(value: number | undefined) {
-		this._timeout = value || 10000;
+		if (value && value > 0) {
+			this._timeout = value;
+		} else {
+			this._timeout = 10000;
+		}
+		if (this.changer !== -1) {
+			this.pause();
+			this.play();
+		}
 	}
 
 	private _random: boolean = true;
@@ -61,7 +69,7 @@ export default class bRando {
 
 	readonly originalCSSBackgrounds: string[] = [];
 	readonly originalCSSPositions: string[] = [];
-	private changer: number = 0;
+	private changer: number = -1;
 	readonly styleElement: HTMLElement;
 
 	private _isAfterOpaque: boolean = false;
@@ -107,6 +115,8 @@ export default class bRando {
 			(e as HTMLElement).style.setProperty(this.CSSTransitionVarName, `opacity ${this.CSSTransition}`);
 			(e as HTMLElement).style.zIndex = "0";
 		});
+
+		this.play();
 	}
 
 	play(): void {
@@ -127,7 +137,9 @@ export default class bRando {
 			return newIndex;
 		};
 		this.lastBackground = this.random ? getNewRandomBackgroundIndex() : this.lastBackground === this.backgrounds.length - 1 ? (this.lastBackground = 0) : this.lastBackground + 1;
+
 		this.nodes.forEach((e) => {
+			(e as HTMLElement).style.setProperty(this.CSSTransitionVarName, `opacity ${this.CSSTransition}`);
 			if (!this.isAfterOpaque) {
 				(e as HTMLElement).style.setProperty(this.CSSBackgroundVarName, this.backgrounds[this.lastBackground]);
 				(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "1");
