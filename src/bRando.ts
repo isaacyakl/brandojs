@@ -25,11 +25,11 @@ export default class bRando {
 			// demo backgrounds
 			// prettier-ignore
 			this._backgrounds = [
-				'url("/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat', 
-				'url("/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat', 
-				'url("/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
-				'url("/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
-				'url("/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
+				'url("./img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat', 
+				'url("./img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat', 
+				'url("./img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
+				'url("./img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
+				'url("./img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
 				'linear-gradient(90deg, rgba(231,4,222,1) 25%, rgba(126,126,126,1) 50%, rgba(10,233,227,1) 75%)',
 			];
 		}

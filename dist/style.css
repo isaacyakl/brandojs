@@ -77,9 +77,6 @@ a.control:hover {
 	text-shadow: #fc0 1px 0 10px;
 }
 
-.example {
-}
-
 /* Use CSS grid for display larger than 1024 px wide */
 @media only screen and (min-width: 1024px) {
 	body {
