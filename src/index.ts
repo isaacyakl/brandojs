@@ -1,8 +1,5 @@
 import bRando from "./bRando";
 
-export function create(CSSSelector: string, CSSBackgrounds: string[], timeout?: number, random?: boolean, CSSTransition?: string): bRando {
-	return new bRando(CSSSelector, CSSBackgrounds, timeout, random, CSSTransition);
+export function create(options: { CSSSelector?: string; CSSBackgrounds?: string[]; timeoutMs?: number; randomOrder?: boolean; CSSTransition?: string } = {}): bRando {
+	return new bRando(options);
 }
-
-// const demo = new bRando();
-// demo.play();

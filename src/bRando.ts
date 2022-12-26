@@ -1,52 +1,70 @@
 export default class bRando {
-	readonly nodes: NodeList;
-	readonly CSSSelector: string;
+	private _CSSSelector: string = "";
+	public get CSSSelector(): string {
+		return this._CSSSelector;
+	}
+	private set CSSSelector(value: string | undefined) {
+		this._CSSSelector = typeof value !== "string" ? "body" : value;
+	}
 
-	private _backgrounds: string[];
+	readonly nodes: NodeList;
+
+	private _backgrounds: string[] = [];
 	public get backgrounds(): string[] {
 		return this._backgrounds;
 	}
-	public set backgrounds(value: string[]) {
-		// prettier-ignore
-		this._backgrounds = value == null ? [
-            'url("/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat', 
-            'url("/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat', 
-            'url("/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
-            'url("/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
-            'url("/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
-        ] : value;
+	public set backgrounds(value: string[] | undefined) {
+		if (
+			Array.isArray(value) &&
+			value.every((b) => {
+				return typeof b === "string";
+			})
+		) {
+			this._backgrounds = value;
+		} else {
+			// demo backgrounds
+			// prettier-ignore
+			this._backgrounds = [
+				'url("/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat', 
+				'url("/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat', 
+				'url("/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
+				'url("/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
+				'url("/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
+				'linear-gradient(180deg, rgba(231,4,222,1) 25%, rgba(255,255,255,1) 50%, rgba(10,233,227,1) 75%)',
+			];
+		}
 	}
 
-	private _timeout: number;
+	private _timeout: number = 0;
 	public get timeout(): number {
 		return this._timeout;
 	}
-	public set timeout(value: number) {
+	public set timeout(value: number | undefined) {
 		this._timeout = value || 10000;
 	}
 
-	private _random: boolean;
+	private _random: boolean = true;
 	public get random(): boolean {
 		return this._random;
 	}
-	public set random(value: boolean) {
-		this._random = value != null ? value : true;
+	public set random(value: boolean | undefined) {
+		this._random = value == null ? true : value;
 	}
 
-	private _CSSTransition: string;
+	private _CSSTransition: string = "";
 	public get CSSTransition(): string {
 		return this._CSSTransition;
 	}
-	public set CSSTransition(value: string) {
+	public set CSSTransition(value: string | undefined) {
 		this._CSSTransition = value == null ? "5000ms" : value;
 	}
 
-	private timer: number;
-	readonly originalCSSBackgrounds: string[];
-	readonly originalCSSPositions: string[];
+	readonly originalCSSBackgrounds: string[] = [];
+	readonly originalCSSPositions: string[] = [];
+	private changer: number = 0;
 	readonly styleElement: HTMLElement;
 
-	private _isAfterOpaque: boolean;
+	private _isAfterOpaque: boolean = false;
 	private get isAfterOpaque(): boolean {
 		return this._isAfterOpaque;
 	}
@@ -58,7 +76,7 @@ export default class bRando {
 	readonly CSSOpacityVarName: string;
 	readonly CSSTransitionVarName: string;
 
-	private _lastBackground: number;
+	private _lastBackground: number = -1;
 	public get lastBackground(): number {
 		return this._lastBackground;
 	}
@@ -66,15 +84,13 @@ export default class bRando {
 		this._lastBackground = value;
 	}
 
-	constructor(CSSSelector?: string, CSSBackgrounds?: string[], timeout?: number, random?: boolean, CSSTransition?: string) {
-		this.CSSSelector = CSSSelector == null || CSSSelector == "" ? "body" : CSSSelector;
+	constructor(options: { CSSSelector?: string; CSSBackgrounds?: string[]; timeoutMs?: number; randomOrder?: boolean; CSSTransition?: string } = {}) {
+		this.CSSSelector = options.CSSSelector;
 		this.nodes = document.querySelectorAll(this.CSSSelector);
-		this.backgrounds = CSSBackgrounds;
-		this.timeout = timeout;
-		this.random = random;
-		this.CSSTransition = CSSTransition;
-		this.originalCSSBackgrounds = [];
-		this.originalCSSPositions = [];
+		this.backgrounds = options.CSSBackgrounds;
+		this.timeout = options.timeoutMs;
+		this.random = options.randomOrder;
+		this.CSSTransition = options.CSSTransition;
 		this.nodes.forEach((e) => {
 			this.originalCSSBackgrounds.push((e as HTMLElement).style.background); // backup the original CSS background property
 			this.originalCSSPositions.push((e as HTMLElement).style.position); // backup the original CSS position property
@@ -86,22 +102,21 @@ export default class bRando {
 		this.CSSTransitionVarName = `--bRandoTransition${this.CSSSelector.replace(/[^a-z0-9]/gi, "")}`;
 		this.styleElement.innerText = `${this.CSSSelector}::after{background:var(${this.CSSBackgroundVarName});content:'';position:absolute;top:0;bottom:0;left:0;right:0;z-index:-1;opacity:var(${this.CSSOpacityVarName});transition: var(${this.CSSTransitionVarName});}`;
 		document.head.append(this.styleElement);
-		this.isAfterOpaque = false;
-		this.lastBackground = -1;
 		this.nodes.forEach((e) => {
 			(e as HTMLElement).style.setProperty(this.CSSOpacityVarName, "0");
 			(e as HTMLElement).style.setProperty(this.CSSTransitionVarName, `opacity ${this.CSSTransition}`);
 			(e as HTMLElement).style.zIndex = "0";
 		});
 	}
+
 	play(): void {
 		this.next();
-		this.timer = window.setInterval(() => {
+		this.changer = window.setInterval(() => {
 			this.next();
 		}, this.timeout);
 	}
 	pause(): void {
-		clearInterval(this.timer);
+		clearInterval(this.changer);
 	}
 	next(): void {
 		const getNewRandomBackgroundIndex = (): number => {
