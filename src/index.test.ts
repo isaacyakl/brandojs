@@ -1,4 +1,3 @@
-// @ts-nocheck
 import bRando from "./bRando";
 import { create } from "./index";
 
@@ -21,6 +20,7 @@ describe("create() returns demo instance for", () => {
 			CSSTransition: 2,
 			fake: "option",
 		};
+		// @ts-ignore
 		expect(create(options)).toBeInstanceOf(bRando);
 	});
 });

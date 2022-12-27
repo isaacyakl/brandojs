@@ -5,7 +5,7 @@ export default class bRando {
 	}
 
 	protected readonly _nodes: NodeList;
-	protected get nodes(): NodeList {
+	public get nodes(): NodeList {
 		return this._nodes;
 	}
 
