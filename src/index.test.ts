@@ -2,17 +2,17 @@
 import bRando from "./bRando";
 import { create } from "./index";
 
-describe("create function", () => {
-	test("empty call returns demo instance", () => {
+describe("create() returns demo instance for", () => {
+	test("empty call", () => {
 		expect(create()).toBeInstanceOf(bRando);
 	});
-	test("empty option object returns demo instance", () => {
+	test("empty options object", () => {
 		expect(create({})).toBeInstanceOf(bRando);
 	});
-	test("partial options object returns demo instance", () => {
+	test("partial options object", () => {
 		expect(create({ randomOrder: true })).toBeInstanceOf(bRando);
 	});
-	test("invalid options and arguments return demo instance", () => {
+	test("invalid options object and arguments", () => {
 		const options = {
 			CSSSelector: 3,
 			CSSBackgrounds: ["green", true, 3],

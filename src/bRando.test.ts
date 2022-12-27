@@ -2,61 +2,61 @@
 import bRando from "./bRando";
 
 const testInstance = new bRando();
+const selector = "body";
 
-describe("constructor sets all properties", () => {
-	const selector = "body";
-	test("set CSSSelector", () => {
-		expect(testInstance.CSSSelector).toBe(selector);
+describe("constructor correctly sets", () => {
+	test("_CSSSelector", () => {
+		expect(testInstance._CSSSelector).toBe(selector);
 	});
-	test("set nodes", () => {
-		expect(testInstance.nodes.length).toBe(1);
-		expect(testInstance.nodes[0]).toBeInstanceOf(Node);
-		expect(testInstance.nodes[0].nodeName).toBe(selector.toUpperCase());
+	test("_nodes", () => {
+		expect(testInstance._nodes.length).toBe(1);
+		expect(testInstance._nodes[0]).toBeInstanceOf(Node);
+		expect(testInstance._nodes[0].nodeName).toBe(selector.toUpperCase());
 	});
-	test("set backgrounds", () => {
-		expect(testInstance.backgrounds).toBeInstanceOf(Array<String>);
+	test("_backgrounds", () => {
+		expect(testInstance._backgrounds).toBeInstanceOf(Array<String>);
 	});
-	test("set timeout", () => {
-		expect(testInstance.timeout).toBe(10000);
+	test("_timeout", () => {
+		expect(testInstance._timeout).toBe(10000);
 	});
-	test("set random", () => {
-		expect(testInstance.random).toBe(true);
+	test("_random", () => {
+		expect(testInstance._random).toBe(true);
 	});
-	test("set CSSTransition", () => {
-		expect(testInstance.CSSTransition).toBe("5000ms");
+	test("_CSSTransition", () => {
+		expect(testInstance._CSSTransition).toBe("5000ms");
 	});
-	test("set originalCSSBackgrounds", () => {
-		expect(testInstance.originalCSSBackgrounds).toBeInstanceOf(Array<String>);
+	test("_originalCSSBackgrounds", () => {
+		expect(testInstance._originalCSSBackgrounds).toBeInstanceOf(Array<String>);
 	});
-	test("set originalCSSPositions", () => {
-		expect(testInstance.originalCSSPositions).toBeInstanceOf(Array<String>);
+	test("_originalCSSPositions", () => {
+		expect(testInstance._originalCSSPositions).toBeInstanceOf(Array<String>);
 	});
-	test("set changer", () => {
-		expect(testInstance.changer).not.toBe(-1);
-		expect(typeof testInstance.changer).toBe("number");
+	test("_changer", () => {
+		expect(testInstance._changer).not.toBe(-1);
+		expect(typeof testInstance._changer).toBe("number");
 	});
-	test("set isAfterOpaque", () => {
-		expect(typeof testInstance.isAfterOpaque).toBe("boolean");
+	test("_isAfterOpaque", () => {
+		expect(typeof testInstance._isAfterOpaque).toBe("boolean");
 	});
-	test("set CSSBackgroundVarName", () => {
-		expect(testInstance.CSSBackgroundVarName).toBe(`--bRandoBg${selector}`);
+	test("_CSSBackgroundVarName", () => {
+		expect(testInstance._CSSBackgroundVarName).toBe(`--bRandoBg${selector}`);
 	});
-	test("set CSSOpacityVarName", () => {
-		expect(testInstance.CSSOpacityVarName).toBe(`--bRandoOpacity${selector}`);
+	test("_CSSOpacityVarName", () => {
+		expect(testInstance._CSSOpacityVarName).toBe(`--bRandoOpacity${selector}`);
 	});
-	test("set CSSTransitionVarName", () => {
-		expect(testInstance.CSSTransitionVarName).toBe(`--bRandoTransition${selector}`);
+	test("_CSSTransitionVarName", () => {
+		expect(testInstance._CSSTransitionVarName).toBe(`--bRandoTransition${selector}`);
 	});
-	test("set CSSContentVarName", () => {
-		expect(testInstance.CSSContentVarName).toBe(`--bRandoContent${selector}`);
+	test("_CSSContentVarName", () => {
+		expect(testInstance._CSSContentVarName).toBe(`--bRandoContent${selector}`);
 	});
-	test("set lastBackground", () => {
-		expect(typeof testInstance.lastBackground).toBe("number");
+	test("_lastBackground", () => {
+		expect(typeof testInstance._lastBackground).toBe("number");
 	});
 });
 
 describe("play()", () => {
-	test("is function", () => {
+	test("is a function", () => {
 		expect(typeof testInstance.play).toBe("function");
 	});
 	test("returns nothing", () => {
@@ -64,8 +64,8 @@ describe("play()", () => {
 	});
 });
 
-describe("pause() function", () => {
-	test("is function", () => {
+describe("pause()", () => {
+	test("is a function", () => {
 		expect(typeof testInstance.pause).toBe("function");
 	});
 	test("returns nothing", () => {
@@ -73,8 +73,8 @@ describe("pause() function", () => {
 	});
 });
 
-describe("next() function", () => {
-	test("is function", () => {
+describe("next()", () => {
+	test("is a function", () => {
 		expect(typeof testInstance.next).toBe("function");
 	});
 	test("returns nothing", () => {
@@ -82,8 +82,8 @@ describe("next() function", () => {
 	});
 });
 
-describe("remove() function", () => {
-	test("is function", () => {
+describe("remove()", () => {
+	test("is a function", () => {
 		expect(typeof testInstance.remove).toBe("function");
 	});
 	test("returns nothing", () => {
@@ -91,10 +91,10 @@ describe("remove() function", () => {
 	});
 });
 
-describe("check private properties cannot be set", () => {
-	testInstance.CSSSelector = "ree";
-	console.log(testInstance);
-	test("", () => {
-		expect(testInstance.CSSSelector).not.toBe("ree");
-	});
-});
+test.todo("check public setters exist");
+test.todo("check public getters exist");
+test.todo("play() does");
+test.todo("pause() does");
+test.todo("next() does");
+test.todo("remove() does");
+test.todo("test why demo._isAfterOpaque = 5000 causes first transition to skip animation");
