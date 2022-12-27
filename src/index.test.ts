@@ -11,7 +11,7 @@ describe("create function", () => {
 	test("partial options object returns demo instance", () => {
 		expect(create({ randomOrder: true })).toBeInstanceOf(bRando);
 	});
-	test("invalid options or values returns demo instance", () => {
+	test("invalid options and arguments return demo instance", () => {
 		const options = {
 			CSSSelector: 3,
 			CSSBackgrounds: ["green", true, 3],
