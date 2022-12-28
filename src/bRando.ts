@@ -69,6 +69,7 @@ export default class bRando {
 
 	protected readonly _originalCSSBackgrounds: string[] = [];
 	protected readonly _originalCSSPositions: string[] = [];
+	protected readonly _originalCSSZIndexes: string[] = [];
 	protected _changer: number = -1;
 	protected readonly _styleElement: HTMLElement;
 	protected _isAfterOpaque: boolean = false;
@@ -92,6 +93,7 @@ export default class bRando {
 		this.nodes.forEach((e) => {
 			this._originalCSSBackgrounds.push((e as HTMLElement).style.background); // backup the original CSS background property
 			this._originalCSSPositions.push((e as HTMLElement).style.position); // backup the original CSS position property
+			this._originalCSSZIndexes.push((e as HTMLElement).style.zIndex); // backup the original CSS z-index property
 			(e as HTMLElement).style.position = "relative"; // set each element to be relative
 		});
 		this._styleElement = document.createElement("style");
@@ -119,6 +121,7 @@ export default class bRando {
 	}
 	pause(): void {
 		clearInterval(this._changer);
+		this._changer = -1;
 	}
 	next(): void {
 		const getNewRandomBackgroundIndex = (): number => {
@@ -150,6 +153,7 @@ export default class bRando {
 			(e as HTMLElement).style.setProperty(this._CSSContentVarName, "none");
 			(e as HTMLElement).style.background = this._originalCSSBackgrounds[i]; // restore original CSS background property
 			(e as HTMLElement).style.position = this._originalCSSPositions[i]; // restore original CSS position property
+			(e as HTMLElement).style.zIndex = this._originalCSSZIndexes[i]; // restore original CSS z-index property
 		});
 		this._styleElement.remove();
 	}

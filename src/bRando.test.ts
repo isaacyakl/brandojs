@@ -1,7 +1,15 @@
 import bRando from "./bRando";
 
-const testInstance = new bRando();
+let testInstance: bRando;
 const selector = "body";
+
+beforeEach(() => {
+	testInstance = new bRando();
+});
+
+afterEach(() => {
+	testInstance.remove();
+});
 
 describe("constructor correctly sets", () => {
 	test("_CSSSelector", () => {
@@ -79,6 +87,17 @@ describe("pause()", () => {
 	test("returns nothing", () => {
 		expect(testInstance.pause()).toBe(undefined);
 	});
+	test("works as expected", () => {
+		// jest.useFakeTimers();
+		// jest.spyOn(global, "clearInterval");
+		// // @ts-ignore
+		// let lastChanger = testInstance._changer;
+		// testInstance.remove();
+		// expect(clearInterval).toHaveBeenLastCalledWith(lastChanger);
+		// // @ts-ignore
+		// expect(testInstance._changer).toBe(-1);
+		// jest.useRealTimers();
+	});
 });
 
 describe("next()", () => {
@@ -97,12 +116,34 @@ describe("remove()", () => {
 	test("returns nothing", () => {
 		expect(testInstance.remove()).toBe(undefined);
 	});
+	test("works as expected", () => {
+		testInstance.remove();
+		// @ts-ignore
+		expect(testInstance._changer).toBe(-1); // clearInterval was called
+		expect(
+			Array.from(testInstance.nodes).every(
+				(e, index) =>
+					// @ts-ignore
+					(e as HTMLElement).style.background == testInstance._originalCSSBackgrounds[index] &&
+					// @ts-ignore
+					(e as HTMLElement).style.position == testInstance._originalCSSPositions[index] &&
+					// @ts-ignore
+					(e as HTMLElement).style.zIndex == testInstance._originalCSSZIndexes[index]
+			)
+		).toBe(true); // original background and position properties were restored
+		// @ts-ignore
+		expect(testInstance._styleElement.isConnected).toBe(false); // the style element was removed from DOM
+	});
 });
 
-test.todo("check public setters exist");
+describe("check public setters exist", () => {
+	test("backgrounds", () => {
+		// expect(Object.getOwnPropertyDescriptor(testInstance, "_backgrounds")?.set).not.toBeUndefined();
+	});
+});
+
 test.todo("check public getters exist");
 test.todo("play() does");
 test.todo("pause() does");
 test.todo("next() does");
-test.todo("remove() does");
 test.todo("test why demo._isAfterOpaque = 5000 causes first transition to skip animation");
