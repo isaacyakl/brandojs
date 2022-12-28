@@ -43,7 +43,7 @@ export default class bRando {
 		if (value && value > 0) {
 			this._timeout = value;
 		} else {
-			this._timeout = 10000;
+			this._timeout = 7500;
 		}
 		if (this._changer !== -1) {
 			this.pause();
@@ -120,7 +120,7 @@ export default class bRando {
 		}, this.timeout);
 	}
 	pause(): void {
-		clearInterval(this._changer);
+		window.clearInterval(this._changer);
 		this._changer = -1;
 	}
 	next(): void {
