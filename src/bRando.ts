@@ -30,7 +30,7 @@ export default class bRando {
 				'url("./img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
 				'url("./img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
 				'url("./img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
-				'linear-gradient(90deg, rgba(231,4,222,1) 25%, rgba(126,126,126,1) 50%, rgba(10,233,227,1) 75%)',
+				'linear-gradient(80deg, #0662A1 25%, #0864c8 75%)',
 			];
 		}
 	}
@@ -131,7 +131,11 @@ export default class bRando {
 			} while (this.lastBackground === newIndex);
 			return newIndex;
 		};
-		this._lastBackground = this.random ? getNewRandomBackgroundIndex() : this.lastBackground === this.backgrounds.length - 1 ? (this._lastBackground = 0) : this.lastBackground + 1;
+		if (this.backgrounds.length > 1) {
+			this._lastBackground = this.random ? getNewRandomBackgroundIndex() : this.lastBackground === this.backgrounds.length - 1 ? (this._lastBackground = 0) : this.lastBackground + 1;
+		} else if (this._lastBackground === -1) {
+			this._lastBackground = 0;
+		}
 
 		this.nodes.forEach((e) => {
 			(e as HTMLElement).style.setProperty(this._CSSTransitionVarName, `opacity ${this.CSSTransition}`);
