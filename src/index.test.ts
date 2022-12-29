@@ -9,7 +9,7 @@ describe("create() returns demo instance for", () => {
 		expect(create({})).toBeInstanceOf(bRando);
 	});
 	test("partial options object", () => {
-		expect(create({ randomOrder: true })).toBeInstanceOf(bRando);
+		expect(create({ random: true })).toBeInstanceOf(bRando);
 	});
 	test("invalid options object and arguments", () => {
 		const options = {

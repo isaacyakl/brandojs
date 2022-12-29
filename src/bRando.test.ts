@@ -74,16 +74,16 @@ describe("public setter works as expected for", () => {
 		expect(spy).toHaveBeenCalledTimes(2);
 		expect(testInstance.random).toBe(true);
 	});
-	test("CSSTransition", () => {
-		const spy = jest.spyOn(testInstance, "CSSTransition", "set");
+	test("transition", () => {
+		const spy = jest.spyOn(testInstance, "transition", "set");
 
-		testInstance.CSSTransition = "300ms";
+		testInstance.transition = "300ms";
 		expect(spy).toHaveBeenCalled();
-		expect(testInstance.CSSTransition).toBe("300ms");
+		expect(testInstance.transition).toBe("300ms");
 
-		testInstance.CSSTransition = undefined;
+		testInstance.transition = undefined;
 		expect(spy).toHaveBeenCalledTimes(2);
-		expect(testInstance.CSSTransition.length).toBeGreaterThan(0);
+		expect(testInstance.transition.length).toBeGreaterThan(0);
 	});
 });
 
@@ -118,15 +118,15 @@ describe("public getter works as expected for", () => {
 		expect(spy).toHaveReturned();
 		expect(spy).toHaveBeenCalled();
 	});
-	test("CSSTransition", () => {
-		const spy = jest.spyOn(testInstance, "CSSTransition", "get");
-		expect(testInstance.CSSTransition.length).toBeGreaterThan(0);
+	test("transition", () => {
+		const spy = jest.spyOn(testInstance, "transition", "get");
+		expect(testInstance.transition.length).toBeGreaterThan(0);
 		expect(spy).toHaveReturned();
 		expect(spy).toHaveBeenCalled();
 	});
 	test("lastBackground", () => {
 		const spy = jest.spyOn(testInstance, "lastBackground", "get");
-		expect(testInstance.lastBackground).not.toBe(-1);
+		expect(testInstance.lastBackground).toBeGreaterThanOrEqual(-1);
 		expect(spy).toHaveReturned();
 		expect(spy).toHaveBeenCalled();
 	});
@@ -150,8 +150,8 @@ describe("constructor", () => {
 	test("sets _random", () => {
 		expect(testInstance.random).toBe(true);
 	});
-	test("sets _CSSTransition", () => {
-		expect(testInstance.CSSTransition).not.toBe("");
+	test("sets _transition", () => {
+		expect(testInstance.transition).not.toBe("");
 	});
 	test("sets _originalCSSBackgrounds", () => {
 		// @ts-ignore
@@ -202,13 +202,21 @@ describe("constructor", () => {
 		testInstance.nodes.forEach((n) => {
 			const compdStyleCSSTxt = getComputedStyle(n as HTMLElement, "::after").cssText;
 			// @ts-ignore
-			result = result && (n as HTMLElement).style.zIndex == "0" && compdStyleCSSTxt.includes(`${testInstance._CSSOpacityVarName}: 1`) && compdStyleCSSTxt.includes(`${testInstance._CSSTransitionVarName}: opacity ${testInstance.CSSTransition}`) && compdStyleCSSTxt.includes(`${testInstance._CSSContentVarName}: ''`);
+			result = result && (n as HTMLElement).style.zIndex == "0" && compdStyleCSSTxt.includes(`${testInstance._CSSOpacityVarName}: 0`) && compdStyleCSSTxt.includes(`${testInstance._CSSTransitionVarName}: opacity ${testInstance.transition}`) && compdStyleCSSTxt.includes(`${testInstance._CSSContentVarName}: ''`);
 		});
 		expect(result).toBe(true);
 	});
 	test("calls play()", () => {
 		// @ts-ignore
 		expect(testInstance._changer).not.toBe(-1);
+	});
+	test("single background supported", () => {
+		testInstance = new bRando({ backgrounds: ["linear-gradient(80deg, #0864c8 25%, #588fca 75%)"] });
+		expect(testInstance.lastBackground).toBe(-1);
+		testInstance.next();
+		expect(testInstance.lastBackground).toBe(0);
+		testInstance.next();
+		expect(testInstance.lastBackground).toBe(0);
 	});
 });
 
@@ -220,11 +228,11 @@ describe("play()", () => {
 		expect(testInstance.play()).toBe(undefined);
 	});
 	test("works as expected", () => {
-		const spyNext = jest.spyOn(testInstance, "next");
+		const spyPause = jest.spyOn(testInstance, "pause");
 		const spySetInterval = jest.spyOn(global, "setInterval");
 		testInstance.play();
 
-		expect(spyNext).toHaveBeenCalledTimes(1);
+		expect(spyPause).toHaveBeenCalledTimes(1);
 
 		expect(spySetInterval).toHaveBeenLastCalledWith(expect.any(Function), testInstance.timeout);
 		// @ts-ignore
