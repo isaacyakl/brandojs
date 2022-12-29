@@ -294,5 +294,20 @@ describe("remove()", () => {
 	});
 });
 
+describe("isRunning()", () => {
+	test("is a function", () => {
+		expect(typeof testInstance.isRunning).toBe("function");
+	});
+	test("returns boolean", () => {
+		expect(typeof testInstance.isRunning()).toBe("boolean");
+	});
+	test("works as expected", () => {
+		testInstance.pause();
+		expect(testInstance.isRunning()).toBe(false);
+		testInstance.play();
+		expect(testInstance.isRunning()).toBe(true);
+	});
+});
+
 test.todo("next() works as expected");
 test.todo("test why demo._isAfterOpaque = 5000 causes first transition to skip animation");

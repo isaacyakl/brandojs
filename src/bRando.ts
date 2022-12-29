@@ -165,4 +165,7 @@ export default class bRando {
 		});
 		this._styleElement.remove();
 	}
+	isRunning(): boolean {
+		return this._changer !== -1 ? true : false;
+	}
 }
