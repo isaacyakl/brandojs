@@ -78,9 +78,9 @@ export default class bRando {
 	protected readonly _CSSTransitionVarName: string;
 	protected readonly _CSSContentVarName: string;
 
-	protected _lastBackground: number = -1;
-	public get lastBackground(): number {
-		return this._lastBackground;
+	protected _currentBackgroundIndex: number = -1;
+	public get currentBackgroundIndex(): number {
+		return this._currentBackgroundIndex;
 	}
 
 	constructor(options: { CSSSelector?: string; backgrounds?: string[]; timeout?: number; random?: boolean; transition?: string } = {}) {
@@ -128,26 +128,26 @@ export default class bRando {
 			let newIndex: number;
 			do {
 				newIndex = Math.floor(Math.random() * this.backgrounds.length);
-			} while (this.lastBackground === newIndex);
+			} while (this.currentBackgroundIndex === newIndex);
 			return newIndex;
 		};
+		// if a changer exists reset it
 		if (this._changer !== -1) {
-			// if a changer exists reset it
 			this.play();
 		}
 		if (this.backgrounds.length > 1) {
-			this._lastBackground = this.random ? getNewRandomBackgroundIndex() : this.lastBackground === this.backgrounds.length - 1 ? (this._lastBackground = 0) : this.lastBackground + 1;
-		} else if (this._lastBackground === -1) {
-			this._lastBackground = 0;
+			this._currentBackgroundIndex = this.random ? getNewRandomBackgroundIndex() : this.currentBackgroundIndex === this.backgrounds.length - 1 ? (this._currentBackgroundIndex = 0) : this.currentBackgroundIndex + 1;
+		} else if (this._currentBackgroundIndex === -1) {
+			this._currentBackgroundIndex = 0;
 		}
 
 		this.nodes.forEach((e) => {
 			(e as HTMLElement).style.setProperty(this._CSSTransitionVarName, `opacity ${this.transition}`);
 			if (!this._isAfterOpaque) {
-				(e as HTMLElement).style.setProperty(this._CSSBackgroundVarName, this.backgrounds[this.lastBackground]);
+				(e as HTMLElement).style.setProperty(this._CSSBackgroundVarName, this.backgrounds[this.currentBackgroundIndex]);
 				(e as HTMLElement).style.setProperty(this._CSSOpacityVarName, "1");
 			} else {
-				(e as HTMLElement).style.background = this.backgrounds[this.lastBackground];
+				(e as HTMLElement).style.background = this.backgrounds[this.currentBackgroundIndex];
 				(e as HTMLElement).style.setProperty(this._CSSOpacityVarName, "0");
 			}
 		});
