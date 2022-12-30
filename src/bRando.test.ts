@@ -1,4 +1,4 @@
-import bRando from "./bRando";
+import { bRando } from "./bRando";
 
 let testInstance: bRando;
 const selector = "body";

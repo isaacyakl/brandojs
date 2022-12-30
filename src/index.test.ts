@@ -1,4 +1,4 @@
-import bRando from "./bRando";
+import { bRando } from "./bRando";
 import { create } from "./index";
 
 describe("create() returns demo instance for", () => {

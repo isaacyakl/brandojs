@@ -1,4 +1,7 @@
-export default class bRando {
+/**
+ * Class for creating a CSS background property changer.
+ */
+export class bRando {
 	protected readonly _CSSSelector: string = "";
 	public get CSSSelector(): string {
 		return this._CSSSelector;
@@ -79,10 +82,20 @@ export default class bRando {
 	protected readonly _CSSContentVarName: string;
 
 	protected _currentBackgroundIndex: number = -1;
+	/**
+	 *
+	 * Get the index of the background currently being displayed.
+	 */
 	public get currentBackgroundIndex(): number {
 		return this._currentBackgroundIndex;
 	}
 
+	/**
+	 * Creates a background changer instance with the specified options. To create a demo instance, omit the options parameter.
+	 * @constructor
+	 * @constructs bRando
+	 * @param options An object of optional options
+	 */
 	constructor(options: { CSSSelector?: string; backgrounds?: string[]; timeout?: number; random?: boolean; transition?: string } = {}) {
 		this._CSSSelector = typeof options.CSSSelector !== "string" ? "body" : options.CSSSelector;
 		this._nodes = document.querySelectorAll(this.CSSSelector);
@@ -112,17 +125,25 @@ export default class bRando {
 
 		this.play();
 	}
-
+	/**
+	 * Plays the background changer it is called on.
+	 */
 	play(): void {
 		this.pause();
 		this._changer = window.setInterval(() => {
 			this.next();
 		}, this.timeout);
 	}
+	/**
+	 * Pauses the background changer it is called on.
+	 */
 	pause(): void {
 		window.clearInterval(this._changer);
 		this._changer = -1;
 	}
+	/**
+	 * Switches to the next background of the changer it is called on.
+	 */
 	next(): void {
 		const getNewRandomBackgroundIndex = (): number => {
 			let newIndex: number;
@@ -153,6 +174,9 @@ export default class bRando {
 		});
 		this._isAfterOpaque = !this._isAfterOpaque;
 	}
+	/**
+	 * Removes the instance it is called on from DOM and reverts all selected HTML elements to their original state.
+	 */
 	remove(): void {
 		this.pause();
 		this.nodes.forEach((e, i) => {
@@ -165,6 +189,10 @@ export default class bRando {
 		});
 		this._styleElement.remove();
 	}
+	/**
+	 * Check whether the background changer is running.
+	 * @returns The state of the changer
+	 */
 	isRunning(): boolean {
 		return this._changer !== -1 ? true : false;
 	}

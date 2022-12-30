@@ -6,7 +6,7 @@ body {
 }
 
 body {
-	background: rgb(94, 93, 93);
+	background-color: rgb(160, 14, 155);
 	color: rgb(255, 255, 255);
 	font-size: 1.1em;
 	font-family: Arial, Helvetica, sans-serif;
@@ -44,12 +44,24 @@ h5,
 h6 {
 	margin: 0 0 0.3rem;
 }
-
+@keyframes descBg {
+	from {
+		background-color: rgb(160, 14, 155);
+	}
+	to {
+		background-color: rgba(8, 100, 200, 0.25);
+	}
+}
 .desc {
 	text-shadow: none;
 	padding: 1.4em;
 	padding-top: 10vh;
-	background-color: rgba(8, 100, 200, 0.25);
+	background-color: rgb(160, 14, 155);
+	animation-duration: 5s;
+	animation-delay: 7500ms;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	animation-name: descBg;
 }
 
 .highlight {
@@ -85,6 +97,7 @@ button.control:hover {
 @media only screen and (min-width: 1280px) {
 	body {
 		display: flex;
+		background: url("./img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat;
 	}
 	main {
 		display: grid;
@@ -97,6 +110,7 @@ button.control:hover {
 		margin-top: 10vh;
 		padding-top: 1.4em;
 		background-color: rgb(160, 14, 155);
+		animation: none;
 	}
 	.highlight {
 		display: none;
