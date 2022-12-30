@@ -3,6 +3,7 @@
 	"version": "0.1.3",
 	"description": "A CSS background changer capable of automatically transitioning in random or sequential order.",
 	"main": "dist/bRando.js",
+	"stylizedName": "bRando",
 	"scripts": {
 		"dev": "conc -k -c \"auto\" -p \"{name}:\" -n \"JEST,WEBPACK\" \"npm:watch-test\" \"npm:dev-webpack\"",
 		"dev-webpack": "webpack-dev-server --mode development",

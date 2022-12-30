@@ -1,3 +1,5 @@
+import packageJSON from "../package.json";
+
 /**
  * Class for creating a CSS background property changer.
  */
@@ -25,15 +27,19 @@ export class bRando {
 		) {
 			this._backgrounds = value;
 		} else {
+			let scriptEl = Array.from(document.scripts).find((e) => e.src.includes(packageJSON.stylizedName));
+
+			let scriptsPath = scriptEl === undefined ? "./img/" : `${scriptEl.src.substring(0, scriptEl.src.lastIndexOf(`${packageJSON.stylizedName}.js`))}img/`;
+
 			// demo backgrounds
 			// prettier-ignore
 			this._backgrounds = [
-				'url("./img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat', 
-				'url("./img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat', 
-				'url("./img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat',
-				'url("./img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat',
-				'url("./img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat',
-				'linear-gradient(80deg, #0864c8 25%, #588fca 75%)',
+				`url("${scriptsPath}alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat`, 
+				`url("${scriptsPath}joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat`, 
+				`url("${scriptsPath}pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat`,
+				`url("${scriptsPath}stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat`,
+				`url("${scriptsPath}waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat`,
+				`linear-gradient(80deg, #0864c8 25%, #588fca 75%)`,
 			];
 		}
 	}

@@ -9,6 +9,8 @@
 		"jsx": "react",
 		"forceConsistentCasingInFileNames": true,
 		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
 		"moduleResolution": "node",
 		"lib": ["DOM", "DOM.Iterable"]
 	},

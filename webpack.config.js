@@ -1,8 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
-
-const pkgTitle = "bRando";
+const packageJSON = require("./package.json");
 
 module.exports = {
 	entry: "./src/index.ts",
@@ -25,18 +24,18 @@ module.exports = {
 		extensions: [".tsx", ".ts", ".js", ".jsx"],
 	},
 	output: {
-		filename: `${pkgTitle}.js`,
+		filename: `${packageJSON.stylizedName}.js`,
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
 		globalObject: "this",
 		library: {
-			name: "bRando",
+			name: `${packageJSON.stylizedName}`,
 			type: "umd",
 		},
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: `${pkgTitle}.js - Demo`,
+			title: `${packageJSON.stylizedName}.js`,
 			template: "src/index.html",
 		}),
 		new CopyPlugin({

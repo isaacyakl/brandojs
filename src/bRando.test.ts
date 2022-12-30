@@ -1,4 +1,5 @@
 import { bRando } from "./bRando";
+import packageJSON from "../package.json";
 
 let testInstance: bRando;
 const selector = "body";
@@ -46,6 +47,11 @@ describe("public setter works as expected for", () => {
 		expect(spy).toHaveBeenCalledTimes(3);
 		expect(testInstance.backgrounds).not.toEqual(malformedBgs);
 		expect(testInstance.backgrounds.length).toBeGreaterThan(0);
+
+		// jsdom does not allow access to document.scripts so we must just
+		// verify that upon not finding a script element (scriptEl) it
+		// used the fallback of "./img/" for scriptPath.
+		expect(testInstance.backgrounds[0].includes("./img/")).toBe(true);
 	});
 	test("timeout", () => {
 		const spy = jest.spyOn(testInstance, "timeout", "set");
