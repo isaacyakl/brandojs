@@ -14,9 +14,11 @@
 		"moduleResolution": "node",
 		"lib": ["DOM", "DOM.Iterable"]
 	},
+	"include": ["./src/**/*"],
 	"typedocOptions": {
 		"entryPoints": ["src/index.ts", "src/bRando.ts"],
 		"out": ["dist/docs"],
-		"name": "bRando.js"
+		"name": "bRando.js",
+		"readme": "none"
 	}
 }

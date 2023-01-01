@@ -1,7 +1,27 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require("webpack");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const Handlebars = require("handlebars");
+
 const packageJSON = require("./package.json");
+const blueprintJSON = require("./blueprint.json");
+
+const fs = require("fs");
+const { marked } = require("marked");
+
+let installationUsageHTML = () => {
+	return Handlebars.compile(marked.parse(fs.readFileSync("./src/readme/installation-usage.md").toString()))(
+		Object.assign(
+			{
+				pkg: packageJSON,
+			},
+			blueprintJSON
+		)
+	);
+};
 
 module.exports = {
 	entry: "./src/index.ts",
@@ -21,7 +41,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: [".tsx", ".ts", ".js", ".jsx"],
+		extensions: [".ts", ".tsx", ".js", ".jsx"],
 	},
 	output: {
 		filename: `${packageJSON.stylizedName}.js`,
@@ -33,11 +53,37 @@ module.exports = {
 			type: "umd",
 		},
 	},
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				extractComments: false,
+			}),
+		],
+	},
 	plugins: [
+		new webpack.BannerPlugin({
+			banner: `${packageJSON.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\n\nby ${packageJSON.author}\nBuilt: ${new Date().toLocaleDateString("en-us", {
+				year: "numeric",
+				month: "numeric",
+				day: "numeric",
+				hour: "numeric",
+				minute: "numeric",
+				second: "numeric",
+				timeZoneName: "longOffset",
+			})}`,
+			entryOnly: true,
+		}),
 		new HtmlWebpackPlugin({
 			title: `${packageJSON.stylizedName}.js`,
 			template: "src/index.html",
+			templateParameters: {
+				description: packageJSON.description,
+				installationUsage: installationUsageHTML(),
+			},
+			alwaysWriteToDisk: true,
 		}),
+		new HtmlWebpackHarddiskPlugin(),
 		new CopyPlugin({
 			patterns: [
 				{ from: "src/style.css", to: "style.css" },
