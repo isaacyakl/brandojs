@@ -1,5 +1,4 @@
 import { bRando } from "./bRando";
-import packageJSON from "../package.json";
 
 let testInstance: bRando;
 const selector = "body";

@@ -82,7 +82,7 @@ Create a new background rotator by calling the `create()` function on the `bRand
 </script>
 ```
 
-All options are optional. Default values and further details for them can be found in the [API documentation]({{ pkg.homepage }}/docs/).
+All options are optional. Default values and further details for them can be found in the <a href="{{ pkg.homepage }}/docs/">API documentation</a>.
 
 ### ℹ️ Preload Images
 

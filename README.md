@@ -139,7 +139,7 @@ Create a new background rotator by calling the `create()` function on the `bRand
 </script>
 ```
 
-All options are optional. Default values and further details for them can be found in the [API documentation](https://isaacyakl.github.io/brandojs/docs/).
+All options are optional. Default values and further details for them can be found in the <a href="https://isaacyakl.github.io/brandojs/docs/">API documentation</a>.
 
 ### ℹ️ Preload Images
 
@@ -170,6 +170,7 @@ All options are optional. Default values and further details for them can be fou
 
 Features and fixes planned for development.
 
+-  Add screenshot.gif to the top of README.md and in the Verifying Installation section
 -  Remove the need to listen for page load before creating a background rotator
 -  Fix next() still being invoked after remove() is called
 -  Complete API documentation

@@ -79,6 +79,18 @@ h2.subtitle {
 	padding: 1.4em;
 }
 
+code {
+	background-color: #282c34;
+	padding: 0.2em;
+}
+
+blockquote {
+	padding: 0em;
+	margin: 0em;
+	border-left: 0.3em solid #793e77;
+	padding-left: 0.5em;
+}
+
 button.control {
 	display: inline-block;
 	font-size: 0.8em;
