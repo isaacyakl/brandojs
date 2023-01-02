@@ -44,6 +44,11 @@ h5,
 h6 {
 	margin: 0 0 0.3rem;
 }
+
+h2.subtitle {
+	font-size: smaller;
+}
+
 @keyframes descBg {
 	from {
 		background-color: rgb(160, 14, 155);

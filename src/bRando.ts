@@ -27,9 +27,9 @@ export class bRando {
 		) {
 			this._backgrounds = value;
 		} else {
-			let scriptEl = Array.from(document.scripts).find((e) => e.src.includes(packageJSON.stylizedName));
+			let scriptEl = Array.from(document.scripts).find((e) => e.src.includes(packageJSON.details.stylizedName));
 
-			let scriptsPath = scriptEl === undefined ? "./img/" : `${scriptEl.src.substring(0, scriptEl.src.lastIndexOf(`${packageJSON.stylizedName}.js`))}img/`;
+			let scriptsPath = scriptEl === undefined ? "./img/" : `${scriptEl.src.substring(0, scriptEl.src.lastIndexOf(`${packageJSON.details.stylizedName}.js`))}img/`;
 
 			// demo backgrounds
 			// prettier-ignore

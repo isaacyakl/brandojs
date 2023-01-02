@@ -3,16 +3,18 @@
 	"version": "0.1.3",
 	"description": "Automatically rotate CSS backgrounds for any DOM element in a random or sequential order.",
 	"main": "dist/bRando.js",
-	"stylizedName": "bRando",
-	"nickName": "yak",
+	"details": {
+		"stylizedName": "bRando",
+		"subtitle": "Website background randomizer",
+		"nickName": "yak"
+	},
 	"scripts": {
 		"dev": "conc -k -c \"auto\" -p \"[{name}]\" -n \"JEST,WEBPACK\" \"npm:watch-test\" \"npm:dev-webpack\"",
 		"dev-webpack": "webpack-dev-server --mode development",
 		"watch-test": "jest --watchAll --verbose --coverage",
 		"watch-docs": "conc --restart-after 10000 --restart-tries 3 -c \"auto\" -p \"[{name}]\" -n \"TYPEDOC,LIVE\" \"typedoc --watch\" \"live-server --open=/dist/docs\" \"npm i -g live-server@latest\"",
-		"watch-readme": "conc --restart-tries 0 --restart-after 5000 \"npm run build-readme\"",
-		"test": "npx update-browserslist-db@latest && jest",
-		"build-readme": "npx @appnest/readme generate",
+		"test": "npx update-browserslist-db@latest && jest --verbose --coverage",
+		"build-readme": "npx @appnest/readme generate && npx jest --coverage=false ./src/readme.md.test.ts && Echo README is GOOD to go || Echo ERRORS FOUND IN README",
 		"build-coverage": "npm run test -- --coverage && npm run build-coverage-badge",
 		"build-coverage-badge": "npx coverage-badger -r ./dist/coverage/clover.xml -d ./dist/coverage/",
 		"build-all": "npm run build-coverage && npm run build-readme && webpack --mode production && typedoc",
@@ -47,6 +49,7 @@
 		"@babel/preset-env": "^7.20.2",
 		"@babel/preset-typescript": "^7.18.6",
 		"@types/jest": "^29.2.4",
+		"@types/node": "^18.11.18",
 		"babel-jest": "^29.3.1",
 		"babel-loader": "^9.1.0",
 		"concurrently": "^7.6.0",
@@ -67,5 +70,8 @@
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1",
 		"webpack-dev-server": "^4.11.1"
+	},
+	"dependencies": {
+		"@types/marked": "^4.0.8"
 	}
 }

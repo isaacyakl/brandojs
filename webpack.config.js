@@ -12,17 +12,6 @@ const blueprintJSON = require("./blueprint.json");
 const fs = require("fs");
 const { marked } = require("marked");
 
-let installationUsageHTML = () => {
-	return Handlebars.compile(marked.parse(fs.readFileSync("./src/readme/installation-usage.md").toString()))(
-		Object.assign(
-			{
-				pkg: packageJSON,
-			},
-			blueprintJSON
-		)
-	);
-};
-
 module.exports = {
 	entry: "./src/index.ts",
 	devtool: "inline-source-map",
@@ -44,12 +33,12 @@ module.exports = {
 		extensions: [".ts", ".tsx", ".js", ".jsx"],
 	},
 	output: {
-		filename: `${packageJSON.stylizedName}.js`,
+		filename: `${packageJSON.details.stylizedName}.js`,
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
 		globalObject: "this",
 		library: {
-			name: `${packageJSON.stylizedName}`,
+			name: `${packageJSON.details.stylizedName}`,
 			type: "umd",
 		},
 	},
@@ -63,7 +52,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.BannerPlugin({
-			banner: `${packageJSON.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\n\nby ${packageJSON.author}\nBuilt: ${new Date().toLocaleDateString("en-us", {
+			banner: `${packageJSON.details.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\n\nby ${packageJSON.author}\nBuilt: ${new Date().toLocaleDateString("en-us", {
 				year: "numeric",
 				month: "numeric",
 				day: "numeric",
@@ -75,11 +64,19 @@ module.exports = {
 			entryOnly: true,
 		}),
 		new HtmlWebpackPlugin({
-			title: `${packageJSON.stylizedName}.js`,
+			title: `${packageJSON.details.stylizedName}.js`,
 			template: "src/index.html",
 			templateParameters: {
 				description: packageJSON.description,
-				installationUsage: installationUsageHTML(),
+				subtitle: packageJSON.details.subtitle,
+				installationUsage: Handlebars.compile(marked.parse(fs.readFileSync("./src/readme/installation-usage.md").toString()))(
+					Object.assign(
+						{
+							pkg: packageJSON,
+						},
+						blueprintJSON
+					)
+				),
 			},
 			alwaysWriteToDisk: true,
 		}),

@@ -1,5 +1,6 @@
 <!-- ⚠️ This README has been generated from the file(s) "./src/readme/blueprint.md" ⚠️--><!-- prettier-ignore-start -->
 <h1 align="center"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" alt="Logo" width="40" height="auto" /> bRando.js</h1>
+<h2 align="center"><sub>Website background randomizer</sub></h2>
  
 <!-- prettier-ignore-start -->
 <p align="center">
@@ -57,7 +58,7 @@ There are a couple different ways to use this library:
 Skip the download by including the following code in your HTML right before `</head>`:
 
 ```html
-<script src="https://unpkg.com/pkg.name}}@latest/{{pkg.stylizedName.js"></script>
+<script src="https://unpkg.com/brandojs@latest/bRando.js"></script>
 ```
 
 ### Manual Download
@@ -79,7 +80,7 @@ npm i -D brandojs
 and include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="./node_modules/pkg.name}}/dist/{{pkg.stylizedName.js"></script>
+<script src="./node_modules/brandojs/dist/bRando.js"></script>
 ```
 
 
@@ -91,8 +92,8 @@ To test that the library is installed correctly, create a demo instance with the
 
 ```html
 <script>
+	// wait for page to finish loading
 	window.addEventListener("load", () => {
-		// wait for page to finish loading
 		let demo = bRando.create(); // creates a demo background rotator
 	});
 </script>
@@ -169,6 +170,7 @@ All options are optional. Default values and further details for them can be fou
 
 Features and fixes planned for development.
 
+-  Remove the need to listen for page load before creating a background rotator
 -  Fix next() still being invoked after remove() is called
 -  Complete API documentation
 -  Add console feedback for invalid options

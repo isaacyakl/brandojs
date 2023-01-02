@@ -7,7 +7,7 @@ There are a couple different ways to use this library:
 Skip the download by including the following code in your HTML right before `</head>`:
 
 ```html
-<script src="https://unpkg.com/{{pkg.name}}@latest/{{pkg.stylizedName}}.js"></script>
+<script src="https://unpkg.com/{{ pkg.name }}@latest/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
 ### Manual Download
@@ -15,7 +15,7 @@ Skip the download by including the following code in your HTML right before `</h
 Download the file and include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="./some/scripts/path/{{pkg.stylizedName}}.js"></script>
+<script src="./some/scripts/path/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
 ### NPM
@@ -23,13 +23,13 @@ Download the file and include the following code in your HTML right before `</he
 Install this package via NPM:
 
 ```javascript
-npm i -D {{pkg.name}}
+npm i -D {{ pkg.name }}
 ```
 
 and include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="./node_modules/{{pkg.name}}/dist/{{pkg.stylizedName}}.js"></script>
+<script src="./node_modules/{{ pkg.name }}/dist/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
 ## Verifying Installation
@@ -38,8 +38,8 @@ To test that the library is installed correctly, create a demo instance with the
 
 ```html
 <script>
+	// wait for page to finish loading
 	window.addEventListener("load", () => {
-		// wait for page to finish loading
 		let demo = bRando.create(); // creates a demo background rotator
 	});
 </script>
@@ -82,7 +82,7 @@ Create a new background rotator by calling the `create()` function on the `bRand
 </script>
 ```
 
-All options are optional. Default values and further details for them can be found in the [API documentation]({{pkg.homepage}}/docs/).
+All options are optional. Default values and further details for them can be found in the [API documentation]({{ pkg.homepage }}/docs/).
 
 ### ℹ️ Preload Images
 
