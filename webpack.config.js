@@ -83,12 +83,15 @@ module.exports = {
 				),
 			},
 			alwaysWriteToDisk: true,
+			scriptLoading: "blocking",
+			inject: "head",
 		}),
 		new HtmlWebpackHarddiskPlugin(),
 		new CopyPlugin({
 			patterns: [
 				{ from: "src/style.css", to: "style.css" },
 				{ from: "src/img", to: "img" },
+				{ from: "brandojs-demo-cap.webp", to: "brandojs-demo-cap.webp" },
 			],
 		}),
 	],

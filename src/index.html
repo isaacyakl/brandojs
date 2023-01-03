@@ -57,26 +57,24 @@
 				hljs.addPlugin(new CopyButtonPlugin());
 			</script>
 			<script type="text/javascript">
-				window.addEventListener("load", () => {
-					let demo = bRando.create();
-					document.getElementById("nextbtn").addEventListener("click", () => {
-						demo.next();
-					});
-					document.getElementById("pausebtn").addEventListener("click", () => {
-						demo.pause();
-					});
-					document.getElementById("playbtn").addEventListener("click", () => {
-						demo.play();
-					});
-					document.getElementById("transition500msbtn").addEventListener("click", () => {
-						demo.transition = "500ms ease-in";
-					});
-					document.getElementById("timeout5000btn").addEventListener("click", () => {
-						demo.timeout = 5000;
-					});
-					document.getElementById("timeout10000btn").addEventListener("click", () => {
-						demo.timeout = 10000;
-					});
+				let demo = bRando.create();
+				document.getElementById("nextbtn").addEventListener("click", () => {
+					demo.next();
+				});
+				document.getElementById("pausebtn").addEventListener("click", () => {
+					demo.pause();
+				});
+				document.getElementById("playbtn").addEventListener("click", () => {
+					demo.play();
+				});
+				document.getElementById("transition500msbtn").addEventListener("click", () => {
+					demo.transition = "500ms ease-in";
+				});
+				document.getElementById("timeout5000btn").addEventListener("click", () => {
+					demo.timeout = 5000;
+				});
+				document.getElementById("timeout10000btn").addEventListener("click", () => {
+					demo.timeout = 10000;
 				});
 			</script>
 		</main>

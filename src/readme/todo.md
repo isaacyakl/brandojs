@@ -2,7 +2,6 @@
 
 Features and fixes planned for development.
 
--  Remove the need to listen for page load before creating a background rotator
 -  Fix next() still being invoked after remove() is called
 -  Complete API documentation
 -  Add console feedback for invalid options

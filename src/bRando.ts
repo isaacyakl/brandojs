@@ -35,7 +35,11 @@ export class bRando {
 			// prettier-ignore
 			this._backgrounds = [
 				`url("${scriptsPath}alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat`, 
+				`url("${scriptsPath}joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat`, 
+				`url("${scriptsPath}pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat`,
+				`url("${scriptsPath}stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat`,
 				`url("${scriptsPath}waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat`,
+				`linear-gradient(80deg, #0864c8 25%, #588fca 75%)`,
 			];
 		}
 	}
