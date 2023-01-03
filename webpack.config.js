@@ -35,7 +35,11 @@ module.exports = {
 	output: {
 		filename: `${packageJSON.details.stylizedName}.js`,
 		path: path.resolve(__dirname, "dist"),
-		clean: true,
+		clean: {
+			keep(asset) {
+				return asset.includes("docs") || asset.includes("coverage");
+			},
+		},
 		globalObject: "this",
 		library: {
 			name: `${packageJSON.details.stylizedName}`,
