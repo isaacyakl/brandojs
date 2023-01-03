@@ -38,7 +38,6 @@
 * [➤ Installation](#-installation)
 	* [CDN](#cdn)
 	* [Manual Download](#manual-download)
-	* [NPM](#npm)
 * [➤ Verifying Installation](#-verifying-installation)
 * [➤ Usage](#-usage)
 	* [ℹ️ Preload Images](#-preload-images)
@@ -58,7 +57,7 @@ There are a couple different ways to use this library:
 
 ### CDN
 
-Skip the download by including the following code in your HTML right before `</head>`:
+Skip the download, include the following code in your HTML right before `</head>`:
 
 ```html
 <script src="https://unpkg.com/brandojs@latest/bRando.js"></script>
@@ -66,25 +65,13 @@ Skip the download by including the following code in your HTML right before `</h
 
 ### Manual Download
 
-Download the file and include the following code in your HTML right before `</head>`:
+Download the file, and include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="./some/scripts/path/bRando.js"></script>
+<script src="./your/scripts/path/bRando.js"></script>
 ```
 
-### NPM
-
-Install this package via NPM:
-
-```javascript
-npm i -D brandojs
-```
-
-and include the following code in your HTML right before `</head>`:
-
-```html
-<script src="./node_modules/brandojs/dist/bRando.js"></script>
-```
+Of course, make sure the path points to where you have your scripts.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#verifying-installation)
@@ -164,11 +151,11 @@ All options are optional. Default values and further details for them can be fou
 
 Features and fixes planned for development.
 
--  Fix next() still being invoked after remove() is called
 -  Complete API documentation
+-  Stop next() from being callable after remove() is called
 -  Add console feedback for invalid options
 -  Add event hooks: onChange()
--  Force transition animation time to match timeout time if transition > timeout; console log warning about this when it happens
+-  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add previous()
 -  Update year date in LICENSE automatically
 

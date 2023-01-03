@@ -2,10 +2,10 @@
 
 Features and fixes planned for development.
 
--  Fix next() still being invoked after remove() is called
 -  Complete API documentation
+-  Stop next() from being callable after remove() is called
 -  Add console feedback for invalid options
 -  Add event hooks: onChange()
--  Force transition animation time to match timeout time if transition > timeout; console log warning about this when it happens
+-  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add previous()
 -  Update year date in LICENSE automatically

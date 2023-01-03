@@ -4,7 +4,7 @@ There are a couple different ways to use this library:
 
 ### CDN
 
-Skip the download by including the following code in your HTML right before `</head>`:
+Skip the download, include the following code in your HTML right before `</head>`:
 
 ```html
 <script src="https://unpkg.com/{{ pkg.name }}@latest/{{ pkg.details.stylizedName }}.js"></script>
@@ -12,25 +12,13 @@ Skip the download by including the following code in your HTML right before `</h
 
 ### Manual Download
 
-Download the file and include the following code in your HTML right before `</head>`:
+Download the file, and include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="./some/scripts/path/{{ pkg.details.stylizedName }}.js"></script>
+<script src="./your/scripts/path/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
-### NPM
-
-Install this package via NPM:
-
-```javascript
-npm i -D {{ pkg.name }}
-```
-
-and include the following code in your HTML right before `</head>`:
-
-```html
-<script src="./node_modules/{{ pkg.name }}/dist/{{ pkg.details.stylizedName }}.js"></script>
-```
+Of course, make sure the path points to where you have your scripts.
 
 ## Verifying Installation
 
