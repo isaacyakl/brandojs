@@ -56,7 +56,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.BannerPlugin({
-			banner: `${packageJSON.details.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\n\nby ${packageJSON.author}\nBuilt: ${new Date().toLocaleDateString("en-us", {
+			banner: `${packageJSON.details.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\nBuilt: ${new Date().toLocaleDateString("en-us", {
 				year: "numeric",
 				month: "numeric",
 				day: "numeric",

@@ -18,7 +18,8 @@
 		"build-coverage": "npm run test -- && npm run build-coverage-badge",
 		"build-coverage-badge": "npx coverage-badger -r ./dist/coverage/clover.xml -d ./dist/coverage/",
 		"build-all": "npx update-browserslist-db@latest && npm run build-coverage && npm run build-readme && webpack --mode=production && typedoc",
-		"publish": ""
+		"preversion": "git checkout master && git pull && npm ci && npm run build-all",
+		"publish": "npm publish"
 	},
 	"repository": {
 		"type": "git",
