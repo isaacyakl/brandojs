@@ -10,5 +10,9 @@
 	"socialHandles": {
 		"twitter": "isaacyakl",
 		"github": "isaacyakl"
+	},
+	"screencap": {
+		"src": "./src/readme/brandojs-demo-cap.webp",
+		"width": "640"
 	}
 }

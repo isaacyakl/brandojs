@@ -2,7 +2,6 @@
 
 Features and fixes planned for development.
 
--  Add screenshot.gif to the top of README.md and in the Verifying Installation section
 -  Remove the need to listen for page load before creating a background rotator
 -  Fix next() still being invoked after remove() is called
 -  Complete API documentation

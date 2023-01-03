@@ -45,13 +45,10 @@ To test that the library is installed correctly, create a demo instance with the
 </script>
 ```
 
-This will create an instance with demo backgrounds on the `<body>` element. You should see something like this:
+This will create a background rotator with demo backgrounds on the `<body>` element. You should see something like this behind the main content:
 
-```
-///////////////////////////////////////
-       INSERT SCREENSHOT GIF
-///////////////////////////////////////
-```
+<p align="center">
+<img src="{{ screencap.src }}" alt="demo screencap" width="{{ screencap.width }}" height="auto"/>
 
 ## Usage
 

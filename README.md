@@ -1,4 +1,7 @@
 <!-- ⚠️ This README has been generated from the file(s) "./src/readme/blueprint.md" ⚠️--><!-- prettier-ignore-start -->
+<p align="center">
+<img src="./src/readme/brandojs-demo-cap.webp" alt="demo screencap" width="640" height="auto"/>
+</p>
 <h1 align="center"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" alt="Logo" width="40" height="auto" /> bRando.js</h1>
 <h2 align="center"><sub>Website background randomizer</sub></h2>
  
@@ -99,13 +102,10 @@ To test that the library is installed correctly, create a demo instance with the
 </script>
 ```
 
-This will create an instance with demo backgrounds on the `<body>` element. You should see something like this:
+This will create a background rotator with demo backgrounds on the `<body>` element. You should see something like this behind the main content:
 
-```
-///////////////////////////////////////
-       INSERT SCREENSHOT GIF
-///////////////////////////////////////
-```
+<p align="center">
+<img src="./src/readme/brandojs-demo-cap.webp" alt="demo screencap" width="640" height="auto"/>
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#usage)
@@ -170,7 +170,6 @@ All options are optional. Default values and further details for them can be fou
 
 Features and fixes planned for development.
 
--  Add screenshot.gif to the top of README.md and in the Verifying Installation section
 -  Remove the need to listen for page load before creating a background rotator
 -  Fix next() still being invoked after remove() is called
 -  Complete API documentation
