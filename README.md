@@ -2,7 +2,7 @@
 <p align="center">
 <img src="brandojs-demo-cap.webp" alt="demo screencap" width="640" height="auto"/>
 </p>
-<h1 align="center"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" alt="Logo" width="40" height="auto" /> bRando.js</h1>
+<h1 align="center"><img src="logo.src" alt="" width="0" height="auto" /> bRando.js</h1>
 <h2 align="center"><sub>Website background randomizer</sub></h2>
  
 <!-- prettier-ignore-start -->

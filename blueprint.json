@@ -2,8 +2,8 @@
 	"input": "./src/readme/blueprint.md",
 	"checkLinks": true,
 	"logo": {
-		"src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>",
-		"width": "40"
+		"src": "",
+		"width": "0"
 	},
 	"line": "aqua",
 	"bullets": ["✔️ Vanilla JavaScript", "❌ React.js (Coming soon)"],

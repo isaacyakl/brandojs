@@ -2,7 +2,7 @@
 <p align="center">
 <img src="{{ screencap.src }}" alt="demo screencap" width="{{ screencap.width }}" height="auto"/>
 </p>
-<h1 align="center"><img src="{{ logo.src }}" alt="Logo" width="{{ logo.width }}" height="auto" /> {{ pkg.details.stylizedName }}.js</h1>
+<h1 align="center"><img src="{{ logo.src }}" alt="" width="{{ logo.width }}" height="auto" /> {{ pkg.details.stylizedName }}.js</h1>
 <h2 align="center"><sub>{{ pkg.details.subtitle }}</sub></h2>
  
 {{ load:./src/readme/badges.md }}
