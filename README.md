@@ -12,8 +12,8 @@
 <p align="center">
 <a href="https://www.npmjs.com/package/brandojs"><img alt="npm" src="https://img.shields.io/npm/dw/brandojs?style=flat-square"/></a>
 <a href="https://libraries.io/npm/brandojs"><img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/brandojs?style=flat-square"/></a>
-<a href="https://isaacyakl.github.io/brandojs/coverage/lcov-report/"><img alt="coverage" src="./demo/coverage/coverage.svg"/></a>
-<a href="https://isaacyakl.github.io/brandojs"><img alt="GitHub deployments" src="https://img.shields.io/github/deployments/isaacyakl/brandojs/github-pages?label=demo&style=flat-square"/></a>
+<a href="https://brandojs.isaacyakl.com/coverage/lcov-report/"><img alt="coverage" src="./demo/coverage/coverage.svg"/></a>
+<a href="https://brandojs.isaacyakl.com"><img alt="GitHub deployments" src="https://img.shields.io/github/deployments/isaacyakl/brandojs/github-pages?label=demo&style=flat-square"/></a>
 </p>
 <!-- prettier-ignore-end -->
 
@@ -22,7 +22,7 @@
 </p>
 <p align="center">
   <b>Compatibility:</b> ✔️Vanilla JavaScript ❌React.js (<a href="#-to-do">Coming soon</a>)</br>
-  <b>Demo:</b> <a href="https://isaacyakl.github.io/brandojs">https://isaacyakl.github.io/brandojs</a>
+  <b>Demo:</b> <a href="https://brandojs.isaacyakl.com">https://brandojs.isaacyakl.com</a>
 </p>
 <p align="center">
   <a href="https://twitter.com/isaacyakl"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/isaacyakl?style=social"></a> <a href="https://github.com/isaacyakl"><img alt="GitHub followers" src="https://img.shields.io/github/followers/isaacyakl?style=social"></a></br>
@@ -120,7 +120,7 @@ let bgRotator = bRando.create(options); // create background rotator with the op
 bgRotator.next(); // remove this line if you want a smooth first transition
 ```
 
-All options are optional. Default values and further details for them can be found in the <a href="https://isaacyakl.github.io/brandojs/docs/">API documentation</a>.
+All options are optional. Default values and further details for them can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
 
 ### ℹ️ Preload Images
 
@@ -142,7 +142,7 @@ All options are optional. Default values and further details for them can be fou
 
 ## ➤ API Documentation
 
-[Full documentation](https://isaacyakl.github.io/brandojs/docs/)
+[Full documentation](https://brandojs.isaacyakl.com/docs/)
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#to-do)

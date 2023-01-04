@@ -83,7 +83,7 @@ const demo = Object.assign({}, baseConfig, {
 						blueprintJSON
 					)
 				),
-				repo: packageJSON.repository.url,
+				repo: packageJSON.repository.url.substring(0, packageJSON.repository.url.length - 4),
 				homepage: packageJSON.homepage,
 			},
 			alwaysWriteToDisk: true,
