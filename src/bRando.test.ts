@@ -232,23 +232,38 @@ describe("play()", () => {
 	test("returns nothing", () => {
 		expect(testInstance.play()).toBe(undefined);
 	});
-	test("works as expected", () => {
-		jest.useFakeTimers();
-		jest.spyOn(global, "setInterval");
-		testInstance = new bRando();
-		const spyPause = jest.spyOn(testInstance, "pause");
-		const spyNext = jest.spyOn(testInstance, "next");
-		testInstance.play();
+	describe("works as expected", () => {
+		test("does not play if isRemoved()", () => {
+			const spyIsRemoved = jest.spyOn(testInstance, "isRemoved");
+			const spyPause = jest.spyOn(testInstance, "pause");
+			testInstance.remove();
+			// @ts-ignore
+			const lastChangerId = testInstance._changer;
+			testInstance.play();
+			expect(spyIsRemoved).toHaveBeenCalledTimes(1);
+			expect(spyIsRemoved).toHaveLastReturnedWith(true);
+			expect(spyPause).toHaveBeenCalledTimes(1);
+			// @ts-ignore
+			expect(lastChangerId).toEqual(testInstance._changer);
+		});
+		test("pauses and sets up a new changer", () => {
+			jest.useFakeTimers();
+			jest.spyOn(global, "setInterval");
+			testInstance = new bRando();
+			const spyPause = jest.spyOn(testInstance, "pause");
+			const spyNext = jest.spyOn(testInstance, "next");
+			testInstance.play();
 
-		expect(spyPause).toHaveBeenCalledTimes(1);
+			expect(spyPause).toHaveBeenCalledTimes(1);
 
-		expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), testInstance.timeout);
-		expect(setInterval).toHaveBeenCalledTimes(2);
-		// @ts-ignore
-		expect(setInterval).toHaveLastReturnedWith(testInstance._changer);
-		jest.advanceTimersByTime(testInstance.timeout);
-		expect(spyNext).toHaveBeenCalledTimes(1);
-		jest.useRealTimers();
+			expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), testInstance.timeout);
+			expect(setInterval).toHaveBeenCalledTimes(2);
+			// @ts-ignore
+			expect(setInterval).toHaveLastReturnedWith(testInstance._changer);
+			jest.advanceTimersByTime(testInstance.timeout);
+			expect(spyNext).toHaveBeenCalledTimes(1);
+			jest.useRealTimers();
+		});
 	});
 });
 
@@ -278,6 +293,15 @@ describe("next()", () => {
 		expect(testInstance.next()).toBe(undefined);
 	});
 	describe("works as expected", () => {
+		test("does not go to next if isRemoved()", () => {
+			const spy = jest.spyOn(testInstance, "isRemoved");
+			let lastBgIndex = testInstance.currentBackgroundIndex;
+			testInstance.remove();
+			testInstance.next();
+			expect(lastBgIndex).toEqual(testInstance.currentBackgroundIndex);
+			expect(spy).toHaveBeenCalledTimes(1);
+			expect(spy).toHaveLastReturnedWith(true);
+		});
 		test("::after is displayed", () => {
 			const spyNext = jest.spyOn(testInstance, "next");
 			const spyPlay = jest.spyOn(testInstance, "play");
@@ -452,7 +476,7 @@ describe("isRunning()", () => {
 	test("is a function", () => {
 		expect(typeof testInstance.isRunning).toBe("function");
 	});
-	test("returns boolean", () => {
+	test("returns a boolean", () => {
 		expect(typeof testInstance.isRunning()).toBe("boolean");
 	});
 	test("works as expected", () => {
@@ -460,5 +484,19 @@ describe("isRunning()", () => {
 		expect(testInstance.isRunning()).toBe(false);
 		testInstance.play();
 		expect(testInstance.isRunning()).toBe(true);
+	});
+});
+
+describe("isRemoved()", () => {
+	test("is a function", () => {
+		expect(typeof testInstance.isRemoved).toBe("function");
+	});
+	test("returns a boolean", () => {
+		expect(typeof testInstance.isRemoved()).toBe("boolean");
+	});
+	test("works as expected", () => {
+		expect(testInstance.isRemoved()).toBe(false);
+		testInstance.remove();
+		expect(testInstance.isRemoved()).toBe(true);
 	});
 });

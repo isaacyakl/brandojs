@@ -135,6 +135,9 @@ export class bRando {
 	 * Plays the background changer it is called on.
 	 */
 	play(): void {
+		if (this.isRemoved()) {
+			return;
+		}
 		this.pause();
 		this._changer = window.setInterval(() => {
 			this.next();
@@ -151,6 +154,9 @@ export class bRando {
 	 * Switches to the next background of the changer it is called on.
 	 */
 	next(): void {
+		if (this.isRemoved()) {
+			return;
+		}
 		const getNewRandomBackgroundIndex = (): number => {
 			let newIndex: number;
 			do {
@@ -197,9 +203,16 @@ export class bRando {
 	}
 	/**
 	 * Check whether the background changer is running.
-	 * @returns The state of the changer
+	 * @returns True if running
 	 */
 	isRunning(): boolean {
 		return this._changer !== -1 ? true : false;
+	}
+	/**
+	 * Check whether the background changer has been removed.
+	 * @returns True if removed from the DOM
+	 */
+	isRemoved(): boolean {
+		return !this._styleElement.isConnected;
 	}
 }

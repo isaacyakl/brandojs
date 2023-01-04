@@ -152,7 +152,6 @@ All options are optional. Default values and further details for them can be fou
 Features and fixes planned for development.
 
 -  Complete API documentation
--  Stop next() from being callable after remove() is called
 -  Add console feedback for invalid options
 -  Add event hooks: onChange()
 -  Warn users about setting transition animations time > timeout in both usage section and console
