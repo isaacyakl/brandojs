@@ -20,10 +20,10 @@
     transition: &quot;500ms ease-in&quot;, // a CSS transition property for changing between backgrounds
 };
 
-let bgRotator = bRando.create(options); // create background changer with the options set above
+let bgChanger = bRando.create(options); // create background changer with the options set above
 
 // call next() if you want the page to load with one of the backgrounds immediately
-bgRotator.next(); // remove this line if you want a smooth first transition
+bgChanger.next(); // remove this line if you want a smooth first transition
 </code></pre><p>All options are optional. Default values and further details for them can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.</p><h3 id="ℹ️-preload-images">ℹ️ Preload Images</h3><blockquote><p>Be sure to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload">preload any images</a> used as backgrounds before creating the background changer or your end user may see partially loaded background images. There are <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload">a few ways to do this</a>. For example, you could add preload <code>&lt;link&gt;</code> tags in the <code>&lt;head&gt;</code> of your document:</p><pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;some-image-used-as-a-background1.jpg&quot; as=&quot;image&quot; /&gt;
 &lt;link rel=&quot;preload&quot; href=&quot;some-image-used-as-a-background2.jpg&quot; as=&quot;image&quot; /&gt;
 &lt;link rel=&quot;preload&quot; href=&quot;some-image-used-as-a-background3.jpg&quot; as=&quot;image&quot; /&gt;

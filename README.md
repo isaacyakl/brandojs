@@ -114,10 +114,10 @@ let options = {
 	transition: "500ms ease-in", // a CSS transition property for changing between backgrounds
 };
 
-let bgRotator = bRando.create(options); // create background changer with the options set above
+let bgChanger = bRando.create(options); // create background changer with the options set above
 
 // call next() if you want the page to load with one of the backgrounds immediately
-bgRotator.next(); // remove this line if you want a smooth first transition
+bgChanger.next(); // remove this line if you want a smooth first transition
 ```
 
 All options are optional. Default values and further details for them can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
