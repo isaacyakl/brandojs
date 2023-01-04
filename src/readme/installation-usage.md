@@ -18,11 +18,11 @@ Download the file, and include the following code in your HTML right before `</h
 <script src="./your/scripts/path/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
-Of course, make sure the path points to where you have your scripts.
+Of course, make sure the path points to where you put the script.
 
 ## Verifying Installation
 
-To test that the library is installed correctly, create a demo instance with the following code placed right before the page's `</body>` tag:
+To test that the library is installed correctly, create a demo instance with the following code by placing it right before your page's `</body>` tag:
 
 ```html
 <script>
@@ -37,7 +37,7 @@ This will create a background rotator with demo backgrounds on the `<body>` elem
 
 ## Usage
 
-Create a new background rotator by calling the `create()` function on the `bRando` library and pass it an `options` object containing the desired settings.
+Create a new background rotator by calling the `create()` function on the `bRando` library and passing it an `options` object containing the desired settings.
 
 ```javascript
 let options = {
@@ -65,7 +65,7 @@ All options are optional. Default values and further details for them can be fou
 
 ### ℹ️ Preload Images
 
-> Be sure to [preload any images](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) used as backgrounds before creating the background rotator or your end-user may have partially loaded background images. There are [a few ways to do this](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload). For example, you could add preload `<link>` tags in the `<head>` of your document:
+> Be sure to [preload any images](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) used as backgrounds before creating the background rotator or your end user may see partially loaded background images. There are [a few ways to do this](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload). For example, you could add preload `<link>` tags in the `<head>` of your document:
 >
 > ```html
 > <link rel="preload" href="some-image-used-as-a-background1.jpg" as="image" />
@@ -75,4 +75,4 @@ All options are optional. Default values and further details for them can be fou
 
 ### ⚠️ Optimize Images
 
-> Always optimize images used as backgrounds so that your end-user does not have to experience partially loaded background images. Use something like [imagecompressor.com](https://imagecompressor.com) which even allows you to adjust quality settings and compress level for each image.
+> Always optimize any images used as backgrounds to minimize the chance that your end user sees partially loaded background images. Use something like [imagecompressor.com](https://imagecompressor.com) which allows you to adjust quality settings and a compression level for each image.

@@ -79,6 +79,10 @@ h2.subtitle {
 	padding: 1.4em;
 }
 
+.instructions img {
+	max-width: 100%;
+}
+
 code {
 	background-color: #282c34;
 	padding: 0.2em;

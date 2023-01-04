@@ -30,17 +30,18 @@
 	},
 	"keywords": [
 		"CSS",
-		"background property",
 		"background randomizer",
-		"background rotator",
 		"background changer",
+		"background rotator",
+		"background property",
 		"background-image",
 		"background-color",
 		"color changer",
 		"randomizer",
 		"random",
 		"sequential",
-		"javascript"
+		"javascript",
+		"typescript"
 	],
 	"author": "Isaac 'yak' L. <i@isaacyakl.com> (https://www.isaacyakl.com/)",
 	"license": "MIT",
