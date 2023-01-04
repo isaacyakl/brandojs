@@ -8,4 +8,5 @@ Features and fixes planned for development.
 -  Add event hooks: onChange()
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add previous()
+-  Create React component
 -  Update year date in LICENSE automatically

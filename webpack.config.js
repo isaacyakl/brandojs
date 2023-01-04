@@ -40,6 +40,19 @@ const baseConfig = {
 			}),
 		],
 	},
+};
+
+const public = Object.assign({}, baseConfig, {
+	output: {
+		filename: `${packageJSON.details.stylizedName}.js`,
+		path: path.resolve(__dirname, "public"),
+		clean: false,
+		globalObject: "this",
+		library: {
+			name: `${packageJSON.details.stylizedName}`,
+			type: "umd",
+		},
+	},
 	plugins: [
 		new webpack.BannerPlugin({
 			banner: `${packageJSON.details.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\nBuilt: ${new Date().toLocaleDateString("en-us", {
@@ -53,25 +66,10 @@ const baseConfig = {
 			})}`,
 			entryOnly: true,
 		}),
-	],
-};
-
-const demo = Object.assign({}, baseConfig, {
-	output: {
-		filename: `${packageJSON.details.stylizedName}.js`,
-		path: path.resolve(__dirname, "demo"),
-		clean: false,
-		globalObject: "this",
-		library: {
-			name: `${packageJSON.details.stylizedName}`,
-			type: "umd",
-		},
-	},
-	plugins: [
 		new HtmlWebpackPlugin({
 			title: `${packageJSON.details.stylizedName}.js`,
 			template: "src/index.html",
-			filename: "../demo/index.html",
+			filename: "../public/index.html",
 			templateParameters: {
 				description: packageJSON.description,
 				subtitle: packageJSON.details.subtitle,
@@ -93,14 +91,14 @@ const demo = Object.assign({}, baseConfig, {
 		new HtmlWebpackHarddiskPlugin(),
 		new CopyPlugin({
 			patterns: [
-				{ from: "src/style.css", to: "../demo/style.css" },
-				{ from: "src/img", to: "../demo/img" },
-				{ from: "brandojs-demo-cap.webp", to: "../demo/brandojs-demo-cap.webp" },
+				{ from: "src/style.css", to: "style.css" },
+				{ from: "src/img", to: "img" },
+				{ from: "brandojs-demo-cap.webp", to: "brandojs-demo-cap.webp" },
 			],
 		}),
 	],
 	devServer: {
-		static: path.join(__dirname, "demo"),
+		static: path.join(__dirname, "public"),
 		compress: true,
 		open: true,
 		hot: true,
@@ -121,10 +119,22 @@ const dist = Object.assign({}, baseConfig, {
 		},
 	},
 	plugins: [
+		new webpack.BannerPlugin({
+			banner: `${packageJSON.details.stylizedName}.js v${packageJSON.version}\n${packageJSON.homepage}\nBuilt: ${new Date().toLocaleDateString("en-us", {
+				year: "numeric",
+				month: "numeric",
+				day: "numeric",
+				hour: "numeric",
+				minute: "numeric",
+				second: "numeric",
+				timeZoneName: "longOffset",
+			})}`,
+			entryOnly: true,
+		}),
 		new CopyPlugin({
 			patterns: [{ from: "src/img", to: "img" }],
 		}),
 	],
 });
 
-module.exports = [demo, dist];
+module.exports = [public, dist];
