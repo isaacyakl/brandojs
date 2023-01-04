@@ -23,7 +23,7 @@ export default {
 	collectCoverageFrom: ["./src/**"],
 
 	// The directory where Jest should output its coverage files
-	coverageDirectory: "./dist/coverage",
+	coverageDirectory: "./demo/coverage",
 
 	// An array of regexp pattern strings used to skip coverage collection
 	// coveragePathIgnorePatterns: [

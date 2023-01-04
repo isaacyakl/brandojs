@@ -5,7 +5,7 @@
 <p align="center">
 <a href="https://www.npmjs.com/package/{{ pkg.name }}"><img alt="npm" src="https://img.shields.io/npm/dw/{{ pkg.name }}?style=flat-square"/></a>
 <a href="https://libraries.io/npm/{{ pkg.name }}"><img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/{{ pkg.name }}?style=flat-square"/></a>
-<a href="{{ pkg.homepage }}/coverage/lcov-report/"><img alt="coverage" src="./dist/coverage/coverage.svg"/></a>
+<a href="{{ pkg.homepage }}/coverage/lcov-report/"><img alt="coverage" src="./demo/coverage/coverage.svg"/></a>
 <a href="{{ pkg.homepage }}"><img alt="GitHub deployments" src="https://img.shields.io/github/deployments/{{ socialHandles.github }}/{{ pkg.name }}/github-pages?label=demo&style=flat-square"/></a>
 </p>
 <!-- prettier-ignore-end -->

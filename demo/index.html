@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
+		<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark.min.css" />
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+		<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" />
+		<style>
+			.hljs-copy-button {
+				cursor: pointer;
+			}
+		</style>
+		<title>bRando.js - Demo</title>
+		<link rel="preload" href="./img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg" as="image" />
+		<link rel="preload" href="./img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg" as="image" />
+		<link rel="preload" href="./img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg" as="image" />
+		<link rel="preload" href="./img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg" as="image" />
+		<link rel="preload" href="./img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg" as="image" />
+	<script src="bRando.js"></script></head>
+	<body>
+		<main>
+			<div class="desc">
+				<h1>bRando.js</h1>
+				<h2 class="subtitle">Website background randomizer</h2>
+				<p>Automatically rotate CSS backgrounds for any DOM element in a random or sequential order.</p>
+				<p>
+					📖&nbsp;<a href="https://github.com/isaacyakl/brandojs.git">Readme</a><br />
+					📓&nbsp;<a href="https://isaacyakl.github.io/brandojs/docs">API documentation</a>
+				</p>
+
+				<p>
+					Created by <a href="https://www.isaacyakl.com" title="yak's Website">yak</a> <a href="https://www.twitter.com/isaacyakl" alt="Twitter" target="_blank" title="yak on Twitter"><i class="fab fa-twitter"></i></a>
+					<a href="https://www.github.com/isaacyakl" alt="GitHub" target="_blank" title="yak on GitHub"><i class="fab fa-github"></i></a>
+				</p>
+				<h2>Demo</h2>
+				<p>
+					<button class="control" id="nextbtn">.next()</button>
+					<button class="control" id="pausebtn">.pause()</button>
+					<button class="control" id="playbtn">.play()</button><br />
+					<button class="control" id="transition500msbtn">.transition = "500ms ease-in"</button>
+					<button class="control" id="timeout5000btn">.timeout = 5000</button>
+					<button class="control" id="timeout10000btn">.timeout = 10000</button>
+				</p>
+			</div>
+			<div class="highlight"></div>
+			<div class="instructions"><h2 id="installation">Installation</h2>
+<p>There are a couple different ways to use this library:</p>
+<h3 id="cdn">CDN</h3>
+<p>Skip the download, include the following code in your HTML right before <code>&lt;/head&gt;</code>:</p>
+<pre><code class="language-html">&lt;script src=&quot;https://unpkg.com/brandojs@latest/bRando.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="manual-download">Manual Download</h3>
+<p>Download the file, and include the following code in your HTML right before <code>&lt;/head&gt;</code>:</p>
+<pre><code class="language-html">&lt;script src=&quot;./your/scripts/path/bRando.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Of course, make sure the path points to where you have your scripts.</p>
+<h2 id="verifying-installation">Verifying Installation</h2>
+<p>To test that the library is installed correctly, create a demo instance with the following code placed right before the page&#39;s <code>&lt;/body&gt;</code> tag:</p>
+<pre><code class="language-html">&lt;script&gt;
+    let demo = bRando.create(); // creates a demo background rotator
+&lt;/script&gt;
+</code></pre>
+<p>This will create a background rotator with demo backgrounds on the <code>&lt;body&gt;</code> element. You should see something like this behind the main content:</p>
+<p align="center">
+<img src="brandojs-demo-cap.webp" alt="demo screencap" width="640" height="auto"/>
+
+<h2 id="usage">Usage</h2>
+<p>Create a new background rotator by calling the <code>create()</code> function on the <code>bRando</code> library and pass it an <code>options</code> object containing the desired settings.</p>
+<pre><code class="language-javascript">let options = {
+    CSSSelector: &quot;main&quot;, // a valid CSS selector (multiple elements are allowed)
+    backgrounds: [
+        // valid CSS background properties
+        &quot;aqua&quot;, // solid color
+        &quot;linear-gradient(80deg, #0864c8 25%, #588fca 75%)&quot;, // gradient
+        `url(&quot;somewhere/some-image.jpg&quot;) center/cover no-repeat`, // image
+        `background: center / contain no-repeat url(&quot;../../media/examples/firefox-logo.svg&quot;),
+        #eee 35% url(&quot;../../media/examples/lizard.png&quot;)`, // everything
+    ],
+    timeout: 5000, // time between changes in milliseconds
+    random: true, // whether to go through the backgrounds randomly or not (no two backgrounds are allowed to be back-to-back)
+    transition: &quot;500ms ease-in&quot;, // a CSS transition property for changing between backgrounds
+};
+
+let bgRotator = bRando.create(options); // create background rotator with the options set above
+
+// call next() if you want the page to load with one of the backgrounds immediately
+bgRotator.next(); // remove this line if you want a smooth first transition
+</code></pre>
+<p>All options are optional. Default values and further details for them can be found in the <a href="https://isaacyakl.github.io/brandojs/docs/">API documentation</a>.</p>
+<h3 id="ℹ️-preload-images">ℹ️ Preload Images</h3>
+<blockquote>
+<p>Be sure to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload">preload any images</a> used as backgrounds before creating the background rotator or your end-user may have partially loaded background images. There are <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload">a few ways to do this</a>. For example, you could add preload <code>&lt;link&gt;</code> tags in the <code>&lt;head&gt;</code> of your document:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;some-image-used-as-a-background1.jpg&quot; as=&quot;image&quot; /&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;some-image-used-as-a-background2.jpg&quot; as=&quot;image&quot; /&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;some-image-used-as-a-background3.jpg&quot; as=&quot;image&quot; /&gt;
+</code></pre>
+</blockquote>
+<h3 id="⚠️-optimize-images">⚠️ Optimize Images</h3>
+<blockquote>
+<p>Always optimize images used as backgrounds so that your end-user does not have to experience partially loaded background images. Use something like <a href="https://imagecompressor.com">imagecompressor.com</a> which even allows you to adjust quality settings and compress level for each image.</p>
+</blockquote>
+</div>
+			<script>
+				hljs.highlightAll();
+				hljs.addPlugin(new CopyButtonPlugin());
+			</script>
+			<script type="text/javascript">
+				let demo = bRando.create();
+				document.getElementById("nextbtn").addEventListener("click", () => {
+					demo.next();
+				});
+				document.getElementById("pausebtn").addEventListener("click", () => {
+					demo.pause();
+				});
+				document.getElementById("playbtn").addEventListener("click", () => {
+					demo.play();
+				});
+				document.getElementById("transition500msbtn").addEventListener("click", () => {
+					demo.transition = "500ms ease-in";
+				});
+				document.getElementById("timeout5000btn").addEventListener("click", () => {
+					demo.timeout = 5000;
+				});
+				document.getElementById("timeout10000btn").addEventListener("click", () => {
+					demo.timeout = 10000;
+				});
+			</script>
+		</main>
+	</body>
+</html>

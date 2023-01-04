@@ -12,7 +12,7 @@ const blueprintJSON = require("./blueprint.json");
 const fs = require("fs");
 const { marked } = require("marked");
 
-module.exports = {
+const baseConfig = {
 	entry: "./src/index.ts",
 	devtool: "inline-source-map",
 	module: {
@@ -31,20 +31,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx"],
-	},
-	output: {
-		filename: `${packageJSON.details.stylizedName}.js`,
-		path: path.resolve(__dirname, "dist"),
-		clean: {
-			keep(asset) {
-				return asset.includes("docs") || asset.includes("coverage");
-			},
-		},
-		globalObject: "this",
-		library: {
-			name: `${packageJSON.details.stylizedName}`,
-			type: "umd",
-		},
 	},
 	optimization: {
 		minimize: true,
@@ -67,9 +53,25 @@ module.exports = {
 			})}`,
 			entryOnly: true,
 		}),
+	],
+};
+
+const demo = Object.assign({}, baseConfig, {
+	output: {
+		filename: `${packageJSON.details.stylizedName}.js`,
+		path: path.resolve(__dirname, "demo"),
+		clean: false,
+		globalObject: "this",
+		library: {
+			name: `${packageJSON.details.stylizedName}`,
+			type: "umd",
+		},
+	},
+	plugins: [
 		new HtmlWebpackPlugin({
 			title: `${packageJSON.details.stylizedName}.js`,
 			template: "src/index.html",
+			filename: "../demo/index.html",
 			templateParameters: {
 				description: packageJSON.description,
 				subtitle: packageJSON.details.subtitle,
@@ -81,6 +83,8 @@ module.exports = {
 						blueprintJSON
 					)
 				),
+				repo: packageJSON.repository.url,
+				homepage: packageJSON.homepage,
 			},
 			alwaysWriteToDisk: true,
 			scriptLoading: "blocking",
@@ -89,18 +93,38 @@ module.exports = {
 		new HtmlWebpackHarddiskPlugin(),
 		new CopyPlugin({
 			patterns: [
-				{ from: "src/style.css", to: "style.css" },
-				{ from: "src/img", to: "img" },
-				{ from: "brandojs-demo-cap.webp", to: "brandojs-demo-cap.webp" },
+				{ from: "src/style.css", to: "../demo/style.css" },
+				{ from: "src/img", to: "../demo/img" },
+				{ from: "brandojs-demo-cap.webp", to: "../demo/brandojs-demo-cap.webp" },
 			],
 		}),
 	],
 	devServer: {
-		static: path.join(__dirname, "dist"),
+		static: path.join(__dirname, "demo"),
 		compress: true,
 		open: true,
 		hot: true,
 		port: 4000,
 		historyApiFallback: true,
 	},
-};
+});
+
+const dist = Object.assign({}, baseConfig, {
+	output: {
+		filename: `${packageJSON.details.stylizedName}.js`,
+		path: path.resolve(__dirname, "dist"),
+		clean: true,
+		globalObject: "this",
+		library: {
+			name: `${packageJSON.details.stylizedName}`,
+			type: "umd",
+		},
+	},
+	plugins: [
+		new CopyPlugin({
+			patterns: [{ from: "src/img", to: "img" }],
+		}),
+	],
+});
+
+module.exports = [demo, dist];

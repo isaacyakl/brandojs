@@ -17,7 +17,7 @@
 	"include": ["./src/**/*"],
 	"typedocOptions": {
 		"entryPoints": ["src/index.ts", "src/bRando.ts"],
-		"out": ["dist/docs"],
+		"out": ["demo/docs"],
 		"name": "bRando.js",
 		"readme": "none"
 	}

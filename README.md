@@ -12,7 +12,7 @@
 <p align="center">
 <a href="https://www.npmjs.com/package/brandojs"><img alt="npm" src="https://img.shields.io/npm/dw/brandojs?style=flat-square"/></a>
 <a href="https://libraries.io/npm/brandojs"><img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/brandojs?style=flat-square"/></a>
-<a href="https://isaacyakl.github.io/brandojs/coverage/lcov-report/"><img alt="coverage" src="./dist/coverage/coverage.svg"/></a>
+<a href="https://isaacyakl.github.io/brandojs/coverage/lcov-report/"><img alt="coverage" src="./demo/coverage/coverage.svg"/></a>
 <a href="https://isaacyakl.github.io/brandojs"><img alt="GitHub deployments" src="https://img.shields.io/github/deployments/isaacyakl/brandojs/github-pages?label=demo&style=flat-square"/></a>
 </p>
 <!-- prettier-ignore-end -->

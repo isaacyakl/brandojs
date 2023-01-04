@@ -12,11 +12,11 @@
 		"dev": "conc -k -c \"auto\" -p \"[{name}]\" -n \"JEST,WEBPACK\" \"npm:watch-test\" \"npm:dev-webpack\"",
 		"dev-webpack": "webpack-dev-server --mode=development",
 		"watch-test": "jest --watchAll --verbose --coverage",
-		"watch-docs": "conc --restart-after 10000 --restart-tries 3 -c \"auto\" -p \"[{name}]\" -n \"TYPEDOC,LIVE\" \"typedoc --watch\" \"live-server --open=/dist/docs\" \"npm i -g live-server@latest\"",
+		"watch-docs": "conc --restart-after 10000 --restart-tries 3 -c \"auto\" -p \"[{name}]\" -n \"TYPEDOC,LIVE\" \"typedoc --watch\" \"live-server --open=/demo/docs\" \"npm i -g live-server@latest\"",
 		"test": "jest --verbose --coverage",
 		"build-readme": "npx @appnest/readme generate && npx jest --coverage=false ./src/readme.md.test.ts && Echo README is GOOD to go || Echo ERRORS FOUND IN README",
 		"build-coverage": "npm run test -- && npm run build-coverage-badge",
-		"build-coverage-badge": "npx coverage-badger -r ./dist/coverage/clover.xml -d ./dist/coverage/",
+		"build-coverage-badge": "npx coverage-badger -r ./demo/coverage/clover.xml -d ./demo/coverage/",
 		"build-all": "npx update-browserslist-db@latest && npm run build-coverage && npm run build-readme && webpack --mode=production && typedoc",
 		"preversion": "git checkout master && git pull && npm ci && npm run build-all",
 		"publish": "npm publish"
