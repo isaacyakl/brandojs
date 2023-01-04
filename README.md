@@ -18,14 +18,14 @@
 <!-- prettier-ignore-end -->
 
 <p align="center">
-  <b>Automatically rotate CSS backgrounds for any DOM element in a random or sequential order.</b></br>
+  <b>Automatically rotate through CSS backgrounds for any DOM element in a random or sequential order.</b><br>
 </p>
 <p align="center">
-  <b>Compatibility:</b> ✔️Vanilla JavaScript ❌React.js (<a href="#-to-do">Coming soon</a>)</br>
+  <b>Compatibility:</b> ✔️Vanilla JavaScript ❌React.js (<a href="#-to-do">Coming soon</a>)<br>
   <b>Demo:</b> <a href="https://brandojs.isaacyakl.com">https://brandojs.isaacyakl.com</a>
 </p>
 <p align="center">
-  <a href="https://twitter.com/isaacyakl"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/isaacyakl?style=social"></a> <a href="https://github.com/isaacyakl"><img alt="GitHub followers" src="https://img.shields.io/github/followers/isaacyakl?style=social"></a></br>
+  <a href="https://twitter.com/isaacyakl"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/isaacyakl?style=social"></a> <a href="https://github.com/isaacyakl"><img alt="GitHub followers" src="https://img.shields.io/github/followers/isaacyakl?style=social"></a><br>
   <sub>Created by: <a href="https://github.com/isaacyakl">yak</a></sub>
 <p>
 <details>

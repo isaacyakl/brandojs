@@ -1,7 +1,7 @@
 {
 	"name": "brandojs",
 	"version": "1.0.0",
-	"description": "Automatically rotate CSS backgrounds for any DOM element in a random or sequential order.",
+	"description": "Automatically rotate through CSS backgrounds for any DOM element in a random or sequential order.",
 	"main": "dist/bRando.js",
 	"details": {
 		"stylizedName": "bRando",
