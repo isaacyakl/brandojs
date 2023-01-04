@@ -82,11 +82,11 @@ To test that the library is installed correctly, create a demo instance with the
 
 ```html
 <script>
-	let demo = bRando.create(); // creates a demo background rotator
+	let demo = bRando.create(); // creates a demo background changer
 </script>
 ```
 
-This will create a background rotator with demo backgrounds on the `<body>` element. You should see something like this behind the main content:
+This will create a background changer with demo backgrounds on the `<body>` element. You should see something like this behind the main content:
 
 <p align="center">
 <img src="brandojs-demo-cap.webp" alt="demo screencap" width="640" height="auto"/>
@@ -96,7 +96,7 @@ This will create a background rotator with demo backgrounds on the `<body>` elem
 
 ## ➤ Usage
 
-Create a new background rotator by calling the `create()` function on the `bRando` library and passing it an `options` object containing the desired settings.
+Create a new background changer by calling the `create()` function on the `bRando` library and passing it an `options` object containing the desired settings.
 
 ```javascript
 let options = {
@@ -114,7 +114,7 @@ let options = {
 	transition: "500ms ease-in", // a CSS transition property for changing between backgrounds
 };
 
-let bgRotator = bRando.create(options); // create background rotator with the options set above
+let bgRotator = bRando.create(options); // create background changer with the options set above
 
 // call next() if you want the page to load with one of the backgrounds immediately
 bgRotator.next(); // remove this line if you want a smooth first transition
@@ -124,7 +124,7 @@ All options are optional. Default values and further details for them can be fou
 
 ### ℹ️ Preload Images
 
-> Be sure to [preload any images](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) used as backgrounds before creating the background rotator or your end user may see partially loaded background images. There are [a few ways to do this](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload). For example, you could add preload `<link>` tags in the `<head>` of your document:
+> Be sure to [preload any images](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) used as backgrounds before creating the background changer or your end user may see partially loaded background images. There are [a few ways to do this](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload). For example, you could add preload `<link>` tags in the `<head>` of your document:
 >
 > ```html
 > <link rel="preload" href="some-image-used-as-a-background1.jpg" as="image" />
