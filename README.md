@@ -60,7 +60,7 @@ There are a couple different ways to use this library:
 Skip the download, include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="https://unpkg.com/brandojs@latest/bRando.js"></script>
+<script src="https://unpkg.com/brandojs@latest/dist/bRando.js"></script>
 ```
 
 ### Manual Download

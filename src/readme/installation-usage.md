@@ -7,7 +7,7 @@ There are a couple different ways to use this library:
 Skip the download, include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="https://unpkg.com/{{ pkg.name }}@latest/{{ pkg.details.stylizedName }}.js"></script>
+<script src="https://unpkg.com/{{ pkg.name }}@latest/dist/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
 ### Manual Download

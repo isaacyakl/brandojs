@@ -14,7 +14,6 @@ const { marked } = require("marked");
 
 const baseConfig = {
 	entry: "./src/index.ts",
-	devtool: "inline-source-map",
 	module: {
 		rules: [
 			{
@@ -43,6 +42,7 @@ const baseConfig = {
 };
 
 const public = Object.assign({}, baseConfig, {
+	devtool: "source-map",
 	output: {
 		filename: `${packageJSON.details.stylizedName}.js`,
 		path: path.resolve(__dirname, "public"),
