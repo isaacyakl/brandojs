@@ -82,7 +82,7 @@ To test that the library is installed correctly, create a demo instance with the
 
 ```html
 <script>
-	let demo = bRando.create(); // creates a demo background changer
+	const demo = bRando.create(); // creates a demo background changer
 </script>
 ```
 
@@ -99,14 +99,14 @@ This will create a background changer with demo backgrounds on the `<body>` elem
 Create a new background changer by calling the `create()` function on the `bRando` library and passing it an `options` object containing the desired settings.
 
 ```javascript
-let options = {
+const options = {
 	CSSSelector: "main", // a valid CSS selector (multiple elements are allowed)
 	backgrounds: [
 		// valid CSS background properties
 		"aqua", // solid color
 		"linear-gradient(80deg, #0864c8 25%, #588fca 75%)", // gradient
 		`url("somewhere/some-image.jpg") center/cover no-repeat`, // image
-		`background: center / contain no-repeat url("../../media/examples/firefox-logo.svg"),
+		`center / contain no-repeat url("../../media/examples/firefox-logo.svg"),
         #eee 35% url("../../media/examples/lizard.png")`, // everything
 	],
 	timeout: 5000, // time between changes in milliseconds
@@ -114,7 +114,7 @@ let options = {
 	transition: "500ms ease-in", // a CSS transition property for changing between backgrounds
 };
 
-let bgRotator = bRando.create(options); // create background changer with the options set above
+const bgRotator = bRando.create(options); // create background changer with the options set above
 
 // call next() if you want the page to load with one of the backgrounds immediately
 bgRotator.next(); // remove this line if you want a smooth first transition
@@ -153,12 +153,14 @@ Features and fixes planned for development.
 
 -  Complete API documentation
 -  Add console feedback for invalid options
--  Add event hooks: onChange()
 -  Warn users about setting transition animations time > timeout in both usage section and console
--  Add previous()
--  Create React component
 -  Add explanation of how the library works and credit learning sources
--  Update year date in LICENSE automatically
+-  Create React component
+-  [Update year date in LICENSE automatically](https://github.com/marketplace/actions/update-license-copyright-year-s)
+-  Add event hooks:
+   -  onChange()
+   -  afterChange()
+-  Add previous()
 
 Have a feature request? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) with the labeled `enhancement` or write it yourself and create a pull request.
 

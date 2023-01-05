@@ -15,18 +15,5 @@
 		"lib": ["DOM", "DOM.Iterable"],
 		"declaration": true
 	},
-	"include": ["./src/**/*"],
-	"typedocOptions": {
-		"entryPoints": ["src/index.ts", "src/bRando.ts"],
-		"out": ["public/docs/"],
-		"name": "bRando.js",
-		"readme": "none",
-		"cleanOutputDir": false,
-		"navigationLinks": {
-			"Readme": "https://github.com/isaacyakl/brandojs",
-			"Demo": "https://brandojs.isaacyakl.com",
-			"Coverage": "https://brandojs.isaacyakl.com/coverage/lcov-report/"
-		},
-		"includeVersion": true
-	}
+	"include": ["./src/**/*"]
 }
