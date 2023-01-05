@@ -1,11 +1,10 @@
 {
 	"$schema": "https://typedoc.org/schema.json",
-	"entryPoints": ["./src"],
+	"entryPoints": ["./src/docs/browser.ts"],
 	"out": "public/docs/",
 	"name": "bRando.js",
 	"readme": "none",
 	"sort": ["kind", "source-order"],
-	"cleanOutputDir": false,
 	"navigationLinks": {
 		"Readme": "https://github.com/isaacyakl/brandojs",
 		"Demo": "https://brandojs.isaacyakl.com",

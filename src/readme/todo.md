@@ -4,6 +4,7 @@ Features and fixes planned for development.
 
 -  Complete API documentation
 -  Add console feedback for invalid options
+-  If demo images are not present use the CDN images
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources
 -  Create React component

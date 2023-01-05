@@ -51,7 +51,7 @@ const options = {
         #eee 35% url("../../media/examples/lizard.png")`, // everything
 	],
 	timeout: 5000, // time between changes in milliseconds
-	random: true, // whether to go through the backgrounds randomly or not (no two backgrounds are allowed to be back-to-back)
+	random: true, // whether to go through the backgrounds randomly or not (a background will never repeat unless only one is given)
 	transition: "500ms ease-in", // a CSS transition property for changing between backgrounds
 };
 

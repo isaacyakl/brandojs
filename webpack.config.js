@@ -7,13 +7,14 @@ const TerserPlugin = require("terser-webpack-plugin");
 const Handlebars = require("handlebars");
 
 const packageJSON = require("./package.json");
-const blueprintJSON = require("./blueprint.json");
+const blueprintJSON = require("./src/readme/blueprint.json");
 
 const fs = require("fs");
 const { marked } = require("marked");
 
 const baseConfig = {
-	entry: "./src/index.ts",
+	entry: "./src/browser/index.ts",
+	devtool: "source-map",
 	module: {
 		rules: [
 			{
@@ -42,7 +43,6 @@ const baseConfig = {
 };
 
 const public = Object.assign({}, baseConfig, {
-	devtool: "source-map",
 	output: {
 		filename: `${packageJSON.details.stylizedName}.js`,
 		path: path.resolve(__dirname, "public"),
@@ -68,7 +68,7 @@ const public = Object.assign({}, baseConfig, {
 		}),
 		new HtmlWebpackPlugin({
 			title: `${packageJSON.details.stylizedName}.js`,
-			template: "src/index.html",
+			template: "src/demo/index.html",
 			filename: "../public/index.html",
 			templateParameters: {
 				description: packageJSON.description,
@@ -91,8 +91,8 @@ const public = Object.assign({}, baseConfig, {
 		new HtmlWebpackHarddiskPlugin(),
 		new CopyPlugin({
 			patterns: [
-				{ from: "src/style.css", to: "style.css" },
-				{ from: "src/img", to: "img" },
+				{ from: "src/demo/style.css", to: "style.css" },
+				{ from: "src/demo/img", to: "img" },
 				{ from: "brandojs-demo-cap.webp", to: "brandojs-demo-cap.webp" },
 			],
 		}),
@@ -132,7 +132,7 @@ const dist = Object.assign({}, baseConfig, {
 			entryOnly: true,
 		}),
 		new CopyPlugin({
-			patterns: [{ from: "src/img", to: "img" }],
+			patterns: [{ from: "src/demo/img", to: "img" }],
 		}),
 	],
 });

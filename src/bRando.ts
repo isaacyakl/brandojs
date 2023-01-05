@@ -1,5 +1,33 @@
 import packageJSON from "../package.json";
 
+export interface Options {
+	/** A [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors); multiple DOM element selections are supported. e.g. `"main"`
+	 * @defaultValue `"body"`
+	 */
+	CSSSelector?: string;
+
+	/** [CSS background values](https://developer.mozilla.org/en-US/docs/Web/CSS/background) without the "background: ". e.g. `["red","blue","green"]`
+	 * @defaultValue An array of demo values
+	 */
+	backgrounds?: string[];
+
+	/** The time between background changes in milliseconds. e.g. `5000`
+	 * @defaultValue `7500`
+	 */
+	timeout?: number;
+
+	/** Whether to rotate through the backgrounds randomly or not (a background will never repeat unless only one is given).
+	 * @defaultValue `true`
+	 *
+	 */
+	random?: boolean;
+
+	/** A [CSS transition value](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property) to be used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
+	 * @defaultValue `"5000ms"`
+	 */
+	transition?: string;
+}
+
 /**
  * Class for creating a CSS background property changer.
  */
@@ -102,7 +130,7 @@ export class bRando {
 	 * @constructs bRando
 	 * @param options An object of optional options
 	 */
-	constructor(options: { CSSSelector?: string; backgrounds?: string[]; timeout?: number; random?: boolean; transition?: string } = {}) {
+	constructor(options: Options = {}) {
 		this._CSSSelector = typeof options.CSSSelector !== "string" ? "body" : options.CSSSelector;
 		this._nodes = document.querySelectorAll(this.CSSSelector);
 		this.backgrounds = options.backgrounds;

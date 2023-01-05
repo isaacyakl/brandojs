@@ -15,5 +15,5 @@
 		"lib": ["DOM", "DOM.Iterable"],
 		"declaration": true
 	},
-	"include": ["./src/**/*"]
+	"include": ["src/**/*"]
 }
