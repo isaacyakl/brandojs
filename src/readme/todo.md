@@ -10,3 +10,5 @@ Features and fixes planned for development.
 -  Create React component
 -  Add explanation of how the library works and credit learning sources
 -  Update year date in LICENSE automatically
+
+Have a feature request? Create a [new issue](https://github.com/{{ socialHandles.github }}/{{ pkg.name }}/issues/new) with the labeled `enhancement` or write it yourself and create a pull request.

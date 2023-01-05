@@ -160,13 +160,15 @@ Features and fixes planned for development.
 -  Add explanation of how the library works and credit learning sources
 -  Update year date in LICENSE automatically
 
+Have a feature request? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) with the labeled `enhancement` or write it yourself and create a pull request.
+
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#issues)
 
 ## ➤ Issues
 
-Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new).
+Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) or create a pull request.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
