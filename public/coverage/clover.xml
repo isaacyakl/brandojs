@@ -1,110 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1672871660538" clover="3.2.0">
-  <project timestamp="1672871660538" name="All files">
-    <metrics statements="98" coveredstatements="98" conditionals="32" coveredconditionals="31" methods="27" coveredmethods="26" elements="157" coveredelements="155" complexity="0" loc="98" ncloc="98" packages="1" files="2" classes="2"/>
-    <file name="bRando.ts" path="C:\Users\isaac\brandojs\src\bRando.ts">
+<coverage generated="1672997675980" clover="3.2.0">
+  <project timestamp="1672997675981" name="All files">
+    <metrics statements="98" coveredstatements="98" conditionals="32" coveredconditionals="31" methods="27" coveredmethods="26" elements="157" coveredelements="155" complexity="0" loc="98" ncloc="98" packages="2" files="2" classes="2"/>
+    <package name="src">
       <metrics statements="95" coveredstatements="95" conditionals="32" coveredconditionals="31" methods="26" coveredmethods="25"/>
-      <line num="1" count="2" type="stmt"/>
-      <line num="6" count="2" type="stmt"/>
-      <line num="7" count="67" type="stmt"/>
-      <line num="9" count="404" type="stmt"/>
-      <line num="14" count="344" type="stmt"/>
-      <line num="17" count="67" type="stmt"/>
-      <line num="19" count="361" type="stmt"/>
-      <line num="22" count="70" type="cond" truecount="2" falsecount="0"/>
-      <line num="25" count="6" type="stmt"/>
-      <line num="28" count="4" type="stmt"/>
-      <line num="30" count="66" type="stmt"/>
-      <line num="32" count="66" type="cond" truecount="1" falsecount="1"/>
-      <line num="36" count="66" type="stmt"/>
-      <line num="47" count="67" type="stmt"/>
-      <line num="49" count="173" type="stmt"/>
-      <line num="52" count="69" type="cond" truecount="4" falsecount="0"/>
-      <line num="53" count="1" type="stmt"/>
-      <line num="55" count="68" type="stmt"/>
-      <line num="57" count="69" type="cond" truecount="1" falsecount="0"/>
-      <line num="58" count="2" type="stmt"/>
-      <line num="59" count="2" type="stmt"/>
-      <line num="63" count="67" type="stmt"/>
-      <line num="65" count="107" type="stmt"/>
-      <line num="68" count="70" type="cond" truecount="2" falsecount="0"/>
-      <line num="71" count="67" type="stmt"/>
-      <line num="73" count="189" type="stmt"/>
-      <line num="76" count="69" type="cond" truecount="2" falsecount="0"/>
-      <line num="79" count="67" type="stmt"/>
-      <line num="80" count="67" type="stmt"/>
-      <line num="81" count="67" type="stmt"/>
-      <line num="82" count="67" type="stmt"/>
-      <line num="84" count="67" type="stmt"/>
-      <line num="90" count="67" type="stmt"/>
-      <line num="96" count="390" type="stmt"/>
-      <line num="106" count="67" type="cond" truecount="2" falsecount="0"/>
-      <line num="107" count="67" type="stmt"/>
-      <line num="108" count="67" type="stmt"/>
-      <line num="109" count="67" type="stmt"/>
-      <line num="110" count="67" type="stmt"/>
-      <line num="111" count="67" type="stmt"/>
-      <line num="112" count="67" type="stmt"/>
-      <line num="113" count="71" type="stmt"/>
-      <line num="114" count="71" type="stmt"/>
-      <line num="115" count="71" type="stmt"/>
-      <line num="116" count="71" type="stmt"/>
-      <line num="118" count="67" type="stmt"/>
-      <line num="119" count="67" type="stmt"/>
-      <line num="120" count="67" type="stmt"/>
-      <line num="121" count="67" type="stmt"/>
-      <line num="122" count="67" type="stmt"/>
-      <line num="123" count="67" type="stmt"/>
-      <line num="124" count="67" type="stmt"/>
-      <line num="125" count="67" type="stmt"/>
-      <line num="126" count="71" type="stmt"/>
-      <line num="127" count="71" type="stmt"/>
-      <line num="128" count="71" type="stmt"/>
-      <line num="129" count="71" type="stmt"/>
-      <line num="132" count="67" type="stmt"/>
-      <line num="138" count="168" type="cond" truecount="1" falsecount="0"/>
-      <line num="139" count="1" type="stmt"/>
-      <line num="141" count="167" type="stmt"/>
-      <line num="142" count="167" type="stmt"/>
-      <line num="143" count="1" type="stmt"/>
-      <line num="150" count="240" type="stmt"/>
-      <line num="151" count="240" type="stmt"/>
-      <line num="157" count="108" type="cond" truecount="1" falsecount="0"/>
-      <line num="158" count="1" type="stmt"/>
-      <line num="160" count="107" type="stmt"/>
-      <line num="162" count="96" type="stmt"/>
-      <line num="163" count="125" type="stmt"/>
-      <line num="165" count="96" type="stmt"/>
-      <line num="168" count="107" type="cond" truecount="1" falsecount="0"/>
-      <line num="169" count="95" type="stmt"/>
-      <line num="171" count="107" type="cond" truecount="2" falsecount="0"/>
-      <line num="172" count="103" type="cond" truecount="4" falsecount="0"/>
-      <line num="173" count="4" type="cond" truecount="1" falsecount="0"/>
-      <line num="174" count="2" type="stmt"/>
-      <line num="177" count="107" type="stmt"/>
-      <line num="178" count="107" type="stmt"/>
-      <line num="179" count="107" type="cond" truecount="2" falsecount="0"/>
-      <line num="180" count="56" type="stmt"/>
-      <line num="181" count="56" type="stmt"/>
-      <line num="183" count="51" type="stmt"/>
-      <line num="184" count="51" type="stmt"/>
-      <line num="187" count="107" type="stmt"/>
-      <line num="193" count="65" type="stmt"/>
-      <line num="194" count="65" type="stmt"/>
-      <line num="196" count="69" type="stmt"/>
-      <line num="197" count="69" type="stmt"/>
-      <line num="198" count="69" type="stmt"/>
-      <line num="199" count="69" type="stmt"/>
-      <line num="200" count="69" type="stmt"/>
-      <line num="202" count="65" type="stmt"/>
-      <line num="209" count="3" type="cond" truecount="2" falsecount="0"/>
-      <line num="216" count="279" type="stmt"/>
-    </file>
-    <file name="index.ts" path="C:\Users\isaac\brandojs\src\index.ts">
+      <file name="bRando.ts" path="/home/yak/brandojs/src/bRando.ts">
+        <metrics statements="95" coveredstatements="95" conditionals="32" coveredconditionals="31" methods="26" coveredmethods="25"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="67" type="stmt"/>
+        <line num="37" count="404" type="stmt"/>
+        <line num="42" count="344" type="stmt"/>
+        <line num="45" count="67" type="stmt"/>
+        <line num="47" count="369" type="stmt"/>
+        <line num="50" count="70" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="58" count="66" type="stmt"/>
+        <line num="60" count="66" type="cond" truecount="1" falsecount="1"/>
+        <line num="64" count="66" type="stmt"/>
+        <line num="75" count="67" type="stmt"/>
+        <line num="77" count="173" type="stmt"/>
+        <line num="80" count="69" type="cond" truecount="4" falsecount="0"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="83" count="68" type="stmt"/>
+        <line num="85" count="69" type="cond" truecount="1" falsecount="0"/>
+        <line num="86" count="2" type="stmt"/>
+        <line num="87" count="2" type="stmt"/>
+        <line num="91" count="67" type="stmt"/>
+        <line num="93" count="107" type="stmt"/>
+        <line num="96" count="70" type="cond" truecount="2" falsecount="0"/>
+        <line num="99" count="67" type="stmt"/>
+        <line num="101" count="189" type="stmt"/>
+        <line num="104" count="69" type="cond" truecount="2" falsecount="0"/>
+        <line num="107" count="67" type="stmt"/>
+        <line num="108" count="67" type="stmt"/>
+        <line num="109" count="67" type="stmt"/>
+        <line num="110" count="67" type="stmt"/>
+        <line num="112" count="67" type="stmt"/>
+        <line num="118" count="67" type="stmt"/>
+        <line num="124" count="398" type="stmt"/>
+        <line num="134" count="67" type="cond" truecount="2" falsecount="0"/>
+        <line num="135" count="67" type="stmt"/>
+        <line num="136" count="67" type="stmt"/>
+        <line num="137" count="67" type="stmt"/>
+        <line num="138" count="67" type="stmt"/>
+        <line num="139" count="67" type="stmt"/>
+        <line num="140" count="67" type="stmt"/>
+        <line num="141" count="71" type="stmt"/>
+        <line num="142" count="71" type="stmt"/>
+        <line num="143" count="71" type="stmt"/>
+        <line num="144" count="71" type="stmt"/>
+        <line num="146" count="67" type="stmt"/>
+        <line num="147" count="67" type="stmt"/>
+        <line num="148" count="67" type="stmt"/>
+        <line num="149" count="67" type="stmt"/>
+        <line num="150" count="67" type="stmt"/>
+        <line num="151" count="67" type="stmt"/>
+        <line num="152" count="67" type="stmt"/>
+        <line num="153" count="67" type="stmt"/>
+        <line num="154" count="71" type="stmt"/>
+        <line num="155" count="71" type="stmt"/>
+        <line num="156" count="71" type="stmt"/>
+        <line num="157" count="71" type="stmt"/>
+        <line num="160" count="67" type="stmt"/>
+        <line num="166" count="168" type="cond" truecount="1" falsecount="0"/>
+        <line num="167" count="1" type="stmt"/>
+        <line num="169" count="167" type="stmt"/>
+        <line num="170" count="167" type="stmt"/>
+        <line num="171" count="1" type="stmt"/>
+        <line num="178" count="240" type="stmt"/>
+        <line num="179" count="240" type="stmt"/>
+        <line num="185" count="108" type="cond" truecount="1" falsecount="0"/>
+        <line num="186" count="1" type="stmt"/>
+        <line num="188" count="107" type="stmt"/>
+        <line num="190" count="96" type="stmt"/>
+        <line num="191" count="133" type="stmt"/>
+        <line num="193" count="96" type="stmt"/>
+        <line num="196" count="107" type="cond" truecount="1" falsecount="0"/>
+        <line num="197" count="95" type="stmt"/>
+        <line num="199" count="107" type="cond" truecount="2" falsecount="0"/>
+        <line num="200" count="103" type="cond" truecount="4" falsecount="0"/>
+        <line num="201" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="202" count="2" type="stmt"/>
+        <line num="205" count="107" type="stmt"/>
+        <line num="206" count="107" type="stmt"/>
+        <line num="207" count="107" type="cond" truecount="2" falsecount="0"/>
+        <line num="208" count="56" type="stmt"/>
+        <line num="209" count="56" type="stmt"/>
+        <line num="211" count="51" type="stmt"/>
+        <line num="212" count="51" type="stmt"/>
+        <line num="215" count="107" type="stmt"/>
+        <line num="221" count="65" type="stmt"/>
+        <line num="222" count="65" type="stmt"/>
+        <line num="224" count="69" type="stmt"/>
+        <line num="225" count="69" type="stmt"/>
+        <line num="226" count="69" type="stmt"/>
+        <line num="227" count="69" type="stmt"/>
+        <line num="228" count="69" type="stmt"/>
+        <line num="230" count="65" type="stmt"/>
+        <line num="237" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="244" count="279" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.browser">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="29" count="1" type="stmt"/>
-      <line num="30" count="4" type="stmt"/>
-    </file>
+      <file name="index.ts" path="/home/yak/brandojs/src/browser/index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

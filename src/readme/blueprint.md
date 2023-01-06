@@ -32,7 +32,7 @@
 
 ## Issues
 
-Found a 🐛? Create a [new issue](https://github.com/{{ socialHandles.github }}/{{ pkg.name }}/issues/new).
+Found a 🐛? Create a [new issue](https://github.com/{{ socialHandles.github }}/{{ pkg.name }}/issues/new) or create a pull request.
 
 {{ template:license }}
 

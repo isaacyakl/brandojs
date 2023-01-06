@@ -15,7 +15,7 @@
 		"test": "jest --verbose --coverage",
 		"build": "npm run test && npm run build-coverage-badge && npm run build-readme && webpack --mode=production && typedoc",
 		"prebuild": "npx update-browserslist-db@latest",
-		"build-readme": "npx @appnest/readme generate && npx jest --coverage=false ./src/readme.md.test.ts && Echo README is GOOD to go || Echo ERRORS FOUND IN README",
+		"build-readme": "npx @appnest/readme generate --config ./src/readme/blueprint.json && npx jest --coverage=false ./src/readme/readme.md.test.ts && echo README is GOOD to go || echo ERRORS FOUND IN README",
 		"build-coverage-badge": "npx coverage-badger -r ./public/coverage/clover.xml -d ./public/coverage/",
 		"preversion": "git checkout master && git pull && npm ci",
 		"version": "npm run build & git add *",

@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import { marked } from "marked";
 
-const readmeMD = fs.readFileSync("./readme.md").toString();
+const readmeMD = fs.readFileSync("./README.md").toString();
 const readmeHTML = marked.parse(readmeMD);
 
 test("Make sure no mustache syntax is left in readme.md", () => {
