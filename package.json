@@ -18,7 +18,7 @@
 		"build-readme": "npx @appnest/readme generate --config ./src/readme/blueprint.json && jest --coverage=false ./src/readme/readme.md.test.ts && echo README is GOOD to go || echo ERRORS FOUND IN README",
 		"build-coverage-badge": "coverage-badger -r ./public/coverage/clover.xml -d ./public/coverage/",
 		"preversion": "git checkout master && git pull && npm ci",
-		"version": "npm run build & git add *",
+		"version": "npm run build && git add *",
 		"postpublish": "git push && git push --tags"
 	},
 	"files": [
