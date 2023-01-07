@@ -1,6 +1,6 @@
 {
 	"name": "brandojs",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Website background randomizer: Automatically change CSS backgrounds on any DOM element in a random or sequential order.",
 	"main": "dist/bRando.js",
 	"details": {
