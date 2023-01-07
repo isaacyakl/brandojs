@@ -1,51 +1,72 @@
 import packageJSON from "../package.json";
-
+/**
+ * An interface for options used when initializing a background changer. It is passed to the {@link create} function or a {@link bRando} class constructor.
+ */
 export interface Options {
-	/** A [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors); multiple DOM element selections are supported. e.g. `"main"`
+	/**
+	 * Sets the [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) used when selecting elements to change backgrounds on; multiple element selections are supported. e.g. `"main"`
 	 * @defaultValue `"body"`
 	 */
 	CSSSelector?: string;
 
-	/** [CSS background values](https://developer.mozilla.org/en-US/docs/Web/CSS/background) without the "background: ". e.g. `["red","blue","green"]`
+	/**
+	 * Sets an array of [CSS backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/background) to be used. e.g. `["red","green","blue"]`
 	 * @defaultValue An array of demo values
 	 */
 	backgrounds?: string[];
 
-	/** The time between background changes in milliseconds. e.g. `5000`
+	/**
+	 * Sets the time between background changes (in milliseconds). e.g. `5000`
 	 * @defaultValue `7500`
 	 */
 	timeout?: number;
 
-	/** Whether to rotate through the backgrounds randomly or not (a background will never repeat unless only one is given).
+	/**
+	 * Sets whether to pick the next background value at random (`true`) or sequentially (`false`).
 	 * @defaultValue `true`
-	 *
 	 */
 	random?: boolean;
 
-	/** A [CSS transition value](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property) to be used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
+	/**
+	 * Sets the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) (without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)) used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
 	 * @defaultValue `"5000ms"`
 	 */
 	transition?: string;
 }
 
 /**
- * Class for creating a CSS background property changer.
+ * A class for automatically changing CSS backgrounds on any element in a random or sequential order &mdash; a background changer.
+ * @remarks
+ * A background will never repeat (back-to-back) unless only one {@link Options.backgrounds background} is given.
  */
 export class bRando {
 	protected readonly _CSSSelector: string = "";
+	/**
+	 * Returns the [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) used when selecting elements for a background changer. e.g. `"main"`
+	 */
 	public get CSSSelector(): string {
 		return this._CSSSelector;
 	}
 
 	protected readonly _nodes: NodeList;
+	/**
+	 * Returns a [`NodeList`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) containing every element selected for a background changer.
+	 */
 	public get nodes(): NodeList {
 		return this._nodes;
 	}
 
 	protected _backgrounds: string[] = [];
+	/**
+	 * Returns an array of the background values set for a background changer. e.g. `["red", "green", "blue"]`
+	 */
 	public get backgrounds(): string[] {
 		return this._backgrounds;
 	}
+	/**
+	 * Sets an array of [CSS backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/background) to be used. e.g. `["red","green","blue"]`
+	 * @defaultValue An array of demo values
+	 */
 	public set backgrounds(value: string[] | undefined) {
 		if (
 			Array.isArray(value) &&
@@ -73,9 +94,16 @@ export class bRando {
 	}
 
 	protected _timeout: number = 0;
+	/**
+	 * Returns the set time between background changes (in milliseconds). e.g. `5000`
+	 */
 	public get timeout(): number {
 		return this._timeout;
 	}
+	/**
+	 * Sets the time between background changes (in milliseconds). e.g. `5000`
+	 * @defaultValue `7500`
+	 */
 	public set timeout(value: number | undefined) {
 		if (value && value > 0) {
 			this._timeout = value;
@@ -89,17 +117,31 @@ export class bRando {
 	}
 
 	protected _random: boolean = true;
+	/**
+	 * Returns whether a background changer will randomly (`true`) or sequentially (`false`) pick the next background value.
+	 */
 	public get random(): boolean {
 		return this._random;
 	}
+	/**
+	 * Sets whether to pick the next background value at random (`true`) or sequentially (`false`).
+	 * @defaultValue `true`
+	 */
 	public set random(value: boolean | undefined) {
 		this._random = typeof value !== "boolean" ? true : value;
 	}
 
 	protected _transition: string = "";
+	/**
+	 * Returns the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) (without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)) used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
+	 */
 	public get transition(): string {
 		return this._transition;
 	}
+	/**
+	 * Sets the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) (without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)) used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
+	 * @defaultValue `"5000ms"`
+	 */
 	public set transition(value: string | undefined) {
 		this._transition = typeof value !== "string" ? "5000ms" : value;
 	}
@@ -118,19 +160,20 @@ export class bRando {
 	protected _currentBackgroundIndex: number = -1;
 	/**
 	 *
-	 * Get the index of the background currently being displayed.
+	 * Returns the index of the background currently being displayed from the {@link bRando.backgrounds backgrounds array}. Returns `-1` if none of the backgrounds are being displayed.
 	 */
 	public get currentBackgroundIndex(): number {
 		return this._currentBackgroundIndex;
 	}
 
 	/**
-	 * Creates a background changer instance with the specified options. To create a demo instance, omit the options parameter.
-	 * @constructor
-	 * @constructs bRando
-	 * @param options An object of optional options
+	 * Constructs a background changer and accepts an {@link Options} object. A usage example can be found in [the readme](https://github.com/isaacyakl/brandojs#-usage).
+	 *
+	 * @remarks
+	 * [[include:first-background.md]]
 	 */
-	constructor(options: Options = {}) {
+	constructor(options?: Options) {
+		options = options == null ? {} : options;
 		this._CSSSelector = typeof options.CSSSelector !== "string" ? "body" : options.CSSSelector;
 		this._nodes = document.querySelectorAll(this.CSSSelector);
 		this.backgrounds = options.backgrounds;
@@ -160,7 +203,12 @@ export class bRando {
 		this.play();
 	}
 	/**
-	 * Plays the background changer it is called on.
+	 * Plays a background changer. This is automatically called when a new background changer is constructed.
+	 * @example
+	 * ```javascript
+	 * bgChanger.pause(); // changer was paused
+	 * bgChanger.play(); // resume changer
+	 * ```
 	 */
 	play(): void {
 		if (this.isRemoved()) {
@@ -172,14 +220,22 @@ export class bRando {
 		}, this.timeout);
 	}
 	/**
-	 * Pauses the background changer it is called on.
+	 * Pauses a background changer on the current background. Calling this will not pause any transition animations.
+	 * @example
+	 * ```javascript
+	 * bgChanger.pause();
+	 * ```
 	 */
 	pause(): void {
 		window.clearInterval(this._changer);
 		this._changer = -1;
 	}
 	/**
-	 * Switches to the next background of the changer it is called on.
+	 * Changes the background of the selected DOM element(s) to the next one in the sequence or at random, depending on the value of {@link bRando.random}.
+	 * @example
+	 * ```javascript
+	 * bgChanger.next();
+	 * ```
 	 */
 	next(): void {
 		if (this.isRemoved()) {
@@ -215,7 +271,13 @@ export class bRando {
 		this._isAfterOpaque = !this._isAfterOpaque;
 	}
 	/**
-	 * Removes the instance it is called on from DOM and reverts all selected HTML elements to their original state.
+	 * Removes a background changer from the DOM and restores the selected elements to their state before background changes were made.
+	 *
+	 * @example
+	 * ```javascript
+	 * const bgChanger = new bRando(options); // changer created for <body>
+	 * bgChanger.remove(); // remove changer from the DOM and <body>
+	 * ```
 	 */
 	remove(): void {
 		this.pause();
@@ -230,15 +292,25 @@ export class bRando {
 		this._styleElement.remove();
 	}
 	/**
-	 * Check whether the background changer is running.
-	 * @returns True if running
+	 * Returns whether a background changer is playing.
+	 * @example
+	 * ```javascript
+	 * bgChanger.play(); // changer was told to play
+	 * bgChanger.isRunning(); // returns true
+	 * ```
+	 * @returns `true` if running
 	 */
 	isRunning(): boolean {
 		return this._changer !== -1 ? true : false;
 	}
 	/**
-	 * Check whether the background changer has been removed.
-	 * @returns True if removed from the DOM
+	 * Returns whether a background changer has been removed.
+	 * @example
+	 * ```javascript
+	 * bgChanger.remove(); // changer was told to remove itself
+	 * bgChanger.isRemoved(); // returns true
+	 * ```
+	 * @returns `true` if removed
 	 */
 	isRemoved(): boolean {
 		return !this._styleElement.isConnected;

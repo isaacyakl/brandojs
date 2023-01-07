@@ -18,7 +18,7 @@
 <!-- prettier-ignore-end -->
 
 <p align="center">
-  <b>Automatically rotate through CSS backgrounds for any DOM element in a random or sequential order.</b><br>
+  <b>Website background randomizer: Automatically change CSS backgrounds on any DOM element in a random or sequential order.</b><br>
 </p>
 <p align="center">
   <b>Compatibility:</b> ✔️Vanilla JavaScript ❌React.js (<a href="#-to-do">Coming soon</a>)<br>
@@ -96,22 +96,22 @@ This will create a background changer with demo backgrounds on the `<body>` elem
 
 ## ➤ Usage
 
-Create a new background changer by calling the `create()` function on the `bRando` library and passing it an `options` object containing the desired settings.
+Create a new background changer by calling the [`create()`](https://brandojs.isaacyakl.com/docs/functions/create.html) function on the [`bRando`](https://brandojs.isaacyakl.com/docs/classes/bRando.html) library and passing it an [`options`](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) object containing the desired settings.
 
 ```javascript
 const options = {
-	CSSSelector: "main", // a valid CSS selector (multiple elements are allowed)
+	CSSSelector: "main", // A CSS selector
+	// An array of CSS backgrounds
 	backgrounds: [
-		// valid CSS background properties
 		"aqua", // solid color
 		"linear-gradient(80deg, #0864c8 25%, #588fca 75%)", // gradient
 		`url("somewhere/some-image.jpg") center/cover no-repeat`, // image
 		`center / contain no-repeat url("../../media/examples/firefox-logo.svg"),
         #eee 35% url("../../media/examples/lizard.png")`, // everything
 	],
-	timeout: 5000, // time between changes in milliseconds
-	random: true, // whether to go through the backgrounds randomly or not (a background will never repeat unless only one is given)
-	transition: "500ms ease-in", // a CSS transition property for changing between backgrounds
+	timeout: 5000, // The time between background changes in milliseconds
+	random: true, // Whether to rotate through the backgrounds randomly or not
+	transition: "500ms ease-in", // A CSS transition to be used when changing between backgrounds
 };
 
 const bgChanger = bRando.create(options); // create background changer with the options set above
@@ -120,7 +120,7 @@ const bgChanger = bRando.create(options); // create background changer with the 
 bgChanger.next(); // remove this line if you want a smooth first transition
 ```
 
-All options are optional. Default values and further details for them can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
+[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional. Default values and further details for them can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
 
 ### ℹ️ Preload Images
 
@@ -151,7 +151,8 @@ All options are optional. Default values and further details for them can be fou
 
 Features and fixes planned for development.
 
--  Complete API documentation
+-  Add demo backgrounds static member so API documentation can link to demo values
+-  Remove public folder from GitHub repo
 -  Add console feedback for invalid options
 -  If demo images are not present use the CDN images
 -  Warn users about setting transition animations time > timeout in both usage section and console
