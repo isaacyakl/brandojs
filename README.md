@@ -96,7 +96,7 @@ This will create a background changer with demo backgrounds on the `<body>` elem
 
 ## ➤ Usage
 
-Create a new background changer by calling the [`create()`](https://brandojs.isaacyakl.com/docs/functions/create.html) function on the [`bRando`](https://brandojs.isaacyakl.com/docs/classes/bRando.html) library and passing it an [`options`](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) object containing the desired settings.
+Create a new background changer by calling the [`create()`](https://brandojs.isaacyakl.com/docs/functions/create.html) function from the bRando library and passing it an [`options`](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) object containing the desired settings.
 
 ```javascript
 const options = {
