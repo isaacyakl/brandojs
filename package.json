@@ -13,10 +13,10 @@
 		"watch-test": "npm run test -- --watchAll",
 		"watch-docs": "conc --restart-after 10000 --restart-tries 3 -c \"auto\" -p \"[{name}]\" -n \"TYPEDOC,LIVE\" \"typedoc --watch\" \"live-server --open=/public/docs\" \"npm i -g live-server@latest\"",
 		"test": "jest --verbose --coverage",
-		"build": "npm run test && npm run build-coverage-badge && npm run build-readme && npx webpack --mode=production && npx typedoc",
+		"build": "npm run test && npm run build-coverage-badge && npm run build-readme && webpack --mode=production && typedoc",
 		"prebuild": "npx update-browserslist-db@latest",
-		"build-readme": "npx @appnest/readme generate --config ./src/readme/blueprint.json && npx jest --coverage=false ./src/readme/readme.md.test.ts && echo README is GOOD to go || echo ERRORS FOUND IN README",
-		"build-coverage-badge": "npx coverage-badger -r ./public/coverage/clover.xml -d ./public/coverage/",
+		"build-readme": "npx @appnest/readme generate --config ./src/readme/blueprint.json && jest --coverage=false ./src/readme/readme.md.test.ts && echo README is GOOD to go || echo ERRORS FOUND IN README",
+		"build-coverage-badge": "coverage-badger -r ./public/coverage/clover.xml -d ./public/coverage/",
 		"preversion": "git checkout master && git pull && npm ci",
 		"version": "npm run build & git add *",
 		"postpublish": "git push && git push --tags"
