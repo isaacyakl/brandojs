@@ -37,7 +37,7 @@ export interface Options {
 /**
  * A class for automatically changing CSS backgrounds on any element in a random or sequential order &mdash; a background changer.
  * @remarks
- * A background will never repeat (back-to-back) unless only one {@link Options.backgrounds background} is given.
+ * A background will never repeat (back-to-back) unless only one {@link Options.backgrounds background value} is given.
  */
 export class bRando {
 	protected readonly _CSSSelector: string = "";
