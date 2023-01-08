@@ -151,10 +151,8 @@ bgChanger.next(); // remove this line if you want a smooth first transition
 
 Features and fixes planned for development.
 
--  Add demo backgrounds static member so API documentation can link to demo values
 -  Remove public folder from GitHub repo
 -  Add console feedback for invalid options
--  If demo images are not present use the CDN images
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources
 -  Create React component

@@ -9,7 +9,7 @@
 		"nickName": "yak"
 	},
 	"scripts": {
-		"start-demo": "webpack-dev-server --mode=development",
+		"watch-demo": "webpack-dev-server --mode=development",
 		"watch-test": "npm run test -- --watchAll",
 		"watch-docs": "conc --restart-after 10000 --restart-tries 3 -c \"auto\" -p \"[{name}]\" -n \"TYPEDOC,LIVE\" \"typedoc --watch\" \"live-server --open=/public/docs\" \"npm i -g live-server@latest\"",
 		"test": "jest --verbose --coverage",

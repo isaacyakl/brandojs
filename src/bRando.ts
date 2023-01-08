@@ -1,4 +1,3 @@
-import packageJSON from "../package.json";
 /**
  * An interface for options used when initializing a background changer. It is passed to the {@link create} function or a {@link bRando} class constructor.
  */
@@ -11,7 +10,7 @@ export interface Options {
 
 	/**
 	 * Sets an array of [CSS backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/background) to be used. e.g. `["red","green","blue"]`
-	 * @defaultValue An array of demo values
+	 * @defaultValue An array of {@link bRando._demoBackgrounds demo CSS backgrounds }
 	 */
 	backgrounds?: string[];
 
@@ -35,7 +34,7 @@ export interface Options {
 }
 
 /**
- * A class for automatically changing CSS backgrounds on any element in a random or sequential order &mdash; a background changer.
+ * A class for automatically changing CSS backgrounds on any element in a random or sequential order &mdash; a background changer. A usage example can be found in [the readme](https://github.com/isaacyakl/brandojs#-usage).
  * @remarks
  * A background will never repeat (back-to-back) unless only one {@link Options.backgrounds background value} is given.
  */
@@ -76,20 +75,7 @@ export class bRando {
 		) {
 			this._backgrounds = value;
 		} else {
-			let scriptEl = Array.from(document.scripts).find((e) => e.src.includes(packageJSON.details.stylizedName));
-
-			let scriptsPath = scriptEl === undefined ? "./img/" : `${scriptEl.src.substring(0, scriptEl.src.lastIndexOf(`${packageJSON.details.stylizedName}.js`))}img/`;
-
-			// demo backgrounds
-			// prettier-ignore
-			this._backgrounds = [
-				`url("${scriptsPath}alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat`, 
-				`url("${scriptsPath}joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat`, 
-				`url("${scriptsPath}pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat`,
-				`url("${scriptsPath}stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat`,
-				`url("${scriptsPath}waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat`,
-				`linear-gradient(80deg, #0864c8 25%, #588fca 75%)`,
-			];
+			this._backgrounds = this._demoBackgrounds;
 		}
 	}
 
@@ -167,6 +153,20 @@ export class bRando {
 	}
 
 	/**
+	 * An array of demo CSS backgrounds. Follow the link below &#x2199; to see the values in the source code.
+	 */
+	protected readonly _demoBackgrounds: string[] =
+		// prettier-ignore
+		[
+		`url("https://unpkg.com/brandojs@latest/dist/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs@latest/dist/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs@latest/dist/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs@latest/dist/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs@latest/dist/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat`, 
+		`linear-gradient(80deg, #0864c8 25%, #588fca 75%)`
+	];
+
+	/**
 	 * Constructs a background changer and accepts an {@link Options} object. A usage example can be found in [the readme](https://github.com/isaacyakl/brandojs#-usage).
 	 *
 	 * @remarks
@@ -202,6 +202,7 @@ export class bRando {
 
 		this.play();
 	}
+
 	/**
 	 * Plays a background changer. This is automatically called when a new background changer is constructed.
 	 * @example
