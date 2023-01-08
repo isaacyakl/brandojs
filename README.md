@@ -18,7 +18,7 @@
 <!-- prettier-ignore-end -->
 
 <p align="center">
-  <b>Website background randomizer: Automatically change CSS backgrounds on any DOM element in a random or sequential order.</b><br>
+  <b>Automatically change CSS backgrounds on any DOM element in a random or sequential order.</b><br>
 </p>
 <p align="center">
   <b>Compatibility:</b> ✔️Vanilla JavaScript ❌React.js (<a href="#-to-do">Coming soon</a>)<br>
