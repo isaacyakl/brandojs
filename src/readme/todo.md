@@ -7,7 +7,6 @@ Features and fixes planned for development.
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources
 -  Create React component
--  [Update year date in LICENSE automatically](https://github.com/marketplace/actions/update-license-copyright-year-s)
 
 ### Ideas
 
