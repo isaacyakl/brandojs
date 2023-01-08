@@ -17,5 +17,6 @@
 	"customTitleLink": "https://brandojs.isaacyakl.com",
 	"favicon": "./src/docs/brandojs-favicon.svg",
 	"footerTypedocVersion": true,
-	"footerLastModified": true
+	"footerLastModified": true,
+	"gaMeasurementId": "G-ZEEM3GS7SB"
 }
