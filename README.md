@@ -161,7 +161,7 @@ Features and fixes planned for development.
    -  afterChange()
 -  Add previous()
 
-Have a feature request? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) and add the `enhancement` label or write the feature yourself and create a pull request.
+Have a feature request? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) and select the "Feature request" type OR write the feature yourself and create a pull request.
 
 
 
@@ -169,7 +169,7 @@ Have a feature request? Create a [new issue](https://github.com/isaacyakl/brando
 
 ## ➤ Issues
 
-Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) or create a pull request.
+Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) or propose a fix by creating a pull request.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)

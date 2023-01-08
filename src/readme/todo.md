@@ -12,4 +12,4 @@ Features and fixes planned for development.
    -  afterChange()
 -  Add previous()
 
-Have a feature request? Create a [new issue](https://github.com/{{ socialHandles.github }}/{{ pkg.name }}/issues/new) and add the `enhancement` label or write the feature yourself and create a pull request.
+Have a feature request? Create a [new issue](https://github.com/{{ socialHandles.github }}/{{ pkg.name }}/issues/new) and select the "Feature request" type OR write the feature yourself and create a pull request.
