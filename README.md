@@ -44,6 +44,8 @@
 	* [⚠️ Optimize Images](#-optimize-images)
 * [➤ API Documentation](#-api-documentation)
 * [➤ To-Do](#-to-do)
+	* [Planned](#planned)
+	* [Ideas](#ideas)
 * [➤ Issues](#-issues)
 * [➤ License](#-license)
 </details>
@@ -149,19 +151,25 @@ bgChanger.next(); // remove this line if you want a smooth first transition
 
 ## ➤ To-Do
 
+### Planned
+
 Features and fixes planned for development.
 
--  Add console feedback for invalid options
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources
 -  Create React component
 -  [Update year date in LICENSE automatically](https://github.com/marketplace/actions/update-license-copyright-year-s)
+
+### Ideas
+
+Ideas I have thought up but will not add unless [requested](https://github.com/isaacyakl/brandojs/issues/new/choose).
+
 -  Add event hooks:
    -  onChange()
    -  afterChange()
 -  Add previous()
 
-Have a feature request? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) and select the "Feature request" type OR write the feature yourself and create a pull request.
+Have a feature request? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new/choose) and select the "Feature request" type OR write the feature yourself and create a pull request.
 
 
 
@@ -169,7 +177,7 @@ Have a feature request? Create a [new issue](https://github.com/isaacyakl/brando
 
 ## ➤ Issues
 
-Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new) or propose a fix by creating a pull request.
+Found a 🐛? Create a [new issue](https://github.com/isaacyakl/brandojs/issues/new/choose) or propose a fix by creating a pull request.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#license)
