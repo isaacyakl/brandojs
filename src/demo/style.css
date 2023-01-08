@@ -63,7 +63,7 @@ h2.subtitle {
 	padding-top: 10vh;
 	background-color: rgb(160, 14, 155);
 	animation-duration: 5s;
-	animation-delay: 7500ms;
+	animation-delay: 3500ms;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 	animation-name: descBg;
