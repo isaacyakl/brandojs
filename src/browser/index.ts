@@ -10,6 +10,7 @@ import { bRando, Options } from "../bRando";
  * ```
  * @remarks
  * [[include:first-background.md]]
+ * [[include:transition-duration-timeout-warning.md]]
  *
  */
 export function create(options?: Options): bRando {

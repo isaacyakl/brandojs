@@ -16,6 +16,8 @@ export interface Options {
 
 	/**
 	 * Sets the time between background changes (in milliseconds). e.g. `5000`
+	 * @remarks
+	 * [[include:transition-duration-timeout-warning.md]]
 	 * @defaultValue `7500`
 	 */
 	timeout?: number;
@@ -28,6 +30,8 @@ export interface Options {
 
 	/**
 	 * Sets the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) (without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)) used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
+	 * @remarks
+	 * [[include:transition-duration-timeout-warning.md]]
 	 * @defaultValue `"5000ms"`
 	 */
 	transition?: string;
@@ -88,6 +92,8 @@ export class bRando {
 	}
 	/**
 	 * Sets the time between background changes (in milliseconds). e.g. `5000`
+	 * @remarks
+	 * [[include:transition-duration-timeout-warning.md]]
 	 * @defaultValue `7500`
 	 */
 	public set timeout(value: number | undefined) {
@@ -126,6 +132,8 @@ export class bRando {
 	}
 	/**
 	 * Sets the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) (without a [transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)) used when changing between backgrounds. e.g. `"500ms ease-in"` or `"0.5s ease-in-out 0.25s"`
+	 * @remarks
+	 * [[include:transition-duration-timeout-warning.md]]
 	 * @defaultValue `"5000ms"`
 	 */
 	public set transition(value: string | undefined) {

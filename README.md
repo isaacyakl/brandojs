@@ -155,7 +155,6 @@ bgChanger.next(); // remove this line if you want a smooth first transition
 
 Features and fixes planned for development.
 
--  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources
 -  Create React component
 
