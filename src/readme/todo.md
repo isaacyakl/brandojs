@@ -2,7 +2,6 @@
 
 Features and fixes planned for development.
 
--  Remove public folder from GitHub repo
 -  Add console feedback for invalid options
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources

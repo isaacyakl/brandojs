@@ -7,12 +7,12 @@
  
 <!-- prettier-ignore-start -->
 <p align="center">
-<a href="https://www.npmjs.com/package/brandojs"><img alt="npm" src="https://img.shields.io/npm/v/brandojs?style=flat-square"></a> <a href="https://github.com/isaacyakl/brandojs/blob/master/dist/bRando.js"><img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/isaacyakl/brandojs/dist/bRando.js?style=flat-square"></a> <a href="https://github.com/isaacyakl/brandojs/blob/master/LICENSE"><img alt="NPM" src="https://img.shields.io/npm/l/brandojs?style=flat-square"></a><!-- <img alt="npm type definitions" src="https://img.shields.io/npm/types/brandojs?style=flat-square"> -->
+<a href="https://www.npmjs.com/package/brandojs"><img alt="npm" src="https://img.shields.io/npm/v/brandojs?style=flat-square"></a> <a href="https://github.com/isaacyakl/brandojs/blob/master/dist/bRando.js"><img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/isaacyakl/brandojs/dist/bRando.js?style=flat-square"></a> <a href="https://github.com/isaacyakl/brandojs/blob/master/LICENSE"><img alt="NPM" src="https://img.shields.io/npm/l/brandojs?style=flat-square"></a>
 </p>
 <p align="center">
 <a href="https://www.npmjs.com/package/brandojs"><img alt="npm" src="https://img.shields.io/npm/dw/brandojs?style=flat-square"/></a>
 <a href="https://libraries.io/npm/brandojs"><img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/brandojs?style=flat-square"/></a>
-<a href="https://brandojs.isaacyakl.com/coverage/lcov-report/"><img alt="coverage" src="./public/coverage/coverage.svg"/></a>
+<a href="https://brandojs.isaacyakl.com/coverage/lcov-report/"><img alt="coverage" src="./src/readme/coverage.svg"/></a>
 <a href="https://brandojs.isaacyakl.com"><img alt="GitHub deployments" src="https://img.shields.io/github/deployments/isaacyakl/brandojs/Production?label=site&style=flat-square"/></a>
 </p>
 <!-- prettier-ignore-end -->
@@ -151,7 +151,6 @@ bgChanger.next(); // remove this line if you want a smooth first transition
 
 Features and fixes planned for development.
 
--  Remove public folder from GitHub repo
 -  Add console feedback for invalid options
 -  Warn users about setting transition animations time > timeout in both usage section and console
 -  Add explanation of how the library works and credit learning sources
