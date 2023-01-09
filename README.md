@@ -59,11 +59,10 @@
 
 Would you like to...
 
--  ...smoothly rotate through a collection of CSS background images, colors, and/or gradients?
--  ...randomly change CSS backgrounds?
--  ...change backgrounds for the body element?
--  ...change backgrounds for 1337 elements?! (not recommended but doable)
--  ...impress your website visitors?
+-  Randomly change backgrounds on your website?
+-  Smoothly rotate through a collection of CSS background images, colors, and/or gradients?
+-  Change backgrounds on 1337 elements simultaneously?! (not recommended but doable 😂)
+-  Impress your website visitors?
 
 Try out bRando.js!
 
@@ -75,11 +74,11 @@ The bRando.js library lets you specify what HTML element(s) to add a background 
 
 ## ➤ Approach
 
-bRando.js utilizes the pseudo-element [::after](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) and [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to facilitate smooth transitions. A background changer instance follows this approach:
+bRando.js utilizes the pseudo-element [::after](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) and [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to facilitate smooth transitions. Background changer instances follow this approach:
 
-1. It creates an ::after style definition with CSS variables and your chosen transition settings in order to update ::after backgrounds.
-2. It sets backgrounds on both the select element(s) and corresponding ::after('s) in an alternating manner.
-3. It simultaneously toggles the opacity of the ::after element(s) to switch between the ::after and element backgrounds.
+1. Create an ::after style definition with CSS variables and the chosen transition settings in order to update ::after backgrounds.
+2. Set subsequent backgrounds on the selected element(s) and corresponding ::after('s) in an alternating manner.
+3. Toggle the opacity of the ::after element(s) to switch between the ::after background and element background.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#installation)
@@ -153,7 +152,9 @@ const bgChanger = bRando.create(options); // create background changer with the 
 bgChanger.next(); // remove this line if you want a smooth first transition
 ```
 
-[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional. Default values and further API usage details can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
+[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional and have default values if they are not include in the options object.
+
+Learn how to control the background changer that is returned by referring to [the bRando class documentation](https://brandojs.isaacyakl.com/docs/classes/bRando.html).
 
 ### ℹ️ Preload Images
 

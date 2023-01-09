@@ -2,11 +2,10 @@
 
 Would you like to...
 
--  ...smoothly rotate through a collection of CSS background images, colors, and/or gradients?
--  ...randomly change CSS backgrounds?
--  ...change backgrounds for the body element?
--  ...change backgrounds for 1337 elements?! (not recommended but doable)
--  ...impress your website visitors?
+-  Randomly change backgrounds on your website?
+-  Smoothly rotate through a collection of CSS background images, colors, and/or gradients?
+-  Change backgrounds on 1337 elements simultaneously?! (not recommended but doable 😂)
+-  Impress your website visitors?
 
 Try out {{pkg.details.stylizedName}}.js!
 
