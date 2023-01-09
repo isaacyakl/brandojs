@@ -12,6 +12,17 @@ const blueprintJSON = require("./src/readme/blueprint.json");
 const fs = require("fs");
 const { marked } = require("marked");
 
+const JSONInfo = Object.assign(
+	{
+		pkg: packageJSON,
+	},
+	blueprintJSON
+);
+
+const processMD = (file) => {
+	return Handlebars.compile(marked.parse(fs.readFileSync(file).toString()))(JSONInfo);
+};
+
 const baseConfig = {
 	entry: "./src/browser/index.ts",
 	devtool: "source-map",
@@ -73,22 +84,8 @@ const public = Object.assign({}, baseConfig, {
 			templateParameters: {
 				description: packageJSON.description,
 				subtitle: packageJSON.details.subtitle,
-				installationUsage: Handlebars.compile(marked.parse(fs.readFileSync("./src/readme/installation-usage.md").toString()))(
-					Object.assign(
-						{
-							pkg: packageJSON,
-						},
-						blueprintJSON
-					)
-				),
-				intro: Handlebars.compile(marked.parse(fs.readFileSync("./src/readme/intro.md").toString()))(
-					Object.assign(
-						{
-							pkg: packageJSON,
-						},
-						blueprintJSON
-					)
-				),
+				installationUsage: processMD("./src/readme/installation-usage.md"),
+				intro: processMD("./src/readme/intro.md"),
 				repo: packageJSON.repository.url.substring(0, packageJSON.repository.url.length - 4),
 				homepage: packageJSON.homepage,
 			},
