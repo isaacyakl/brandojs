@@ -4,7 +4,6 @@
 
 Features and fixes planned for development.
 
--  Add explanation of how the library works and credit learning sources
 -  Create React component
 
 ### Ideas

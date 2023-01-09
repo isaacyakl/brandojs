@@ -35,6 +35,8 @@
 
 ## ➤ Table of Contents
 
+* [➤ Intro](#-intro)
+* [➤ Approach](#-approach)
 * [➤ Installation](#-installation)
 	* [CDN](#cdn)
 	* [Manual Download](#manual-download)
@@ -51,11 +53,40 @@
 </details>
 
 
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#intro)
+
+## ➤ Intro
+
+Would you like to...
+
+-  ...smoothly rotate through a collection of CSS background images, colors, and/or gradients?
+-  ...randomly change CSS backgrounds?
+-  ...change backgrounds for the body element?
+-  ...change backgrounds for 1337 elements?! (not recommended but doable)
+-  ...impress your website visitors?
+
+Try out bRando.js!
+
+The bRando.js library lets you specify what HTML element(s) to add a background changer to, what CSS backgrounds to use, and more. It is usable in the browser and more environments are coming soon.
+
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#approach)
+
+## ➤ Approach
+
+bRando.js utilizes the pseudo-element [::after](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) and [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to facilitate smooth transitions. A background changer instance follows this approach:
+
+1. It creates an ::after style definition with CSS variables and your chosen transition settings in order to update ::after backgrounds.
+2. It sets backgrounds on both the select element(s) and corresponding ::after('s) in an alternating manner.
+3. It simultaneously toggles the opacity of the ::after element(s) to switch between the ::after and element backgrounds.
+
+
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#installation)
 
 ## ➤ Installation
 
-There are a couple different ways to use this library:
+There are a couple different ways to add this library:
 
 ### CDN
 
@@ -122,7 +153,7 @@ const bgChanger = bRando.create(options); // create background changer with the 
 bgChanger.next(); // remove this line if you want a smooth first transition
 ```
 
-[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional. Default values and further details for them can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
+[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional. Default values and further API usage details can be found in the <a href="https://brandojs.isaacyakl.com/docs/">API documentation</a>.
 
 ### ℹ️ Preload Images
 
@@ -155,7 +186,6 @@ bgChanger.next(); // remove this line if you want a smooth first transition
 
 Features and fixes planned for development.
 
--  Add explanation of how the library works and credit learning sources
 -  Create React component
 
 ### Ideas

@@ -1,6 +1,6 @@
 ## Installation
 
-There are a couple different ways to use this library:
+There are a couple different ways to add this library:
 
 ### CDN
 
@@ -61,7 +61,7 @@ const bgChanger = bRando.create(options); // create background changer with the 
 bgChanger.next(); // remove this line if you want a smooth first transition
 ```
 
-[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional. Default values and further details for them can be found in the <a href="{{ pkg.homepage }}/docs/">API documentation</a>.
+[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional. Default values and further API usage details can be found in the <a href="{{ pkg.homepage }}/docs/">API documentation</a>.
 
 ### ℹ️ Preload Images
 

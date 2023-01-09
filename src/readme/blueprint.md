@@ -22,6 +22,16 @@
 {{ template:toc }}
 </details>
 
+{{ load:./src/readme/intro.md }}
+
+## Approach
+
+{{pkg.details.stylizedName}}.js utilizes the pseudo-element [::after](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) and [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to facilitate smooth transitions. A background changer instance follows this approach:
+
+1. It creates an ::after style definition with CSS variables and your chosen transition settings in order to update ::after backgrounds.
+2. It sets backgrounds on both the select element(s) and corresponding ::after('s) in an alternating manner.
+3. It simultaneously toggles the opacity of the ::after element(s) to switch between the ::after and element backgrounds.
+
 {{ load:./src/readme/installation-usage.md }}
 
 ## API Documentation

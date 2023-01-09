@@ -81,6 +81,14 @@ const public = Object.assign({}, baseConfig, {
 						blueprintJSON
 					)
 				),
+				intro: Handlebars.compile(marked.parse(fs.readFileSync("./src/readme/intro.md").toString()))(
+					Object.assign(
+						{
+							pkg: packageJSON,
+						},
+						blueprintJSON
+					)
+				),
 				repo: packageJSON.repository.url.substring(0, packageJSON.repository.url.length - 4),
 				homepage: packageJSON.homepage,
 			},

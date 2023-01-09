@@ -13,7 +13,7 @@
 	"includeVersion": true,
 	"searchInComments": true,
 	"includes": "./src/docs",
-	"customTitle": "bRando.js",
+	"customTitle": "bRando.js - Website background randomizer",
 	"customTitleLink": "https://brandojs.isaacyakl.com",
 	"favicon": "./src/docs/brandojs-favicon.svg",
 	"footerTypedocVersion": true,

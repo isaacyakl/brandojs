@@ -240,7 +240,7 @@ export class bRando {
 		this._changer = -1;
 	}
 	/**
-	 * Changes the background of the selected DOM element(s) to the next one in the sequence or at random, depending on the value of {@link bRando.random}.
+	 * Advances a background changer to the next background in the sequence or at random, depending on the value of {@link bRando.random}.
 	 * @example
 	 * ```javascript
 	 * bgChanger.next();

@@ -23,8 +23,7 @@ main {
 hr {
 	border: 0;
 	height: 1px;
-	width: 75%;
-	background: rgba(255, 255, 255, 0.9);
+	background: rgba(255, 255, 255, 0.4);
 }
 
 a,
@@ -74,12 +73,12 @@ h2.subtitle {
 	height: 2vh;
 }
 
-.instructions {
+.info {
 	background-color: rgb(63, 63, 63);
 	padding: 1.4em;
 }
 
-.instructions img {
+.info img {
 	max-width: 100%;
 }
 
@@ -136,7 +135,7 @@ button.control:hover {
 	.highlight {
 		display: none;
 	}
-	.instructions {
+	.info {
 		margin: 7vh 0 7vh 0;
 	}
 }
