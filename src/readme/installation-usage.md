@@ -61,7 +61,7 @@ const bgChanger = bRando.create(options); // create background changer with the 
 bgChanger.next(); // remove this line if you want a smooth first transition
 ```
 
-[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional and have default values if they are not include in the options object.
+[All options](https://brandojs.isaacyakl.com/docs/interfaces/Options.html) are optional and have default values if they are not included in the options object.
 
 Learn how to control the background changer that is returned by referring to [the bRando class documentation](https://brandojs.isaacyakl.com/docs/classes/bRando.html).
 
