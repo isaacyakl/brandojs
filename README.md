@@ -92,12 +92,12 @@ There are a couple different ways to add this library:
 Skip the download, include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="https://unpkg.com/brandojs@latest/dist/bRando.js"></script>
+<script src="https://unpkg.com/brandojs/dist/bRando.js"></script>
 ```
 
 ### Manual Download
 
-Download the file, and include the following code in your HTML right before `</head>`:
+<a href="https://unpkg.com/brandojs/dist/bRando.js">Download the file</a>, and include the following code in your HTML right before `</head>`:
 
 ```html
 <script src="./your/scripts/path/bRando.js"></script>

@@ -7,12 +7,12 @@ There are a couple different ways to add this library:
 Skip the download, include the following code in your HTML right before `</head>`:
 
 ```html
-<script src="https://unpkg.com/{{ pkg.name }}@latest/dist/{{ pkg.details.stylizedName }}.js"></script>
+<script src="https://unpkg.com/{{ pkg.name }}/dist/{{ pkg.details.stylizedName }}.js"></script>
 ```
 
 ### Manual Download
 
-Download the file, and include the following code in your HTML right before `</head>`:
+<a href="https://unpkg.com/{{ pkg.name }}/dist/{{ pkg.details.stylizedName }}.js">Download the file</a>, and include the following code in your HTML right before `</head>`:
 
 ```html
 <script src="./your/scripts/path/{{ pkg.details.stylizedName }}.js"></script>
