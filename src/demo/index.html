@@ -15,7 +15,6 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="description" content="" />
 		<link rel="stylesheet" href="style.css" />
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
@@ -30,6 +29,25 @@
 			}
 		</style>
 		<title><%= htmlWebpackPlugin.options.title %> - Demo</title>
+		<meta name="description" content="<%= subtitle %>: <%= description %>" />
+
+		<!-- Facebook Meta Tags -->
+		<meta property="og:url" content="https://brandojs.isaacyakl.com" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="bRando.js - Demo" />
+		<meta property="og:description" content="<%= subtitle %>: <%= description %>" />
+		<meta property="og:image" content="https://brandojs.isaacyakl.com/brandojs-screencap-social-share.gif" />
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:domain" content="brandojs.isaacyakl.com" />
+		<meta property="twitter:url" content="https://brandojs.isaacyakl.com" />
+		<meta name="twitter:title" content="bRando.js - Demo" />
+		<meta name="twitter:description" content="<%= subtitle %>: <%= description %>" />
+		<meta name="twitter:image" content="https://brandojs.isaacyakl.com/brandojs-screencap-social-share.gif" />
+
+		<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
 		<link rel="preload" href="./img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg" as="image" />
 		<link rel="preload" href="./img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg" as="image" />
 		<link rel="preload" href="./img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg" as="image" />

@@ -97,6 +97,7 @@ const public = Object.assign({}, baseConfig, {
 		new CopyPlugin({
 			patterns: [
 				{ from: "src/demo/style.css", to: "style.css" },
+				{ from: "src/demo/brandojs-screencap-social-share.gif", to: "brandojs-screencap-social-share.gif" },
 				{ from: "src/demo/img", to: "img" },
 				{ from: "brandojs-demo-cap.webp", to: "brandojs-demo-cap.webp" },
 			],
