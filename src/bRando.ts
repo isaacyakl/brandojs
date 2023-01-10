@@ -166,11 +166,11 @@ export class bRando {
 	protected readonly _demoBackgrounds: string[] =
 		// prettier-ignore
 		[
-		`url("https://unpkg.com/brandojs@latest/dist/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat`, 
-		`url("https://unpkg.com/brandojs@latest/dist/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat`, 
-		`url("https://unpkg.com/brandojs@latest/dist/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat`, 
-		`url("https://unpkg.com/brandojs@latest/dist/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat`, 
-		`url("https://unpkg.com/brandojs@latest/dist/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs/dist/img/alex-knight-vaA6EQiUSo4-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs/dist/img/joel-fulgencio-01fAtHwYqo0-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs/dist/img/pawel-nolbert-4u2U8EO9OzY-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs/dist/img/stephan-valentin-oqYLdbuJDQU-unsplash_result.jpg") center/cover no-repeat`, 
+		`url("https://unpkg.com/brandojs/dist/img/waranont-joe-T7qyLNPwgKA-unsplash_result.jpg") center/cover no-repeat`, 
 		`linear-gradient(80deg, #0864c8 25%, #588fca 75%)`
 	];
 
