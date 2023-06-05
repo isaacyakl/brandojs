@@ -13,10 +13,6 @@
 	"includeVersion": true,
 	"searchInComments": true,
 	"includes": "./src/docs",
-	"customTitle": "bRando.js - Website background randomizer",
-	"customTitleLink": "https://brandojs.isaacyakl.com",
-	"favicon": "./src/docs/brandojs-favicon.svg",
-	"footerTypedocVersion": true,
-	"footerLastModified": true,
-	"gaMeasurementId": "G-ZEEM3GS7SB"
+	"titleLink": "https://brandojs.isaacyakl.com",
+	"gaID": "G-ZEEM3GS7SB"
 }
